@@ -1,0 +1,38 @@
+{
+    "name": "fomvasss/laravel-its-lte",
+    "description": "",
+    "keywords": [
+    ],
+    "authors": [
+        {
+            "name": "Vasyl Fomin",
+            "email": "fomvasss@gmail.com",
+            "role": "Backend developer"
+        },
+        {
+            "name": "Klimovych Juriy",
+            "email": "web-west@i.ua",
+            "role": "Frontend developer"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "illuminate/support": "^5.8|^6.0",
+        "laravelcollective/html": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fomvasss\\ItsLte\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Fomvasss\\ItsLte\\ServiceProvider"
+            ]
+        }
+    }
+}

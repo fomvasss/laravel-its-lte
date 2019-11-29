@@ -1,0 +1,11 @@
+.idea
+vendor
+composer.lock
+npm-debug.log
+mix-manifest.json
+/bower_components
+/node_modules
+.htpasswd
+/.idea
+/.vscode
+/.vagrant
