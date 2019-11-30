@@ -25,7 +25,7 @@ If you known the `login/password` to repository, use the following method:
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://gitlab.com/test-fomvasss/test1/its-lte.git"
+            "url": "https://gitlab.com/its-dev-first/info/packages/laravel/its-lte.git"
         }
     ]
 }
