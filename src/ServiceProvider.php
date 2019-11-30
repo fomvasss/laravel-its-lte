@@ -32,7 +32,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         Route::namespace('Fomvasss\ItsLte\Http\Controllers')
             ->as('lte.')
-            ->prefix(config('its-lte.path'))
+            ->prefix(config('its-lte.prefix'))
             ->middleware(config('its-lte.middleware', []))
             ->group(function () {
                 $this->loadRoutesFrom(__DIR__.'/Http/routes.php');

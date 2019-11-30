@@ -10,7 +10,7 @@ return [
 
     'logo_url' => '/lte',
 
-    'path' => 'lte',
+    'prefix' => 'lte',
 
     'middleware' => ['web'],
 
