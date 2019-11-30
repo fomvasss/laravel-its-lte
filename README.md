@@ -4,23 +4,35 @@ Base Control Panel Templates
 
 ----------
 
-## Installation
+## Using own (private) repository
 
----
-### Using own repository
-In your `composer.json` add `repositories` section:
+If you use SSH public key, add `repositories` section in your project `composer.json` file:
 ```json
 {
-//...
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "git@gitlab.com:its-dev-first/info/packages/laravel/its-lte.git"
-    }
-]
+
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@gitlab.com:its-dev-first/info/packages/laravel/its-lte.git"
+        }
+    ]
+}
+```
+If you known the `login/password` to repository, use the following method:
+```json
+{
+    
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://gitlab.com/test-fomvasss/test1/its-lte.git"
+        }
+    ]
 }
 ```
 ---
+
+## Installation
 
 Run from the command line:
 
@@ -87,7 +99,9 @@ return [
 ```
 
 ## Structure
+
 After installation, you can work with the following files:
+
 - `config/its-lte.php` - configs
 - `public/vendor/its-lte` - compiled assets files
 - `resources/lang/vendor/lte` - message localization files
@@ -97,6 +111,7 @@ After installation, you can work with the following files:
     - `fields` - not published by default
     - `auth` - auth/register forms
     - `content` - example templates for content
+    
 And LFM (Laravel File Manager) files:
 - `config/lfm.php`
 - `public/vendor/laravel-filemanager`
