@@ -1,13 +1,15 @@
 {
     "name": "fomvasss/laravel-its-lte",
-    "description": "",
+    "description": "Base Control Panel Templates",
     "keywords": [
+        "admin", "lte", "dashboard", "fields"
     ],
     "authors": [
         {
             "name": "Vasyl Fomin",
             "email": "fomvasss@gmail.com",
-            "role": "Backend developer"
+            "role": "Backend developer",
+            "homepage": "https://github.com/fomvasss"
         },
         {
             "name": "Klimovych Juriy",
@@ -18,7 +20,8 @@
     "license": "MIT",
     "require": {
         "illuminate/support": "^5.8|^6.0",
-        "laravelcollective/html": "^6.0"
+        "laravelcollective/html": "^6.0",
+        "unisharp/laravel-filemanager": "^v1.8"
     },
     "autoload": {
         "psr-4": {

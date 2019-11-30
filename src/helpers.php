@@ -2,7 +2,7 @@
 
 if (! function_exists('treeview')) {
     /**
-     * Построение массива для фронта treeview
+     * Построение массива для вывода на фронт (компонент treeview)
      *
      * @param array $tree
      * @param array $selected
@@ -25,6 +25,98 @@ if (! function_exists('treeview')) {
                 } else {
                     $res[] = ['id' => $branch['id'], 'text' => $branch['name'], 'selectable' => false, 'state' => ['expanded' => true], 'nodes' => treeview($branch['children'], $selected)];
                 }
+            }
+        }
+
+        return $res;
+    }
+}
+
+if (! function_exists('build_linear_array_sort')) {
+    /**
+     * Построить линейный масив с дерева, для записи упорядоченных сущностей.
+     *
+     * @param array $tree_entities
+     * @param int|null $parent_id
+     * @param bool $use_parent
+     * @return array
+     */
+    function build_linear_array_sort(array $tree_entities, int $parent_id = null, bool $use_parent = true)
+    {
+        $result = [];
+
+        foreach ($tree_entities[0] ?? [] as $key => $entity) {
+            $data = [];
+            if (! empty($entity['id'])) {
+                $data['id'] = (int)$entity['id'];
+                $data['weight'] = $key;
+                $use_parent ? $data['parent_id'] = $parent_id : null;
+                $result[] = $data;
+                if (! empty($entity['children'])) {
+                    $result = array_merge($result, build_linear_array_sort($entity['children'], $entity['id'], $use_parent));
+                }
+            }
+        }
+
+        return $result;
+    }
+}
+
+if (! function_exists('human_filesize')) {
+    /**
+     * Показать обьем информации в удобном для человека виде.
+     *
+     * @param int $bytes
+     * @param int $precision
+     * @return string
+     */
+    function human_filesize(int $bytes, int $precision = 2)
+    {
+        $units = ['B', 'KB', 'MB', 'GB', 'TB'];
+
+        $bytes = max($bytes, 0);
+        $pow = floor(($bytes ? log($bytes) : 0) / log(1024));
+        $pow = min($pow, count($units) - 1);
+
+        // Uncomment one of the following alternatives
+        $bytes /= pow(1024, $pow);
+
+        // $bytes /= (1 << (10 * $pow));
+
+        return round($bytes, $precision).' '.$units[$pow];
+    }
+}
+
+if (! function_exists('pagination_row_number')) {
+    /**
+     * Вывод номера сущности (например в таблице).
+     *
+     * @param \Illuminate\Pagination\LengthAwarePaginator $items
+     * @param int $loopIndex
+     * @return float|int
+     */
+    function pagination_row_number(\Illuminate\Pagination\LengthAwarePaginator $items, int $loopIndex)
+    {
+        $total = $items->total();
+
+        return ($total - $items->perPage() * ($items->currentPage()-1)) - $loopIndex;
+    }
+}
+
+if (! function_exists('explode_assoc')) {
+    /**
+     * Перевод строки в асоциативный массив.
+     *
+     * @param string $string (ex: 1:106;2:110;3:112;4:108;5:235;7:239;8:237)
+     * @return array (ex: [1 => 106, 2 => 210, ...])
+     */
+    function explode_assoc(string $string = '') {
+        $res = [];
+
+        foreach (explode(';', $string) as $item) {
+            $el = explode(':', $item);
+            if (isset($el[0]) && isset($el[1])) {
+                $res[$el[0]] = $el[1];
             }
         }
 

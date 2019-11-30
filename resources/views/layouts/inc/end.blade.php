@@ -87,8 +87,8 @@
         datepickerOptions = {}
 </script>
 
-<script src="{{ mix('js/plugins.js', 'vendor/its-lte') }}"></script>
-<script src="{{ mix('js/admin.js', 'vendor/its-lte') }}"></script>
+<script src="{{ mix('js/main.js', 'vendor/its-lte') }}"></script>
+<script src="{{ mix('js/dashboard.js', 'vendor/its-lte') }}"></script>
 <script src="{{ asset('vendor/its-lte/ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset('vendor/its-lte/ckeditor/adapters/jquery.js') }}"></script>
 

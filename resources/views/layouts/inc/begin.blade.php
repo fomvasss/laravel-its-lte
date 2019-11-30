@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <!-- Styles Admin LTE -->
 
-    <link rel="stylesheet" href="{{ mix('css/admin.css', 'vendor/its-lte') }}">
+    <link rel="stylesheet" href="{{ mix('css/main.css', 'vendor/its-lte') }}">
+    <link rel="stylesheet" href="{{ mix('css/dashboard.css', 'vendor/its-lte') }}">
 
     @stack('styles')
 </head>

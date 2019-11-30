@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>{{ config('its-lte.title') }}</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="shortcut icon" href="/vendor/its-lte/img/favicon.png" type="image/x-icon">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -18,13 +18,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <!-- Styles Admin LTE -->
 
-    <link rel="stylesheet" href="{{ mix('css/admin.css', 'vendor/its-lte') }}">
+    <link rel="stylesheet" href="{{ mix('css/main.css', 'vendor/its-lte') }}">
     @stack('styles')
 </head>
 
     @yield('content')
 
-<script src="{{ mix('js/plugins.js', 'vendor/its-lte') }}"></script>
-<script src="{{ mix('js/admin.js', 'vendor/its-lte') }}"></script>
+<script src="{{ mix('js/main.js', 'vendor/its-lte') }}"></script>
+<script src="{{ mix('js/dashboard.js', 'vendor/its-lte') }}"></script>
 
 </html>

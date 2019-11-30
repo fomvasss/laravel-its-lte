@@ -37,6 +37,14 @@ class InstallCommand extends Command
         $this->comment('Publishing Lte Views Content...');
         $this->callSilent('vendor:publish', ['--tag' => 'lte-view-content']);
         $this->callSilent('vendor:publish', ['--tag' => 'lte-view-auth']);
+        $this->callSilent('vendor:publish', ['--tag' => 'lte-view-layouts']);
+
+        $this->comment('Publishing LFM Config & Assets...');
+        $this->callSilent('vendor:publish', ['--tag' => 'lfm_config']);
+        $this->callSilent('vendor:publish', ['--tag' => 'lfm_public']);
+
+        $this->comment('Creating storage link...');
+        $this->callSilent('storage:link');
 
         $this->info('Lte scaffolding installed successfully.');
     }

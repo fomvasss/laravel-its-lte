@@ -53,8 +53,8 @@ mix.combine([
     paths.bowerPath + 'datetimepicker/jquery.datetimepicker.css',
     paths.webDev.css + 'skins/_all-skins.min.css',
     paths.webDev.css + 'AdminLTE.min.css',
-    paths.webDev.css + 'common.css',
-], paths.webProd.css + 'admin.css', false);
+    //paths.webDev.css + 'dashboard.css',
+], paths.webProd.css + 'main.css', false);
 
 mix.combine([
     paths.bowerPath + 'jquery/dist/jquery.js',
@@ -80,20 +80,23 @@ mix.combine([
     paths.bowerPath + 'x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js',
     paths.bowerPath + 'datetimepicker/build/jquery.datetimepicker.full.js',
     paths.webDev.js + 'adminlte.min.js',
-], paths.webProd.js + 'plugins.js', false);
+], paths.webProd.js + 'main.js', false);
 
-mix.copy(paths.webDev.js + 'dashboard.js', paths.webProd.js + 'admin.js');
+mix.copy(paths.webDev.css + 'dashboard.css', paths.webProd.css + 'dashboard.css');
+mix.copy(paths.webDev.js + 'dashboard.js', paths.webProd.js + 'dashboard.js');
 mix.copyDirectory(paths.bowerPath + 'font-awesome/fonts', paths.webProd.fonts);
 mix.copyDirectory(paths.bowerPath + 'Ionicons/fonts', paths.webProd.fonts);
 mix.copyDirectory(paths.bowerPath + 'bootstrap/fonts', paths.webProd.fonts);
+mix.copyDirectory(paths.bowerPath + 'ckeditor', paths.webProd.public + 'ckeditor');
 mix.copyDirectory(paths.bowerPath + 'ckeditor', paths.webProd.public + 'ckeditor');
 mix.copyDirectory(paths.bowerPath + 'x-editable/dist/bootstrap3-editable/img', paths.webProd.img);
 
 if (mix.inProduction()) {
     /* Minify assets */
-    mix.minify(paths.webProd.css + 'admin.css').version();
-    mix.minify(paths.webProd.js + 'plugins.js').version();
-    mix.minify(paths.webProd.js + 'admin.js').version();
+    mix.minify(paths.webProd.css + 'main.css').version();
+    mix.minify(paths.webProd.css + 'dashboard.css').version();
+    mix.minify(paths.webProd.js + 'main.js').version();
+    mix.minify(paths.webProd.js + 'dashboard.js').version();
 }
 
 mix.disableNotifications();

@@ -11,7 +11,7 @@ class PublishCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'lte:publish {--force : Overwrite any existing files}';
+    protected $signature = 'lte:publish {--force : Overwrite any existing files} {--tag= : Tag name}';
     /**
      * The console command description.
      *
@@ -25,21 +25,29 @@ class PublishCommand extends Command
      */
     public function handle()
     {
-        $this->call('vendor:publish', [
-            '--tag' => 'lte-config',
-            '--force' => $this->option('force'),
-        ]);
-        $this->call('vendor:publish', [
-            '--tag' => 'lte-assets',
-            '--force' => $this->option('force'),
-        ]);
-        $this->call('vendor:publish', [
-            '--tag' => 'lte-lang',
-            '--force' => $this->option('force'),
-        ]);
-        $this->call('vendor:publish', [
-            '--tag' => 'lte-views',
-            '--force' => $this->option('force'),
-        ]);
+        if ($this->option('tag')) {
+            $this->callSilent('vendor:publish', [
+                '--tag' => $this->option('tag'),
+                '--force' => $this->option('force'),
+            ]);
+            $this->info('Publish success');
+        } elseif ($this->confirm('Publish all LTE resources?', false)) {
+            $this->call('vendor:publish', [
+                '--tag' => 'lte-config',
+                '--force' => $this->option('force'),
+            ]);
+            $this->call('vendor:publish', [
+                '--tag' => 'lte-assets',
+                '--force' => $this->option('force'),
+            ]);
+            $this->call('vendor:publish', [
+                '--tag' => 'lte-lang',
+                '--force' => $this->option('force'),
+            ]);
+            $this->call('vendor:publish', [
+                '--tag' => 'lte-views',
+                '--force' => $this->option('force'),
+            ]);
+        }
     }
 }
