@@ -11,29 +11,11 @@ let paths = {
         'css': './public/css/',
         'js': './public/js/',
         'fonts': './public/fonts/',
-        // 'vendor': './public/vendor/',
         'img': './public/img/'
     }
 };
 
-/*
-mix
-    .options({
-        terser: {
-            terserOptions: {
-                compress: {
-                    drop_console: true,
-                }
-            }
-        },
-        processCssUrls: false,
-    })
-    .setPublicPath('public')
-    .js('resources/js/app.js', 'public')
-    .sass('resources/sass/app.scss', 'public', {})
-    .version()
-    .copy('public', '../compasstest/public/vendor/compass');
-*/
+mix.setPublicPath('public').disableNotifications();
 
 mix.combine([
     paths.bowerPath + 'bootstrap/dist/css/bootstrap.min.css',
@@ -94,9 +76,8 @@ mix.copyDirectory(paths.bowerPath + 'x-editable/dist/bootstrap3-editable/img', p
 if (mix.inProduction()) {
     /* Minify assets */
     mix.minify(paths.webProd.css + 'main.css').version();
-    mix.minify(paths.webProd.css + 'dashboard.css').version();
     mix.minify(paths.webProd.js + 'main.js').version();
-    mix.minify(paths.webProd.js + 'dashboard.js').version();
+    // mix.minify(paths.webProd.css + 'dashboard.css').version();
+    // mix.minify(paths.webProd.js + 'dashboard.js').version();
 }
 
-mix.disableNotifications();
