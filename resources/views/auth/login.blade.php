@@ -20,7 +20,7 @@
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
 
-                <div class="form-group {{--@error('password') has-error @enderror--}} has-feedback">
+                <div class="form-group @error('password') has-error @enderror has-feedback">
                     <input id="password" type="password" class="form-control" name="password" required placeholder="Пароль">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     @error('password')
@@ -43,9 +43,15 @@
             </form>
 
             @include('lte::auth.social-links')
-            @if (1 || Route::has('password.request'))
-                <a class="btn btn-link" href="#{{--{{ route('password.request') }}--}}">
+            @if (Route::has('password.request'))
+                <a class="btn btn-link" href="{{ route('password.request') }}">
                     Восстановить пароль
+                </a>
+            @endif
+            <br>
+            @if (Route::has('register'))
+                <a href="{{ route('register') }}" class="btn btn-link">
+                    Зарегистрироваться
                 </a>
             @endif
 

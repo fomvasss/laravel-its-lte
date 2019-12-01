@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="pull-right">
                                     <a href="#"
-                                       class="btn btn-default btn-flat js-action-click"
+                                       class="btn btn-default btn-flat js-action-form"
                                        data-url="{{ route('logout') }}"
                                        data-confirm="Подтверждаете выход?"
                                     >Вийти</a>
