@@ -63,7 +63,7 @@ class ApplyRequestOptions
         
         $this->afterHandle($response);
         
-        return $next($request);
+        return $response;
     }
 
     /**
