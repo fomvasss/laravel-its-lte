@@ -123,3 +123,25 @@ if (! function_exists('explode_assoc')) {
         return $res;
     }
 }
+
+
+if (! function_exists('array_values_recursive')) {
+    /**
+     * @param array $ary
+     * @return array
+     */
+    function array_values_recursive(array $ary)
+    {
+        $lst = [];
+        foreach (array_keys($ary) as $k) {
+            $v = $ary[$k];
+            if (is_scalar($v)) {
+                $lst[] = $v;
+            } elseif (is_array($v)) {
+                $lst = array_merge($lst, array_values_recursive($v));
+            }
+        }
+
+        return $lst;
+    }
+}

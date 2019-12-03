@@ -4,7 +4,6 @@
         $field_name = $field_name ?? '';
         $field_name_input = (isset($multiple) && $multiple) ? (Str::replaceLast('[]', '', $field_name) . '[]') : Str::replaceLast('[]', '', $field_name);
     @endphp
-    <input name="{{ $field_name_input }}" value="0" hidden>
     <select
             name="{{ $field_name_input }}"
             class="form-control select2 field-select-ajax"
