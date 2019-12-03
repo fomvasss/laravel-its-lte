@@ -18,7 +18,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><a href="{{ $path }}" target="_blank">{{ str_limit($path, 30) }}</a></td>
+                    <td><a href="{{ $path }}" target="_blank">{{ Str::limit($path, 30) }}</a></td>
                     <td><a href="{{ $path }}" target="_blank"><img src="{{ $path."?=".date('s') }}" style="max-height: 50px"></a></td>
                     <td>
                         <a href="#" class="filed-remove btn btn-xs btn-danger" data-id="{{ $path }}"><i class="fa fa-remove"></i></a>

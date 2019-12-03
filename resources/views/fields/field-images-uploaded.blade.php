@@ -22,7 +22,7 @@
                 @foreach($entity->getMedia($collection_name) as $image)
                 <tr class="image-container">
                     <td>{{ $loop->iteration }}</td>
-                    <td><a href="#" target="_blank">{{ str_limit($image->name, 20) }}</a></td>
+                    <td><a href="#" target="_blank">{{ Str::limit($image->name, 20) }}</a></td>
                     <td>
                         <a href="{{ $image->getUrl('thumb') }}" target="_blank"><img src="{{ $image->getUrl('thumb') }}" alt=""></a>
                     </td>

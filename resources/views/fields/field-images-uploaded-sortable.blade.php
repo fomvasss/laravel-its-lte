@@ -20,7 +20,7 @@
                     <i class="fa fa-ellipsis-v"></i>
                 </span>
                 <a href="{{ $image->getUrl() }}" target="_blank"><img src="{{ $image->getUrl('thumb') }}" alt=""></a>
-                <span class="text">{{ str_limit($image->name, 20) }}</span>
+                <span class="text">{{ Str::limit($image->name, 20) }}</span>
 
                 <div class="tools">
                     <i data-id="{{ $image->id }}" class="fa fa-trash-o filed-remove"></i>

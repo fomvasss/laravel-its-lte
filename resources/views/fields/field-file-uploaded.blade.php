@@ -19,7 +19,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><a href="{{ $entity->getFirstMediaUrl($collection_name) }}" target="_blank">{{ str_limit($entity->getFirstMedia($collection_name)->name, 30) }}</a></td>
+                    <td><a href="{{ $entity->getFirstMediaUrl($collection_name) }}" target="_blank">{{ Str::limit($entity->getFirstMedia($collection_name)->name, 30) }}</a></td>
                     <td>{{ human_filesize($entity->getFirstMedia($collection_name)->size) }}</td>
                     <td>
                         <a href="#" class="filed-remove btn btn-xs btn-danger" data-id="{{ $entity->getFirstMedia($collection_name)->id }}"><i class="fa fa-remove"></i></a>

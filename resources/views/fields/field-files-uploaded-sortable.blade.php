@@ -20,7 +20,7 @@
                     <i class="fa fa-ellipsis-v"></i>
                 </span>
                 <a href="{{ $file->getUrl() }}" target="_blank" title="{{ human_filesize($file->size, 1) }}">
-                    <span class="text">{{ str_limit($file->name, 30) }}</span>
+                    <span class="text">{{ Str::limit($file->name, 30) }}</span>
                 </a>
                 <span class="text">{{ $file->mime_type }}</span>
 

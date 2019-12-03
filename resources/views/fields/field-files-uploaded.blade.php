@@ -23,7 +23,7 @@
                 @foreach($entity->getMedia($collection_name) as $file)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td><a href="{{ $file->getUrl('thumb') }}" title="{{ human_filesize($file->size, 1) }}" target="_blank">{{ str_limit($file->name, 40) }}</a></td>
+                    <td><a href="{{ $file->getUrl('thumb') }}" title="{{ human_filesize($file->size, 1) }}" target="_blank">{{ Str::limit($file->name, 40) }}</a></td>
                     <td>{{ human_filesize($entity->getFirstMedia($collection_name)->size) }}</td>
                     <td>
                         <a href="#" class="filed-remove btn btn-xs btn-danger" data-id="{{ $file->id }}"><i class="fa fa-remove"></i></a>
