@@ -1,5 +1,5 @@
 {{-- Иерархическое дерево treeview с checkbox-ами --}}
-<input type="hidden" name="{{ $field_name }}[]" value="0">
+<!-- <input type="hidden" name="{{ $field_name }}[]" value="0"> -->
 <div
      class="box box-warning box-solid field-tree"
      data-url="{{ $url_tree ?? '#' }}"
