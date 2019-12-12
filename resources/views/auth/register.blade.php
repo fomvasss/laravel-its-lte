@@ -65,10 +65,10 @@
                 </div>
             </form>
 
-            {{--@include('lte::auth.social-links')--}}
+            @include('lte::auth.social-links')
             <a href="{{ route('login') }}">Войти в систему</a><br>
             @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
+                <a href="{{ route('password.request') }}">
                     Восстановить пароль
                 </a>
             @endif

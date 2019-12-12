@@ -16,5 +16,8 @@ return [
 
     'default' => [
         'skin' => 'skin-yellow-light',
+        'layout_boxed' => false,
+        'sidebar_collapse' => false,
+        'fixed' => false,
     ]
 ];

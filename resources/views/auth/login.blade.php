@@ -44,11 +44,10 @@
 
             @include('lte::auth.social-links')
             @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
+                <a href="{{ route('password.request') }}">
                     Восстановить пароль
                 </a>
             @endif
-            <br>
             @if (Route::has('register'))
                 <a href="{{ route('register') }}" class="btn btn-link">
                     Зарегистрироваться
