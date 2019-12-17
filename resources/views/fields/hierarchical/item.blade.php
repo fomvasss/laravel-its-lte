@@ -13,7 +13,7 @@
         @endif
 {{--        <a href="{{ route($route_name_edit, $item) }}" class="text-warning"><i class="fa fa-edit"></i></a>--}}
         <a href="{{ route($route_name_edit, array_merge([$item], $route_additional_attrs)) }}" class="text-warning"><i class="fa fa-edit"></i></a>
-        <a href="#" class="text-danger js-action-destroy" data-url="{{ route($route_name_delete, $item) }}"><i class="fa fa-trash-o"></i></a>
+        <a href="#" class="text-danger js-action-form" data-method="DELETE" data-url="{{ route($route_name_delete, $item) }}"><i class="fa fa-trash-o"></i></a>
     </span>
         @if(! empty($item->children) && $item->children->count())
             <ul>
