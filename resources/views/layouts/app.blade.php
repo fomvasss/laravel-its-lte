@@ -4,6 +4,8 @@
     @include('lte::layouts.inc.aside')
     <div class="content-wrapper">
 
+        @include('lte::layouts.inc.content-messages')
+        
         @include('lte::layouts.inc.content-header', array_merge([
             'page_title' => config('its-lte.title'),
             'small_page_title' => '',
