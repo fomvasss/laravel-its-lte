@@ -24,7 +24,7 @@
     @stack('styles')
 </head>
 <body class="hold-transition sidebar-mini
-    {{ config('its-lte.default.skin', 'skin-yellow-light') }}
+    {{ config('its-lte.default.skin', 'skin-purple') }}
     {{ config('its-lte.default.layout_boxed') ? 'layout-boxed' : '' }}
     {{ config('its-lte.default.fixed') ? 'fixed' : '' }}
     {{ config('its-lte.default.sidebar_collapse') ? 'sidebar-collapse' : '' }}

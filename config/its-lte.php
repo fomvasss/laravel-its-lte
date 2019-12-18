@@ -15,7 +15,14 @@ return [
     'middleware' => ['web'],
 
     'default' => [
-        'skin' => 'skin-yellow-light',
+        /**
+         * Available skins:
+         * skin-blue, skin-black, skin-purple, skin-green, skin-red,
+         * skin-yellow, skin-blue-light, skin-black-light, skin-purple-light,
+         * skin-green-light, skin-red-light, skin-yellow-light,
+         *
+         */
+        'skin' => 'skin-purple',
         'layout_boxed' => false,
         'sidebar_collapse' => false,
         'fixed' => false,
