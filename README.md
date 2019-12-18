@@ -1,36 +1,16 @@
 # Laravel ITS LTE
 
-Base Control Panel Templates
+[![License](https://img.shields.io/packagist/l/fomvasss/laravel-its-lte.svg?style=for-the-badge)](https://packagist.org/packages/fomvasss/laravel-its-lte)
+[![Build Status](https://img.shields.io/github/stars/fomvasss/laravel-its-lte.svg?style=for-the-badge)](https://github.com/fomvasss/laravel-its-lte)
+[![Latest Stable Version](https://img.shields.io/packagist/v/fomvasss/laravel-its-lte.svg?style=for-the-badge)](https://packagist.org/packages/fomvasss/laravel-its-lte)
+[![Total Downloads](https://img.shields.io/packagist/dt/fomvasss/laravel-its-lte.svg?style=for-the-badge)](https://packagist.org/packages/fomvasss/laravel-its-lte)
+[![Quality Score](https://img.shields.io/scrutinizer/g/fomvasss/laravel-its-lte.svg?style=for-the-badge)](https://scrutinizer-ci.com/g/fomvasss/laravel-its-lte)
+
+Base Admin LTE Control Panel Templates
+
+![screenshot](public/img/screen.png)
 
 ----------
-
-## Using own (private) repository
-
-If you use SSH public key, add `repositories` section in your project `composer.json` file:
-```json
-{
-
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@gitlab.com:its-dev-first/info/packages/laravel/its-lte.git"
-        }
-    ]
-}
-```
-If you known the `login/password` to repository, use the following method:
-```json
-{
-    
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://gitlab.com/its-dev-first/info/packages/laravel/its-lte.git"
-        }
-    ]
-}
-```
----
 
 ## Installation
 
@@ -47,6 +27,7 @@ php artisan lte:install
 That's all. You can usage ITS LTE in your project :) 
 
 Visit the path `http://your-site.local/lte` 
+
 
 ## Publishing (optional)
 Of course, you can publish only the necessary system components:
@@ -80,21 +61,24 @@ After publishing assets, its primary configuration file will be located at `conf
 
 return [
 
-    'title' => 'Панель управления',
+   'title' => 'LTE Dashboard',
+   
+   'logo' => env('LTE_LOGO', '<b>ITS</b>LTE'),
 
-    'logo' => '<b>ITS</b>LTE',
+   'logo_mini' => env('LTE_LOGO_MINI', '<b>IT</b>LT'),
 
-    'logo_mini' => '<b>IT</b>LT',
+   'logo_href' => '/lte',
 
-    'logo_url' => '/lte',
+   'prefix' => 'lte',
 
-    'prefix' => 'lte',
+   'middleware' => ['web'],
 
-    'middleware' => ['web'],
-
-    'default' => [
-        'skin' => 'skin-yellow-light',
-    ]
+   'default' => [
+	   'skin' => 'skin-yellow-light',
+	   'layout_boxed' => false,
+	   'sidebar_collapse' => false,
+	   'fixed' => false,
+   ]
 ];
 ```
 

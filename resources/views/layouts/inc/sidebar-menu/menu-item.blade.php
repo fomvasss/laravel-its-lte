@@ -1,7 +1,7 @@
 @if($item->children->count() && $item->hasAccessToTreeview())
     <li class="treeview @if($item->isTreeviewOpen())menu-open @endif">
-        <a href="{{ $item->getUrl() ?: '#' }}" {{ $item->getTargetHtml() }}>
-            <i class="@empty($item->data['icon']) fa fa-circle-o text-green @else {{ $item->data['icon'] }} @endempty"></i>
+        <a href="{{ $item->getUrl() ?: '#' }}" {{ $item->getTargetStr() }}>
+            <i class="@empty($item->options['icon']) fa fa-circle-o text-green @else {{ $item->options['icon'] }} @endempty"></i>
             <span>{{ $item->name }}</span>
             <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
@@ -13,14 +13,14 @@
             @endforeach
         </ul>
     </li>
-@elseif(! empty($item->data['header']))
+@elseif(! empty($item->options['header']))
     <li class="header">{{ $item->name }}</li>
 @elseif($item->hasAccessToItem())
     <li class="@if($item->isActive())active @endif">
-        <a href="{{ $item->getUrl() ?: '' }}" {{ $item->getTargetHtml() }}>
-            <i class="@empty($item->data['icon']) fa fa-circle-o text-green @else {{ $item->data['icon'] }} @endempty"></i>
+        <a href="{{ $item->getUrl() ?: '' }}" {{ $item->getTargetStr() }}>
+            <i class="@empty($item->options['icon']) fa fa-circle-o text-green @else {{ $item->options['icon'] }} @endempty"></i>
             <span>{{ $item->name }}</span>
-            {!! $item->itemSuffix() !!}
+            {!! $item->getSuffix() !!}
         </a>
     </li>
 @endif

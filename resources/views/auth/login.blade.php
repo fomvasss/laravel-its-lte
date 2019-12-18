@@ -4,7 +4,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ config('its-lte.logo_url') }}">{!! config('its-lte.logo') !!}</a>
+            <a href="{{ config('its-lte.logo_href') }}">{!! config('its-lte.logo') !!}</a>
         </div>
         <div class="login-box-body">
             <p class="login-box-msg">Вход в систему</p>
@@ -49,7 +49,7 @@
                 </a>
             @endif
             @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="btn btn-link">
+                <a href="{{ route('register') }}">
                     Зарегистрироваться
                 </a>
             @endif

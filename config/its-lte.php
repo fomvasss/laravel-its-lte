@@ -2,13 +2,13 @@
 
 return [
 
-    'title' => 'Панель управления',
+    'title' => 'LTE Dashboard',
 
-    'logo' => '<b>ITS</b>LTE',
+    'logo' => env('LTE_LOGO', '<b>ITS</b>LTE'),
 
-    'logo_mini' => '<b>IT</b>LT',
+    'logo_mini' => env('LTE_LOGO_MINI', '<b>IT</b>LT'),
 
-    'logo_url' => '/lte',
+    'logo_href' => '/lte',
 
     'prefix' => 'lte',
 
