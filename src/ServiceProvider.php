@@ -13,7 +13,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->environment('local')) {
+        if (!$this->app->environment('production')) {
             $this->registerRoutes();
         }
 

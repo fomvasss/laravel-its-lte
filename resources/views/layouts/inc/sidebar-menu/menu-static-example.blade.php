@@ -104,7 +104,7 @@
         </a>
     </li>
 
-    @if (app()->environment('local'))
+    @if (!app()->environment('production'))
     <li class="header">LTE примеры</li>
     <li><a href="/lte"><i class="fa fa-circle-o text-green"></i> <span>Главная</span></a></li>
     <li><a href="/lte/fields"><i class="fa fa-circle-o text-red"></i> <span>Поля</span></a></li>
