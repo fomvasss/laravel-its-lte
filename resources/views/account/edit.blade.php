@@ -15,9 +15,9 @@
                         <h3 class="box-title">Данные аккаунта</h3>
                     </div>
                     <div class="box-body">
-                        {!! Form::model(null, [
+                        {!! Form::model($user ?? null, [
                             'method' => 'POST',
-                            'route' => 'lte.account.edit',
+                            'url' => '/admin/account',
                             'files' => true
                         ]) !!}
                             <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
@@ -29,6 +29,11 @@
                                 {!! Form::label('email', 'Email', ['class' => 'control-label',]) !!}
                                 {!! Form::text('email', null, ['class' => 'form-control','placeholder' => 'example@app.com']) !!}
                                 {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
+                            </div>
+                            <div class="form-group {{ $errors->has('phone') ? 'has-error' : ''}}">
+                                {!! Form::label('phone', 'Телефон', ['class' => 'control-label',]) !!}
+                                {!! Form::text('phone', null, ['class' => 'form-control','placeholder' => 'example@app.com']) !!}
+                                {!! $errors->first('phone', '<p class="help-block">:message</p>') !!}
                             </div>
                             <div class="form-group {{ $errors->has('password') ? 'has-error' : ''}}">
                                 {!! Form::label('password', 'Пароль', ['class' => 'control-label',]) !!}

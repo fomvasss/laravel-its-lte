@@ -13,17 +13,17 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <div class="box">
-                {!! Form::model(null, [
+                {!! Form::model($user ?? null, [
                     'method' => 'PATCH',
-                    'url' => '#',
+                    'url' => 'admin.users.update', // TODO
                     'files' => true
                 ]) !!}
                 <div class="box-header">
                     <i class="ion ion-clipboard"></i>
-                    <h3 class="box-title">Редактирование пользователя <strong>{{ isset($user) ? $user->name : '' }}</strong></h3>
+                    <h3 class="box-title">Редактирование <strong>{{ isset($user) ? $user->name : '' }}</strong></h3>
                 </div>
                 <div class="box-body">
-                        @include('lte::content.users._form')
+                        @include('lte::nodes.users._form')
                 </div>
                 {!! Form::close() !!}
             </div>

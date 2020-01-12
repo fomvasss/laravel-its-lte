@@ -60,8 +60,8 @@
 
 @include('lte::fields.field-form-buttons', [
     'url_store_and_create' => '#', //route('admin.users.create'),
-    'url_store_and_close' => session('content.users.index'),
-    'url_destroy' => isset($user) ? route('content.users.destroy', $user) : '',
-    'url_after_destroy' => session('content.users.index'),
-    'url_close' => session('content.users.index'),
+    'url_store_and_close' => session('nodes.users.index'),
+    'url_destroy' => isset($user) ? route('nodes.users.destroy', $user) : '',
+    'url_after_destroy' => session('nodes.users.index'),
+    'url_close' => session('nodes.users.index'),
 ])

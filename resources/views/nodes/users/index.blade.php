@@ -13,20 +13,20 @@
 <section class="content">
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Список пользователей ({{ isset($pages) ? $users->total() : 0 }})</h3>
+            <h3 class="box-title">Всего: ({{ isset($users) ? $users->total() : 0 }})</h3>
         </div>
         <div class="box-body">
-            @if(isset($pages) && $pages->count())
-                @include('lte::inc.empty-rows', ['url_create' => route('content.users.create')])
+            @if(empty($users) || $users->count() < 1)
+                @include('lte::inc.empty-rows', ['url_create' => url('admin.users.create')])
             @else
             <div class="table-responsive">
                 <table class="table table-bordered table-striped">
                     <thead>
                     <tr>
                         <th style="width:35px;">#</th>
-                        <th>Name</th>
+                        <th>Имя</th>
                         <th>Email</th>
-                        <th style="width:130px;">Phone</th>
+                        <th style="width:130px;">Телефон</th>
                         <th style="width:130px;">Роль</th>
                         <th style="width: 30px; text-align: center">Активный</th>
                         <th style="width:150px;">Регистрация</th>
@@ -34,12 +34,6 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @php
-                        // TODO: this test
-                        $users = array_map(function ($item) {
-                            return (object) $item;
-                        }, [['id' => 1, 'name' => 'Иванов', 'email' => 'ivanov@app.com', 'phone' => '7456321987',  'active' => true, 'created_at' => now(), 'roles' => '']]);
-                    @endphp
                     @foreach($users as $user)
                     <tr>
                         <td>{{ $user->id }}</td>
@@ -54,8 +48,8 @@
                         <td style="width: 110px">
                             <div class="btn-group">
                                 {{--<a href="#" target="_blank" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>--}}
-                                <a href="/lte/users/edit" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-                                <a href="#" data-url="#" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
+                                <a href="{{ url('admin.users.edit', $user) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+                                <a href="#" data-url="{{ url('admin.users.destroy', $user) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
                             </div>
                         </td>
                     </tr>

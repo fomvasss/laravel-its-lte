@@ -14,15 +14,15 @@
         <div class="col-lg-8 col-lg-offset-2">
             <div class="box">
                 {!! Form::open([
-                     'url' => 'users.store',
+                     'url' => 'admin.users.store', // TODO
                      'files' => true
                 ]) !!}
                 <div class="box-header">
                     <i class="ion ion-clipboard"></i>
-                    <h3 class="box-title">Создание пользователя</h3>
+                    <h3 class="box-title">Создание </h3>
                 </div>
                 <div class="box-body">
-                    @include('lte::content.users._form')
+                    @include('lte::nodes.users._form')
                 </div>
                 {!! Form::close() !!}
             </div>

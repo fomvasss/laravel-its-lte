@@ -3,7 +3,7 @@
 @php
     $content_header = [
         'page_title' => 'Страницы',
-        'url_back' => session('pages.index'),
+        'url_back' => session('admin.pages.index'),
         'url_create' => ''
     ]
 @endphp
@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-lg-8">
                     <i class="ion ion-clipboard"></i>
-                    <h3 class="box-title"> Создание страницы</h3>
+                    <h3 class="box-title"> Создание</h3>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
 
             <div class="nav-tabs-justified">
                 <ul class="nav nav-tabs">
-                    @foreach(['Страница' => '#', 'SEO' => '#'] as $title => $url)
+                    @foreach(['Данные' => '#', 'SEO' => '#'] as $title => $url)
                         <li class="@if(Request::url() == rtrim($url, '/')) active @else disabled @endif"><a @if(Request::url() != rtrim($url, '/')) && $url != '#')href="{{ $url }}"@endif>{{ $title }}</a></li>
                     @endforeach
                     {{--<li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>--}}
@@ -32,10 +32,10 @@
                     <div class="tab-pane active" id="tab_1">
                         <br>
                         {!! Form::open([
-                             'route' => 'lte.pages.create',
+                             'route' => 'lte.pages.create', // TODO
                              'files' => true
                         ]) !!}
-                        @include('lte::content.pages._form')
+                        @include('lte::nodes.pages._form')
                         {!! Form::close() !!}
                     </div>
                 </div>

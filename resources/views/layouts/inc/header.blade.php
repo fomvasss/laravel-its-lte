@@ -46,7 +46,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="account/edit"
+                                    <a href="/admin/account"
                                        class="btn btn-default btn-flat">Аккаунт</a>
                                 </div>
                                 <div class="pull-right">

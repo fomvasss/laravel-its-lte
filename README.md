@@ -36,6 +36,9 @@ Of course, you can publish only the necessary system components:
 - `lte-view-auth`
 - `lte-view-inc`
 - `lte-view-layouts`
+- `lte-view-account`
+- `lte-view-nodes`
+
 - `lte-config`
 - `lte-assets`
 - `lte-lang`
@@ -95,6 +98,8 @@ After installation, you can work with the following files:
     - `fields` - not published by default
     - `auth` - auth/register forms
     - `content` - example templates for content
+    - `nodes` - example nodes: users, pages
+    - `account` - user account form
     
 And LFM (Laravel File Manager) files:
 - `config/lfm.php`
