@@ -31,17 +31,10 @@ Visit the path `http://your-site.local/lte`
 
 ## Publishing (optional)
 Of course, you can publish only the necessary system components:
-- `lte-view-fields`
-- `lte-view-content`
-- `lte-view-auth`
-- `lte-view-inc`
-- `lte-view-layouts`
-- `lte-view-account`
-- `lte-view-nodes`
-
-- `lte-config`
-- `lte-assets`
-- `lte-lang`
+- views:
+`lte-view-fields`, `lte-view-content`, `lte-view-auth`, `lte-view-inc`, `lte-view-layouts`, `lte-view-account`, `lte-view-nodes`
+- other:
+`lte-config`, `lte-assets`, `lte-lang`
 
 ```bash
 php artisan lte:publish --tag=lte-view-fields --force
@@ -100,10 +93,27 @@ After installation, you can work with the following files:
     - `content` - example templates for content
     - `nodes` - example nodes: users, pages
     - `account` - user account form
-    
-And LFM (Laravel File Manager) files:
+
+### Laravel File Manager (v2)   
+ 
+And LFM files:
 - `config/lfm.php`
 - `public/vendor/laravel-filemanager`
+Recommend set LFM paths `config/lfm.php`:
+```php
+    'shared_folder_name' => 'shares',
+    //...
+    'folder_categories' => [
+        'file' => [
+            'folder_name' => 'lfm-files',
+            //...
+        ],
+        'image' => [
+            'folder_name' => 'lfm-photos',
+            //...
+        ],      
+    ],
+```
 
 ## Usage
 
