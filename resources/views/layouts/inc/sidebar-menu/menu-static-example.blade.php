@@ -118,7 +118,7 @@
         </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="/lte/pages"><i class="fa fa-circle-o text-yellow"></i> <span>Все страницу</span></a></li>
+            <li><a href="/lte/pages"><i class="fa fa-circle-o text-yellow"></i> <span>Все страницы</span></a></li>
             <li><a href="/lte/pages/create"><i class="fa fa-circle-o text-yellow"></i> <span>Создать страницу</span></a></li>
             <li><a href="/lte/pages/edit"><i class="fa fa-circle-o text-yellow"></i> <span>Редактировать страницу</span></a></li>
         </ul>

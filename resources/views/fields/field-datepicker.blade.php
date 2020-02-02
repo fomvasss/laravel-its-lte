@@ -5,7 +5,7 @@
 <div class="form-group {{ $errors->has($field_name) ? 'has-error' : ''}}">
     <label for="{{ $field_name }}">{!! $label ?? 'Дата' !!}</label>
     <input type="text" class="form-control field-datepicker" name="{{ $field_name }}" value="{{ $value }}" autocomplete="off"/>
-    {!! $errors->first(str_replace_last('[]', '', $field_name), '<p class="help-block" style="color:red;">:message</p>') !!}
+    {!! $errors->first(Str::replaceLast('[]', '', $field_name), '<p class="help-block" style="color:red;">:message</p>') !!}
 </div>
 
 {{--

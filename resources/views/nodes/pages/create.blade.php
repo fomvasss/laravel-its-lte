@@ -14,7 +14,6 @@
         <div class="box-header">
             <div class="row">
                 <div class="col-lg-8">
-                    <i class="ion ion-clipboard"></i>
                     <h3 class="box-title"> Создание</h3>
                 </div>
             </div>
@@ -31,8 +30,9 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_1">
                         <br>
+                        {{-- TODO --}}
                         {!! Form::open([
-                             'route' => 'lte.pages.create', // TODO
+                             //'route' => 'admin.pages.store',
                              'files' => true
                         ]) !!}
                         @include('lte::nodes.pages._form')

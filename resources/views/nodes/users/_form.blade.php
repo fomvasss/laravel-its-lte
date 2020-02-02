@@ -16,10 +16,10 @@
     {!! Form::text('name', null, ['class' => 'form-control','placeholder' => 'Bill']) !!}
     {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group {{ $errors->has('last_name') ? 'has-error' : ''}}">
-    {!! Form::label('last_name', 'Фамилия', ['class' => 'control-label',]) !!}
-    {!! Form::text('last_name', null, ['class' => 'form-control','placeholder' => 'Bill']) !!}
-    {!! $errors->first('last_name', '<p class="help-block">:message</p>') !!}
+<div class="form-group {{ $errors->has('lastname') ? 'has-error' : ''}}">
+    {!! Form::label('lastname', 'Фамилия', ['class' => 'control-label',]) !!}
+    {!! Form::text('lastname', null, ['class' => 'form-control','placeholder' => 'Bill']) !!}
+    {!! $errors->first('lastname', '<p class="help-block">:message</p>') !!}
 </div>
 
 <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
@@ -59,9 +59,9 @@
 ])
 
 @include('lte::fields.field-form-buttons', [
-    'url_store_and_create' => '#', //route('admin.users.create'),
-    'url_store_and_close' => session('nodes.users.index'),
-    'url_destroy' => isset($user) ? route('nodes.users.destroy', $user) : '',
-    'url_after_destroy' => session('nodes.users.index'),
-    'url_close' => session('nodes.users.index'),
+    //'url_store_and_create' => route('admin.users.create'),
+    //'url_store_and_close' => session('admin.users.index'),
+    //'url_destroy' => isset($user) ? route('admin.users.destroy', $user) : '',
+    //'url_after_destroy' => session('admin.users.index'),
+    'url_close' => session('admin.users.index'),
 ])

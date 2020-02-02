@@ -160,10 +160,15 @@ $(function () {
         }
 
         if ($('.field-datetimepicker').length) {
-            $('.field-datetimepicker').datetimepicker(datetimepickerOptions || {});
+            $('.field-datetimepicker').datetimepicker(datetimepickerOptions || {
+                format: 'Y-m-d H:i:s'
+            });
         }
         if ($('.field-datepicker').length) {
-            $('.field-datepicker').datetimepicker(datepickerOptions || {});
+            $('.field-datepicker').datetimepicker(datepickerOptions || {
+                timepicker:false,
+                format:'d.m.Y'
+            });
         }
 
         $('.js-action-form').on('click', function (e) {

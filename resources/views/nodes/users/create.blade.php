@@ -3,7 +3,7 @@
 @php
     $content_header = [
         'page_title' => 'Пользователи',
-        'url_back' => session('users.index'),
+        'url_back' => session('admin.users.index'),
         'url_create' => ''
     ]
 @endphp
@@ -14,7 +14,7 @@
         <div class="col-lg-8 col-lg-offset-2">
             <div class="box">
                 {!! Form::open([
-                     'url' => 'admin.users.store', // TODO
+                     //'route' => 'admin.users.store',
                      'files' => true
                 ]) !!}
                 <div class="box-header">

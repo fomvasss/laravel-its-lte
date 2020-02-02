@@ -54,7 +54,7 @@
                                        class="btn btn-default btn-flat js-action-form"
                                        data-url="{{ route('logout') }}"
                                        data-confirm="Подтверждаете выход?"
-                                    >Вийти</a>
+                                    >Выйти</a>
                                 </div>
                             </li>
                         </ul>

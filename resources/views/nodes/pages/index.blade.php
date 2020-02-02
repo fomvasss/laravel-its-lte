@@ -17,7 +17,8 @@
         </div>
         <div class="box-body">
             @if(empty($nodes) || $nodes->count() < 1)
-                @include('lte::inc.empty-rows', ['url_create' => url('admin.pages.create')])
+                {{-- TODO --}}
+                @include('lte::inc.empty-rows', [/*'url_create' => route('admin.pages.create')*/])
             @else
             <div class="table-responsive">
                 <table class="table table-bordered table-striped">
@@ -31,20 +32,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($pages as $page)
+                    @foreach($nodes as $node)
                     <tr>
-                        <td>{{ $page->id }}</td>
-                        <td>{{ $page->name }}</td>
+                        <td>{{ $node->id }}</td>
+                        <td>{{ $node->name }}</td>
                         <td style="text-align: center">
-                            @if($page->publish)<i class="fa fa-check-square-o"></i>@else<i class="fa fa-square-o"></i>@endif
+                            @if($node->publish)<i class="fa fa-check-square-o"></i>@else<i class="fa fa-square-o"></i>@endif
                         </td>
-                        <td>{{ $page->blade ?? 'По умолчанию' }}</td>
+                        <td>{{ $node->blade ?? 'По умолчанию' }}</td>
 
                         <td style="width: 110px">
                             <div class="btn-group">
-                                <a href="{{ route('admin.pages.edit', $page) }}" target="_blank" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
-                                <a href="/lte/pages/edit" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-                                <a href="#" data-url="{{ url('admin.users.destroy', $page) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
+                                <a href="{{ route('pages.show', $node) }}" target="_blank" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
+                                <a href="{{ route('admin.pages.edit', $node) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+                                <a href="#" data-url="{{ route('admin.users.destroy', $node) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
                             </div>
                         </td>
                     </tr>
@@ -57,7 +58,8 @@
 
         <div class="box-footer">
             <div class="pull-right">
-{{--                @include('admin.inc.pagination', ['pages' => $nodes])--}}
+                {{-- TODO --}}
+                {{--@include('admin.inc.pagination', ['pages' => $nodes])--}}
             </div>
         </div>
     </div>

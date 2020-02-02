@@ -15,11 +15,12 @@
         <div class="box-header">
             <div class="row">
                 <div class="col-lg-12">
-                    <i class="ion ion-clipboard"></i>
                     <h3 class="box-title"> Редактирование <strong>{{ isset($node) ? $node->name : '' }}</strong></h3>
+                    {{-- TODO --}}
                     @include('lte::inc.entity-navigation', [
-                       'next' => '#',
-                       'previous' => '#',
+                       'next' => '#', //$node->previous() ? route('admin.pages.edit', $node->previous()) : '',
+                       'current' => '#', //route('pages.show', $node),
+                       'previous' => '#', //$node->next() ? route('admin.pages.edit', $node->next()) : '',
                     ])
                 </div>
             </div>
@@ -27,7 +28,11 @@
         <div class="box-body">
             <div class="nav-tabs-justified">
                 <ul class="nav nav-tabs">
-                    @foreach(['Данные' => '#', 'SEO' => '#'] as $title => $path)
+                    {{-- TODO --}}
+                    @foreach([
+                        'Данные' => '#', //route('admin.pages.edit', $node)
+                        'SEO' => '#', //route('admin.pages.seo', $node)
+                    ] as $title => $path)
                         <li class="@if(Request::url() == rtrim($path, '/')) active @endif"><a href="@if(Request::url() !== rtrim($path, '/')){{ $path }}@else # @endif">{{ $title }}</a></li>
                     @endforeach
                     {{--<li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>--}}
@@ -37,16 +42,18 @@
                         <br>
                         @php($tab = isset($tab) ? $tab : request('tab'))
                         @if($tab == 'seo')
-                            {!! Form::model($node ?? null, [
+                            {{-- TODO --}}
+                            {!! Form::model(isset($node) ? $node : null, [
                                 'method' => 'POST',
-                                'route' => ['admin.pages.seo.save', $page],
+                                //'route' => ['admin.pages.seo.save', $node],
                                 'files' => true
                             ]) !!}
-                            @include('lte::nodes.pages._seo', ['model' => $page])
+                            @include('lte::nodes.pages._seo', ['model' => $node])
                         @else
+                            {{-- TODO --}}
                             {!! Form::model($node ?? null, [
                                 'method' => 'PATCH',
-                                'route' => ['lte.pages.edit', 1], // TODO
+                                //'route' => ['admin.pages.update', $node],
                                 'files' => true
                             ]) !!}
                             @include('lte::nodes.pages._form')

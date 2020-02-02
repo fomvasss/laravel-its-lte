@@ -17,7 +17,7 @@
         </div>
         <div class="box-body">
             @if(empty($users) || $users->count() < 1)
-                @include('lte::inc.empty-rows', ['url_create' => url('admin.users.create')])
+                @include('lte::inc.empty-rows', [/*'url_create' => route('admin.users.create')*/])
             @else
             <div class="table-responsive">
                 <table class="table table-bordered table-striped">
@@ -47,9 +47,8 @@
                         <td>{{ $user->created_at }}</td>
                         <td style="width: 110px">
                             <div class="btn-group">
-                                {{--<a href="#" target="_blank" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>--}}
                                 <a href="{{ url('admin.users.edit', $user) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-                                <a href="#" data-url="{{ url('admin.users.destroy', $user) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
+                                <a href="#" data-url="{{ /*route('admin.users.destroy', $user)*/ }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
                             </div>
                         </td>
                     </tr>

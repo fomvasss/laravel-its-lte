@@ -27,19 +27,19 @@
                 {name: 'styles', items: ['Format', 'FontSize']},
                 {name: 'colors', items: ['TextColor', 'BGColor']},
             ],
-            filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-            filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-            filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-            filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+            filebrowserImageBrowseUrl: '/filemanager?type=Images',
+            filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
+            filebrowserBrowseUrl: '/filemanager?type=Files',
+            filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
         },
         ckFull = {
             language: 'ru',
             allowedContent: true,
 
-            filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-            filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-            filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-            filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+            filebrowserImageBrowseUrl: '/filemanager?type=Images',
+            filebrowserImageUploadUrl: '/filemanager/upload?type=Images&_token=',
+            filebrowserBrowseUrl: '/filemanager?type=Files',
+            filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
         },
         translates = {
             localeDateRangePicker: {
@@ -83,8 +83,13 @@
 
         xEditable = {},
         colorpickerOptions = {},
-        datetimepickerOptions = {},
-        datepickerOptions = {}
+        datetimepickerOptions = {
+            format: 'Y-m-d H:i:s'
+        },
+        datepickerOptions = {
+            timepicker:false,
+            format:'d.m.Y'
+        }
 </script>
 
 <script src="{{ mix('js/main.js', 'vendor/its-lte') }}"></script>
@@ -95,7 +100,7 @@
 <form action="" class="hidden" method="POST" id="js-action-form">
     @csrf
     @method('POST')
-    <input type="hidden" name="destination">
+    <input type="hidden" name="destination" value="{{ Request::fullUrl() }}">
 </form>
 
 <script>

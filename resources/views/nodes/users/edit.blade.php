@@ -13,9 +13,9 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <div class="box">
-                {!! Form::model($user ?? null, [
+                {!! Form::model(isset($user) ? $user : null, [
                     'method' => 'PATCH',
-                    'url' => 'admin.users.update', // TODO
+                    //'route' => ['admin.users.update', $user],
                     'files' => true
                 ]) !!}
                 <div class="box-header">
