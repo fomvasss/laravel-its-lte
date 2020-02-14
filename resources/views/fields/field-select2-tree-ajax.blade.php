@@ -11,7 +11,7 @@
         $field_name_input = (isset($multiple) && $multiple) ? (Str::replaceLast('[]', '', $field_name) . '[]') : Str::replaceLast('[]', '', $field_name);
     @endphp
     <select name="{{ $field_name }}"
-            class="form-control select2-tree"
+            class="form-control select2-tree @isset($class) {{ $class }} @endisset"
             style="width: 100%;"
             @if(isset($multiple) && $multiple) multiple @endif
             @if(isset($disabled) && $disabled) disabled @endif

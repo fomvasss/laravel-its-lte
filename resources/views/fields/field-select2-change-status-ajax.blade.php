@@ -5,7 +5,7 @@
     <select 
         name="{{ $field_name ?? '' }}"
         data-minimum-results-for-search="Infinity"
-        class="form-control select2 select2-change-status-ajax" 
+        class="form-control select2 select2-change-status-ajax @isset($class) {{ $class }} @endisset"
         style="width: 100%;"
     >
         @php

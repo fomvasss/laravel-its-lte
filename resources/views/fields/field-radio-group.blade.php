@@ -4,7 +4,7 @@
     @endphp
     @foreach($attributes as $value => $label)
         <div class="">
-            <input class="radio"
+            <input class="radio @isset($class) {{ $class }} @endisset"
                    type="radio"
                    name="{{ $field_name }}"
                    id="{{ $field_name.$loop->index }}"

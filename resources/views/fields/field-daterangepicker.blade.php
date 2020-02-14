@@ -17,7 +17,7 @@
         </div>
         <input name="{{ $field_name ?? '' }}"
                autocomplete="off" type="text"
-               class="form-control pull-right lte-daterangepicker"
+               class="form-control pull-right lte-daterangepicker @isset($class) {{ $class }} @endisset"
                data-input-name-start="{{ $field_name_start ?? '' }}"
                data-input-name-end="{{ $field_name_end ?? '' }}"
                value="{{ $date_start ?? '' }} - {{ $date_end ?? '' }}">

@@ -3,7 +3,7 @@
     $value = isset($value) ? $value : '';
 @endphp
 
-<div class="form-group {{ $errors->has($field_name) ? 'has-error' : ''}}">
+<div class="form-group @error($field_name) has-error @enderror">
     @isset($label)
     <label for="{{ $field_name }}" class="control-label">{{ $label }}</label>
     @endisset
@@ -15,7 +15,7 @@
            id="{{ $field_name }}"
            autocomplete="off"
     >
-    {!! $errors->first($field_name, '<p class="help-block">:message</p>') !!}
+    @error($field_name) <p class="help-block">{{ $message }}</p> @enderror
 </div>
 
 {{--

@@ -6,7 +6,7 @@
     @endphp
     <select
             name="{{ $field_name_input }}"
-            class="form-control select2 field-select-ajax"
+            class="form-control select2 field-select-ajax @isset($class) {{ $class }} @endisset"
             @if(isset($multiple) && $multiple) multiple @endif
             @if(isset($disabled) && $disabled) disabled @endif
             data-url="{{ $data_url }}"

@@ -5,14 +5,15 @@
 @endphp
 
 <a href="#"
-   class="field-x-editable"
+   class="field-x-editable @isset($class) {{ $class }} @endisset"
    data-value="{{ $value }}"
    data-type="{{ isset($type) ? $type : 'text' }}"
    data-name="{{ $field_name }}"
+   @isset($viewformat)data-viewformat="{{$viewformat}}"@endisset
    @isset($source)data-source="{{ json_encode($source) }}"@endisset
    @isset($url)data-url="{{ $url }}"@endisset
    @isset($pk)data-pk="{{ $pk }}"@endisset
-> {{ $value ?: $label }}
+> {{ $valueTitle ?? $value ?? $label }}
 </a>
 
 {{--
@@ -28,6 +29,7 @@
 {{--
 @include('lte::fields.field-x-editable', [
     'value' => 1,
+    'valueTitle' => 'Отображать',
     'type' => 'select',
     'field_name' => 'data[show_if_empty_filter]',
     'source' => [["value" => "1", "text" => "Отображать"], ["value" => "0", "text" => "Скрывать"]],
