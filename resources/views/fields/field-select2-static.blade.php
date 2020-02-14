@@ -15,7 +15,7 @@
 
     <select
             name="{{ $field_name_input }}"
-            class="form-control select2"
+            class="form-control select2 @isset($class) {{ $class }} @endisset"
             @if(isset($multiple) && $multiple && (empty($max) || $max > 1)) multiple @endif
             @if(isset($disabled) && $disabled) disabled @endif
             @if(isset($required) && $required) required @endif
