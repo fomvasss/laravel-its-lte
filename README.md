@@ -95,8 +95,13 @@ After installation, you can work with the following files:
     - `account` - user account form
 
 ### Laravel File Manager (v2)   
- 
-And LFM files:
+If needed, install [LFM](https://github.com/UniSharp/laravel-filemanager):
+
+```bash
+composer require unisharp/laravel-filemanager
+```
+
+And publish LFM files:
 - `config/lfm.php`
 - `public/vendor/laravel-filemanager`
 Recommend set LFM paths `config/lfm.php`:

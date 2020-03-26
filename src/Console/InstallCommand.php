@@ -41,9 +41,9 @@ class InstallCommand extends Command
         $this->callSilent('vendor:publish', ['--tag' => 'lte-view-account']);
         $this->callSilent('vendor:publish', ['--tag' => 'lte-view-nodes']);
 
-        $this->comment('Publishing LFM Config & Assets...');
-        $this->callSilent('vendor:publish', ['--tag' => 'lfm_config']);
-        $this->callSilent('vendor:publish', ['--tag' => 'lfm_public']);
+        // $this->comment('Publishing LFM Config & Assets...');
+        // $this->callSilent('vendor:publish', ['--tag' => 'lfm_config']);
+        // $this->callSilent('vendor:publish', ['--tag' => 'lfm_public']);
 
         $this->comment('Creating storage link...');
         $this->callSilent('storage:link');
