@@ -284,9 +284,7 @@ $(function () {
 
         $('[data-toggle="tooltip"]').tooltip()
 
-        // .edit-entity-in-modal  =>  .js-fill-fields-modal
-        // .data-entity           =>  .data-fields
-        $('.js-fill-fields-modal').on('click', function (e) {
+        $(document).on('click', '.js-fill-fields-modal', function (e) {
             e.preventDefault()
             var $this = $(this),
                 url = $this.data('url'),
