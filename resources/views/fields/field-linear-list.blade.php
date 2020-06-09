@@ -58,7 +58,7 @@
 </div>
 
 {{--
-@include('lte::fields.field-liner-list', [
+@include('lte::fields.field-linear-list', [
    'label' => 'Пример линейного списка',
    'field_name' => 'vars_json[phones]',
    'placeholder_value' => 'Значение',

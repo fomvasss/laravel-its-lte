@@ -2,7 +2,7 @@
     "name": "fomvasss/laravel-its-lte",
     "description": "Base Control Panel Templates",
     "keywords": [
-        "admin", "lte", "dashboard", "fields"
+        "admin", "lte", "dashboard", "fields", "control", "panel"
     ],
     "authors": [
         {
@@ -19,7 +19,6 @@
     ],
     "license": "MIT",
     "require": {
-        "illuminate/support": "^5.8|^6.0|^7.0",
         "laravelcollective/html": "^6.0"
     },
     "autoload": {

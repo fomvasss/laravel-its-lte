@@ -24,10 +24,10 @@ $(function () {
                 $select2 = $select.select2({
                     language: LANGUAGE,
                     tags: false
-                })
+                });
 
             $select2.on("select2:select", function (e) {
-                $base.find('.overlay').removeClass('hidden')
+                $base.find('.overlay').removeClass('hidden');
 
                 $.ajax({
                     method: method,
@@ -161,22 +161,30 @@ $(function () {
 
         if ($('.field-datetimepicker').length) {
             $('.field-datetimepicker').datetimepicker(datetimepickerOptions || {
-                format: 'Y-m-d H:i:s'
-            });
-        }
-        if ($('.field-datepicker').length) {
-            $('.field-datepicker').datetimepicker(datepickerOptions || {
-                timepicker:false,
-                format:'d.m.Y'
+                format: 'Y/m/d H:i:s'
             });
         }
 
-        $('.js-action-form').on('click', function (e) {
+        if ($('.field-datepicker').length) {
+            $('.field-datepicker').datetimepicker(datepickerOptions || {
+                timepicker:false,
+                format:'d/m/Y'
+            });
+        }
+
+        if ($('.field-timepicker').length) {
+            $('.field-timepicker').datetimepicker(timepickerOptions || {
+                datepicker:false,
+                format: 'H:i'
+            });
+        }
+
+        $(document).on('click', '.js-action-form', function (e) {
             e.preventDefault()
             var $form = $('#js-action-form'),
                 $this = $(this),
                 method = $this.data('method') || 'POST',
-                strConfirm = $this.data('confirm') || translates.notifications.confirmAction || 'Confirm?',
+                strConfirm = $this.data('confirm') || translates.notifications.confirmAction || 'Confirm action?',
                 destination = $(this).data('destination'),
                 url = $(this).data('url');
             if (url && $form && confirm(strConfirm)) {
@@ -348,32 +356,6 @@ $(function () {
                 }
             })
         })
-
-        if ($('#revenue-chart').length) {
-            var area = new Morris.Area({
-                element: 'revenue-chart',
-                resize: true,
-                data: chartOrders.data || [
-                    {y: '2012-01', new: 2666, success: 2666},
-                    {y: '2012-02', new: 2778, success: 2294},
-                    {y: '2012-03', new: 4912, success: 1969},
-                    {y: '2012-04', new: 3767, success: 3597},
-                    {y: '2012-05', new: 6810, success: 1914},
-                    {y: '2012-06', new: 5670, success: 4293},
-                    {y: '2012-07', new: 4820, success: 3795},
-                    {y: '2012-08', new: 15073, success: 15073},
-                    {y: '2012-09', new: 10687, success: 4460},
-                    {y: '2012-10', new: 8432, success: 5713},
-                    {y: '2012-11', new: 8432, success: 5713},
-                    {y: '2012-12', new: 8432, success: 5713}
-                ],
-                xkey: 'y',
-                ykeys: ['new', 'success'],
-                labels: chartOrders.labels || ['Новые', 'Подтвержденные'],
-                lineColors: ['#00c0ef', '#00a65a'],
-                hideHover: 'auto'
-            })
-        }
 
         if ($('.field-links').length) {
             $('.field-links').on('click', '.btn-info', function (e) {

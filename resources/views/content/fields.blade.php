@@ -27,7 +27,7 @@
                     <div class="box-body table-responsive ">
                         <table class="table table-hover">
                             <tbody><tr>
-                                <th>ID</th>
+                                <th>#</th>
                                 <th>User</th>
                                 <th>Date</th>
                                 <th>Status</th>
@@ -38,18 +38,23 @@
                             @for($i = 1; $i <= 5; $i++)
                                 <tr>
                                     <td>{{ $i }}</td>
-                                    <td>Alexander Pierce</td>
+                                    <td class="text-center">
+                                        <a href="#" target="_blank"><img src="/vendor/its-lte/img/no-avatar.png" alt="" style="height: 100px; border-radius: 50%"></a>
+                                        <p>{{ Str::random(5) . ' ' . Str::random(4, 8) }}</p>
+                                    </td>
                                     <td>11-7-2014</td>
                                     <td><span class="label label-warning">Pending</span></td>
                                     <td style="text-align: center">
                                         <i class="fa fa-check-square-o"></i>
                                     </td>
                                     <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    <td>@include('lte::inc.action-btn', [
-                                        'show' => '#',
-                                        'edit' => '#',
-                                        'delete' => '#',
-                                    ])</td>
+                                    <td class="text-center">
+                                        @include('lte::inc.action-btn', [
+                                            'show' => '#',
+                                            'edit' => '#',
+                                            'delete' => '#',
+                                        ])
+                                    </td>
                                 </tr>
                             @endfor
                             </tbody>
@@ -89,7 +94,7 @@
                         @include('lte::fields.field-radio-group', [
                             'field_name' => 'Способ доставки',
                             'selected' => 1,
-                            'attributes' => [1 => 'Самовывоз', 2 => 'Новая почта',]
+                            'attributes' => [1 => 'Самовывоз', 2 => 'Почта',]
                         ])
                     </div>
                 </div>
@@ -117,6 +122,7 @@
                             'field_name_end' => 'end_at',
                             'date_start' => date('m/d/Y'),
                             'date_end' => date('m/d/Y'),
+                            'format' => 'MM.DD.YYYY',
                             'show_saved' => true,
                         ])
 
@@ -127,11 +133,22 @@
                         ])
 
                         @include('lte::fields.field-datetimepicker', [
-                             'label' => 'Дата созадния',
+                             'label' => 'Дата и время создания',
                              'field_name' => 'created_at',
-                             'value' => \Carbon\Carbon::now()->format('Y/m/d H:i'),
+                             'value' => \Carbon\Carbon::now()->format('Y/m/d H:i:s'),
                          ])
 
+                        @include('lte::fields.field-datepicker', [
+                             'label' => 'Дата оформления',
+                             'field_name' => 'confirmed_at',
+                             'value' => \Carbon\Carbon::now()->format('d/m/Y'),
+                         ])
+
+                        @include('lte::fields.field-timepicker', [
+                            'label' => 'Время созадния',
+                            'field_name' => 'created_at',
+                            'value' => \Carbon\Carbon::now()->format('H:i:s'),
+                        ])
                     </div>
                 </div>
 
@@ -139,7 +156,7 @@
                     <div class="box-header">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h3 class="box-title"> Списки</h3>
+                                <h3 class="box-title">Списки</h3>
                             </div>
                         </div>
                     </div>
@@ -248,7 +265,7 @@
                     <div class="box-header">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h3 class="box-title"> Файлы</h3>
+                                <h3 class="box-title">Файлы</h3>
                             </div>
                         </div>
                     </div>
@@ -405,9 +422,15 @@
 
 @push('scripts')
     <script>
-        toastr.success('Hello ITS Developer!!!')
+        // https://github.com/CodeSeven/toastr
+        toastr.success('Hello ITS developer!')
+
+        // https://lipis.github.io/bootstrap-sweetalert/
+        swal("Good job!", "You clicked the button!", "success")
     </script>
 @endpush
+
+
 
 @push('modals')
     <div class="modal fade" tabindex="-1" role="dialog" id="myModal">

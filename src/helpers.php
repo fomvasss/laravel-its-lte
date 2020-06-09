@@ -145,3 +145,17 @@ if (! function_exists('array_values_recursive')) {
         return $lst;
     }
 }
+
+
+if (! function_exists('string_to_color_code')) {
+    /**
+     * @param string $str
+     * @return string
+     */
+    function string_to_color_code(string $str): string
+    {
+        $code = dechex(crc32($str));
+
+        return substr($code, 0, 6);
+    }
+}

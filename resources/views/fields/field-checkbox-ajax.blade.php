@@ -1,5 +1,5 @@
 {{-- TODO do js, blade --}}
-<div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
+<div class="form-group @error('name') has-error @enderror">
     @php
         $field_name = isset($field_name) ? $field_name : '';
     @endphp
@@ -15,15 +15,15 @@
         <label for="{{ $field_name }}">{!! $label ?? 'Статус' !!}</label>
     </div>
     @isset($help_block) <p class="help-block small">{!! $help_block !!}</p>@endisset
-    {!! $errors->first(Str::replaceLast('[]', '', $field_name), '<p class="help-block" style="color:red;">:message</p>') !!}
+    @error(Str::replaceLast('[]', '', $field_name)) <p class="help-block" style="color:red;">{{ $message }}</p> @enderror
 </div>
 
 {{--
 @include('lte::fields.field-checkbox-ajax', [
-    'label' => 'Статус',
-    'field_name' => 'status',
-    'status' => 0,
-    'url' => '',
+'label' => 'Статус',
+'field_name' => 'status',
+'status' => 0,
+'url' => '',
 ])
 --}}
 

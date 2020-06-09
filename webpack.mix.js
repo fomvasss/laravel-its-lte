@@ -33,6 +33,8 @@ mix.combine([
     paths.bowerPath + 'toastr/toastr.min.css',
     paths.bowerPath + 'x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css',
     paths.bowerPath + 'datetimepicker/jquery.datetimepicker.css',
+    paths.bowerPath + 'chart.js/dist/Chart.min.css',
+    paths.bowerPath + 'bootstrap-sweetalert/dist/sweetalert.css',
     paths.webDev.css + 'skins/_all-skins.min.css',
     paths.webDev.css + 'AdminLTE.min.css',
     //paths.webDev.css + 'dashboard.css',
@@ -61,6 +63,8 @@ mix.combine([
     paths.bowerPath + 'toastr/toastr.min.js',
     paths.bowerPath + 'x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js',
     paths.bowerPath + 'datetimepicker/build/jquery.datetimepicker.full.js',
+    paths.bowerPath + 'chart.js/dist/Chart.min.js',
+    paths.bowerPath + 'bootstrap-sweetalert/dist/sweetalert.min.js',
     paths.webDev.js + 'adminlte.min.js',
 ], paths.webProd.js + 'main.js', false);
 

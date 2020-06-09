@@ -1,4 +1,4 @@
-<div class="form-group {{ $errors->has('path') ? 'has-error' : ''}}">
+<div class="form-group @error('path') has-error @enderror">
     @php
         $field_name = isset($field_name) ? $field_name : '';
     @endphp
@@ -14,7 +14,7 @@
             @isset($label)<label for="{{ $field_name.$loop->index }}">{{ $label }}</label>@endisset
         </div>
     @endforeach
-    {!! $errors->first( $field_name , '<p class="help-block">:message</p>') !!}
+    @error($field_name) <p class="help-block">{{ $message }}</p> @enderror
 </div>
 
 {{--

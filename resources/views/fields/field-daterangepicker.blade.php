@@ -1,5 +1,5 @@
 <div class="form-group">
-    <label>{{ $label ?? 'Период:' }}</label>
+    @isset($label)<label>{{ $label }}</label>@endisset
     @if(isset($show_saved) && $show_saved)
     <h5>
         От: <strong>{{ $date_start ?? '' }}</strong>&emsp;
@@ -7,11 +7,6 @@
     </h5>
     @endif
     <div class="input-group">
-        {{--
-        <span class="input-group-addon">
-          <input type="checkbox">
-        </span>
-        --}}
         <div class="input-group-addon">
             <i class="fa fa-calendar"></i>
         </div>
@@ -24,9 +19,9 @@
         <input type="hidden" name="{{ $field_name_start ?? '' }}" value="{{ $date_start ?? '' }}">
         <input type="hidden" name="{{ $field_name_end ?? '' }}" value="{{ $date_end ?? '' }}">
     </div>
-    {!! $errors->first($field_name ?? '', '<p class="help-block" style="color:red;">:message</p>') !!}
-    {!! $errors->first($field_name_start ?? '', '<p class="help-block" style="color:red;">:message</p>') !!}
-    {!! $errors->first($field_name_end ?? '', '<p class="help-block" style="color:red;">:message</p>') !!}
+    @error($field_name ?? '')<p class="help-block" style="color:red;">:message</p>@enderror
+    @error($field_name_start ?? '')<p class="help-block" style="color:red;">:message</p>@enderror
+    @error($field_name_end ?? '')<p class="help-block" style="color:red;">:message</p>@enderror
 </div>
 
 {{--
