@@ -204,7 +204,7 @@
     </section>
 @endsection
 
-{{-- TODO: $chartData - array data for example --}}
+{{-- TODO: PHP arrays - charts data for example --}}
 @php
     $chartData = [
         'data' => [
@@ -244,6 +244,7 @@
 
 @push('scripts')
     <script>
+
         // http://morrisjs.github.io/morris.js/
         if ($('#revenue-chart').length) {
             var chartOrders = @json($chartData ?? []),

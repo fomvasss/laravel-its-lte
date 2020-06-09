@@ -38,7 +38,7 @@
 @include('lte::fields.field-form-buttons', [
     'class' => 'pull-left',
     'url_store_and_continue' => '',
-    'url_store_and_create' => route('lte.products.create', ['product_group_id' => isset($product) ? $product->product_group_id : null]),
+    'url_store_and_create' => route('lte.products.create'),
     'url_store_and_close' => session('lte.products.index'),
     'url_destroy' => isset($product) ? route('lte.products.destroy', $product) : '',
     'url_after_destroy' => session('lte.products.index'),

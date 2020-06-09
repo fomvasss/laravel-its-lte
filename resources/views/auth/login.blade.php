@@ -43,12 +43,12 @@
             </form>
 
             @include('lte::auth.social-links')
-            @if (Route::has('password.request'))
+            @if(Route::has('password.request'))
                 <a href="{{ route('password.request') }}">
                     Восстановить пароль
                 </a>
             @endif
-            @if (Route::has('register'))
+            @if(Route::has('register'))
                 <a href="{{ route('register') }}">
                     Зарегистрироваться
                 </a>

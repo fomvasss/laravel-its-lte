@@ -9,7 +9,7 @@
 </div>
 
 {{--
-@include('lte::inc.empty-rows', [
+@include('lte::parts.empty-rows', [
     'url_create' => route('users.create'),
     'msg_title' => 'Поиск не дал результатов',
     'msg_body' => 'Измените поисковый запрос, и попробуйте снова',

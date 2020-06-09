@@ -14,6 +14,12 @@ return [
 
     'middleware' => ['web'],
 
+    'alerts' => [
+        'bootstrap',
+        'toastr',
+        'sweetalert',
+    ],
+
     'default' => [
         /**
          * Available skins:

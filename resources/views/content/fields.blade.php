@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Responsive Hover Table</h3>
+                        <h3 class="box-title">Example items list</h3>
 
                         <div class="box-tools pull-right">
                             <ul class="pagination pagination-sm inline">
@@ -17,16 +17,17 @@
                                 @endforeach
                             </ul>
                             &nbsp;
-                            @include('lte::inc.entity-navigation', [
+                            @include('lte::parts.entity-navigation', [
                                'next' => '#',
                                'previous' => '#',
                             ])
                         </div>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body table-responsive ">
+                    <div class="box-body table-responsive">
                         <table class="table table-hover">
-                            <tbody><tr>
+                            <tbody class="v-middle">
+                            <tr>
                                 <th>#</th>
                                 <th>User</th>
                                 <th>Date</th>
@@ -49,7 +50,7 @@
                                     </td>
                                     <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
                                     <td class="text-center">
-                                        @include('lte::inc.action-btn', [
+                                        @include('lte::parts.action-btn', [
                                             'show' => '#',
                                             'edit' => '#',
                                             'delete' => '#',
@@ -61,7 +62,7 @@
                         </table>
                     </div>
                     <div class="box-footer">
-                        @include('lte::inc.pagination')
+                        @include('lte::parts.pagination')
                     </div>
                 </div>
             </div>

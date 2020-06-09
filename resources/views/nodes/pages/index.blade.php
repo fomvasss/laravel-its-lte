@@ -18,7 +18,7 @@
         <div class="box-body">
             @if(empty($nodes) || $nodes->count() < 1)
                 {{-- TODO --}}
-                @include('lte::inc.empty-rows', [/*'url_create' => route('admin.pages.create')*/])
+                @include('lte::parts.empty-rows', [/*'url_create' => route('admin.pages.create')*/])
             @else
             <div class="table-responsive">
                 <table class="table table-bordered table-striped">
@@ -28,7 +28,7 @@
                         <th>Название</th>
                         <th style="text-align: center">Публиковать</th>
                         <th>Шаблон</th>
-                        <th style="width:100px;">Действия</th>
+                        <th style="width:100px;"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -58,8 +58,7 @@
 
         <div class="box-footer">
             <div class="pull-right">
-                {{-- TODO --}}
-                {{--@include('admin.inc.pagination', ['pages' => $nodes])--}}
+                {{--@include('lte::parts.pagination', ['pages' => $nodes])--}}
             </div>
         </div>
     </div>

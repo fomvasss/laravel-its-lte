@@ -7,6 +7,13 @@ use Illuminate\Routing\Controller;
 
 class ExampleController extends Controller
 {
+    public function home()
+    {
+        \Session::flash('success', 'Welcome to Laravel Admin LTE!');
+
+        return view('lte::content.home');
+    }
+
     public function treeselect(Request $request)
     {
         return response()->json([

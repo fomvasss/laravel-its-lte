@@ -1,3 +1,7 @@
+.table>tbody.v-middle>tr>td {
+	vertical-align: middle;
+}
+
 ul.todo-list {
     list-style: none;
 }

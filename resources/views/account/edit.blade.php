@@ -1,12 +1,14 @@
 @extends('lte::layouts.app')
 
-@php
-    $content_header = [
-        'page_title' => 'Аккаунт',
-    ]
-@endphp
-
 @section('content')
+
+    @include('lte::layouts.inc.content-header', [
+       'page_title' => 'Аккаунт',
+       'small_page_title' => 'Admin Bob',
+       'url_back' => '',
+       'url_create' => ''
+   ])
+
     <section class="content">
         <div class="row">
             <div class="col-lg-8 col-md-offset-2">
@@ -40,17 +42,13 @@
                                 {!! Form::password('password',  ['class' => 'form-control',]) !!}
                                 {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
                             </div>
-
                             <div class="form-group {{ $errors->has('password_confirmation') ? 'has-error' : ''}}">
                                 {!! Form::label('password_confirmation', 'Подтверждение пароля', ['class' => 'control-label',]) !!}
                                 {!! Form::password('password_confirmation', ['class' => 'form-control',]) !!}
                                 {!! $errors->first('password_confirmation', '<p class="help-block">:message</p>') !!}
                             </div>
 
-                        @include('lte::fields.field-form-buttons', [
-                            'url_store_and_continue' => '#'
-                        ])
-
+                            @include('lte::fields.field-form-buttons')
                         {!! Form::close() !!}
                     </div>
                 </div>

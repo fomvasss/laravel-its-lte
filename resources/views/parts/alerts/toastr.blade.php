@@ -4,8 +4,8 @@
     @endphp
 
     @foreach ($flashKeys as $keyName)
-        @if (\Illuminate\Support\Facades\Session::has($keyName))
-            toastr.{{$keyName}}("{{ \Illuminate\Support\Facades\Session::get($keyName) }}");
+        @if (Session::has($keyName))
+            toastr.{{$keyName}}("{{ Session::get($keyName) }}");
         @endif
     @endforeach
 

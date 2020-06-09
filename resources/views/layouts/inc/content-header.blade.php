@@ -1,11 +1,13 @@
 <section class="content-header">
     <h1>
-        @if(! empty($url_back))
+        @if(!empty($url_back))
             <a href="{{ $url_back }}" class="btn btn-xs btn-warning"><i class="fa fa-chevron-left"></i> Назад</a>
         @endif
-        {!! $page_title ?? '' !!}
-        <small>{{ $small_page_title ?? '' }}</small>
-        @if(! empty($url_create))
+
+        @isset($page_title) {!! $page_title !!} @endisset
+        @isset($small_page_title)<small>{{ $small_page_title }}</small>@endisset
+
+        @if(!empty($url_create))
             <a href="{{ $url_create }}" class="btn btn-xs btn-success"><i class="fa fa-plus"></i> Создать</a>
         @endif
     </h1>
@@ -16,3 +18,12 @@
         @endisset
     </ol>
 </section>
+
+{{--
+    @include('lte::layouts.inc.content-header', [
+       'page_title' => 'Аккаунт',
+       'small_page_title' => 'Admin Bob',
+       'url_back' => '',
+       'url_create' => ''
+   ])
+--}}

@@ -27,7 +27,7 @@
                 ])
             </ul>
         @else
-            @include('lte::inc.empty-rows', ['url_create' => isset($url_create_root) ? ($url_create_root) : '#'])
+            @include('lte::parts.empty-rows', ['url_create' => isset($url_create_root) ? ($url_create_root) : '#'])
         @endif
     </div>
 </div>

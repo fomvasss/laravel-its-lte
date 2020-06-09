@@ -3,7 +3,7 @@
 
 Route::view('login', 'lte::auth.login')->name('login');
 
-Route::view('/', 'lte::content.home')->name('home');
+Route::get('/', 'ExampleController@home')->name('home');
 Route::view('fields', 'lte::content.fields')->name('fields');
 Route::view('blank', 'lte::content.blank')->name('blank');
 Route::view('account', 'lte::account.edit')->name('account.edit');
