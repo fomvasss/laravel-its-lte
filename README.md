@@ -32,7 +32,7 @@ Visit the path `http://your-site.local/lte`
 ## Publishing (optional)
 Of course, you can publish only the necessary system components:
 - views:
-`lte-view-fields`, `lte-view-content`, `lte-view-auth`, `lte-view-inc`, `lte-view-layouts`, `lte-view-account`, `lte-view-nodes`
+`lte-view-fields`, `lte-view-content`, `lte-view-auth`, `lte-view-parts`, `lte-view-layouts`, `lte-view-account`
 - other:
 `lte-config`, `lte-assets`, `lte-lang`
 
@@ -56,25 +56,54 @@ After publishing assets, its primary configuration file will be located at `conf
 <?php
 
 return [
-
-   'title' => 'LTE Dashboard',
+    'title' => 'Dashboard',
    
-   'logo' => env('LTE_LOGO', '<b>ITS</b>LTE'),
-
-   'logo_mini' => env('LTE_LOGO_MINI', '<b>IT</b>LT'),
-
-   'logo_href' => '/lte',
-
-   'prefix' => 'lte',
-
-   'middleware' => ['web'],
-
-   'default' => [
-	   'skin' => 'skin-yellow-light',
-	   'layout_boxed' => false,
-	   'sidebar_collapse' => false,
-	   'fixed' => false,
-   ]
+       'logo' => env('LTE_LOGO', '<b>ITS</b>LTE'),
+   
+       'logo_mini' => env('LTE_LOGO_MINI', '<b>IT</b>LT'),
+   
+       'logo_href' => '/lte',
+   
+       'prefix' => 'lte',
+   
+       'middleware' => ['web'],
+   
+       /**
+        * Example aside menu
+        */
+       'aside_menu' => [
+           'static' => env('APP_ENV') !== 'production',
+           'lte' => env('APP_ENV') !== 'production',
+       ],
+   
+       /**
+        * Show next type alerts in dashboard
+        * Example success type alert: \Session::flash('success', 'Welcome to Laravel Admin LTE!');
+        * Available types: success, info, warning, error
+        *
+        */
+   
+       'view' => [
+           /**
+            * Available skins:
+            * skin-blue, skin-black, skin-purple, skin-green, skin-red,
+            * skin-yellow, skin-blue-light, skin-black-light, skin-purple-light,
+            * skin-green-light, skin-red-light, skin-yellow-light,
+            *
+            */
+           'skin' => 'skin-purple',
+           'layout_boxed' => false,
+           'sidebar_collapse' => false,
+           'fixed' => false,
+   
+           'alerts' => [
+               //'bootstrap',
+               //'toastr',
+               'sweetalert',
+           ],
+   
+           'btn_actions_class' => 'btn-xs', //'btn-sm btn-flat'
+       ],
 ];
 ```
 
@@ -86,12 +115,11 @@ After installation, you can work with the following files:
 - `public/vendor/its-lte` - compiled assets files
 - `resources/lang/vendor/lte` - message localization files
 - `resources/views/vendor/lte`
-    - `layouts`
-    - `inc` - not published by default
+    - `layouts` - main layout
+    - `parts` - not published by default
     - `fields` - not published by default
-    - `auth` - auth/register forms
+    - `auth` - auth/register/reset forms
     - `content` - example templates for content
-    - `nodes` - example nodes: users, pages
     - `account` - user account form
 
 ### Laravel File Manager (v2)   
