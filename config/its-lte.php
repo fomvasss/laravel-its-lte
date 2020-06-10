@@ -48,6 +48,10 @@ return [
             'sweetalert',
         ],
 
+        'aside_auth_user_info' => false,
+
+        'aside_search' => false,
+
         'btn_actions_class' => 'btn-xs', //'btn-sm btn-flat'
     ],
 ];

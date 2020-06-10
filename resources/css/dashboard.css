@@ -213,3 +213,11 @@ img.thumbnail-10 {
 img.thumbnail-0 {
 	height: 100px;
 }
+
+.navbar-nav.filter-languages span {
+	font-size: small;
+}
+.navbar-nav.filter-languages a.act {
+	border-bottom: solid 2px white;
+	font-weight: bold;
+}

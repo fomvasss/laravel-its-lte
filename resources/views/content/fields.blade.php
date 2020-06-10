@@ -32,7 +32,6 @@
                                     <th></th>
                                     <th>Date</th>
                                     <th>Reason</th>
-                                    <th>Status</th>
                                     <th>Payment</th>
                                     <th class="text-center">Publish</th>
                                     <th>Actions</th>
@@ -50,15 +49,6 @@
                                     </td>
                                     <td>11/07/2014</td>
                                     <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                    <td style="width: 150px;">
-                                        @include('lte::fields.field-select2-change-status-ajax', [
-                                            'field_name' => 'status',
-                                            'attributes' => ['new' => 'New', 'success' => 'Success'],
-                                            'selected' => 'new',
-                                            'empty_value' => '--не указано--',
-                                            'data_url' => route('lte.data.status'),
-                                        ])
-                                    </td>
                                     <td>
                                         <span class="label label-warning">Pending</span>
                                     </td>
@@ -154,13 +144,6 @@
                              'field_name' => 'created_at',
                              'value' => \Carbon\Carbon::now()->format('Y/m/d H:i:s'),
                          ])
-                        <script>
-                            var datetimepickerOptions = {
-                                format: 'Y/m/d H:i:s',
-                                inline:true,
-                                lang:'ru'
-                            }
-                        </script>
 
                         @include('lte::fields.field-datepicker', [
                              'label' => 'Дата оформления',
@@ -220,7 +203,7 @@
                               'field_name' => 'data[show]',
                               'source' => [["value" => "1", "text" => "Отображать"], ["value" => "0", "text" => "Скрывать"]],
                               'pk' => 13,
-                              'url' => '#',
+                              'url' => route('lte.data.status'),
                               'value_title' => 'Скрывать',
                             ])
                             |
@@ -229,7 +212,7 @@
                                'type' => 'textarea',
                                'field_name' => 'data[message]',
                                'pk' => 14,
-                               'url' => '#',
+                               'url' => route('lte.data.status'),
                             ])
 
                     </div>
@@ -244,10 +227,17 @@
                         </div>
                     </div>
                     <div class="box-body">
-                        <button type="button" class="btn btn-success js-alert" data-type="success">Success</button>
-                        <button type="button" class="btn btn-info js-alert" data-type="info">Info</button>
-                        <button type="button" class="btn btn-warning js-alert" data-type="warning">Warning</button>
-                        <button type="button" class="btn btn-danger js-alert" data-type="error">Error (danger)</button>
+                        <div>
+                            <button type="button" class="btn btn-success js-alert" data-type="success">Success</button>
+                            <button type="button" class="btn btn-info js-alert" data-type="info">Info</button>
+                            <button type="button" class="btn btn-warning js-alert" data-type="warning">Warning</button>
+                            <button type="button" class="btn btn-danger js-alert" data-type="error">Error (danger)</button>
+                        </div>
+                        <br>
+                        <div>
+                            <p><a href="https://github.com/CodeSeven/toastr" target="_blank">https://github.com/CodeSeven/toastr</a></p>
+                            <p><a href="https://lipis.github.io/bootstrap-sweetalert/" target="_blank">https://lipis.github.io/bootstrap-sweetalert/</a></p>
+                        </div>
                     </div>
                 </div>
 
@@ -261,6 +251,18 @@
                     </div>
                     <div class="box-body">
 
+                        @include('lte::fields.field-select2-static', [
+                            'label' => 'Теги',
+                            'field_name' => 'values[]',
+                            'multiple' => 1,
+                            'max' => 2,
+                            'disabled' => 0,
+                            'required' => 1,
+                            'attributes' => [1 => 'PHP', 2 => 'Laravel', 3 => 'JS', 4 => 'Vue'],
+                            'selected' => [2,4],
+                            'empty_value' => '--не выбрано--',
+                        ])
+
                         @include('lte::fields.field-select2-ajax-autocomplete', [
                             'label' => 'Теги статьи',
                             'data_url' => route('lte.data.statuses'),
@@ -272,21 +274,12 @@
                         ])
 
                         @include('lte::fields.field-select2-change-status-ajax', [
-                           'selected' => 2,
-                           'attributes' => [1 => 'Новый заказ', 2 => 'Обработан', 3 => 'В обработке'],
-                           'data_url' => route('lte.data.statuses'),
-                        ])
-
-                        @include('lte::fields.field-select2-static', [
-                            'label' => 'Теги',
-                            'field_name' => 'values[]',
-                            'multiple' => 1,
-                            'max' => 2,
-                            'disabled' => 0,
-                            'required' => 1,
-                            'attributes' => [1 => 'PHP', 2 => 'Laravel', 3 => 'JS', 4 => 'Vue'],
-                            'selected' => [2,4],
-                            'empty_value' => '--не указано--',
+                            'label' => 'Статус',
+                            'field_name' => 'status',
+                            'attributes' => ['new' => 'New', 'success' => 'Success'],
+                            'selected' => 'new',
+                            'empty_value' => '--не выбрано--',
+                            'data_url' => route('lte.data.status'),
                         ])
 
                         @include('lte::fields.field-select2-tree-ajax', [
@@ -465,6 +458,12 @@
 
 @push('scripts')
     <script>
+        var datetimepickerOptions = {
+            format: 'Y/m/d H:i:s',
+            inline:true,
+            lang:'ru'
+        };
+
         $('.js-alert').on('click', function () {
             var type = $(this).data('type');
 
@@ -472,10 +471,7 @@
                 toastr[type](type.toUpperCase() + ': Hello ITS developer!');
                 swal(type.toUpperCase(), "You clicked the button!", type);
             } else {
-                // https://github.com/CodeSeven/toastr
                 toastr.success('Hello ITS developer!');
-
-                // https://lipis.github.io/bootstrap-sweetalert/
                 swal("Good job!", "You clicked the button!", "success");
             }
         });
