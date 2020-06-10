@@ -1,7 +1,3 @@
-.table>tbody.v-middle>tr>td {
-	vertical-align: middle;
-}
-
 ul.todo-list {
     list-style: none;
 }
@@ -192,4 +188,28 @@ img {
 	.navbar-nav>.user-menu .account-icon {
 		display: block;
 	}
+}
+
+.table.td-middle>tbody>tr>td {
+	vertical-align: middle;
+}
+
+.content-message {
+	padding: 20px 30px;
+	background: rgb(243, 156, 18);
+	z-index: 999999;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+img.thumbnail-50 {
+	height: 100px;
+	border-radius: 50%
+}
+img.thumbnail-10 {
+	height: 100px;
+	border-radius: 10%
+}
+img.thumbnail-0 {
+	height: 100px;
 }

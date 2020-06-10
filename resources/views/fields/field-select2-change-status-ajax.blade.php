@@ -2,6 +2,9 @@
     $field_name = $field_name ?? '';
 @endphp
 <div class="form-group field-select2-change-status-ajax" data-url="{{ $data_url ?? '#' }}" data-method="POST">
+    @isset($label)
+        <label class="control-label">{!! $label !!}</label>
+    @endisset
     <select 
         name="{{ $field_name ?? '' }}"
         data-minimum-results-for-search="Infinity"
@@ -26,10 +29,11 @@
 
 {{--
 @include('lte::fields.field-select2-change-status-ajax', [
-            'field_name' => 'store_id',
-            'attributes' => $stores->pluck('name', 'id')->toArray(),
-            'selected' => $address->store_id,
-            'empty_value' => 'Не выбрано',
-            'data_url' => '#',
-        ])
+    'label' => 'Status',
+    'field_name' => 'status',
+    'attributes' => ['new' => 'New', 'success' => 'Success',  'error' => 'Error'],
+    'selected' => 'success',
+    'empty_value' => '--не указано--',
+    'data_url' => route('lte.data.status'),
+])
 --}}

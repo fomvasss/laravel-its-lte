@@ -25,30 +25,46 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive">
-                        <table class="table table-hover">
-                            <tbody class="v-middle">
-                            <tr>
-                                <th>#</th>
-                                <th>User</th>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th style="text-align: center">Publish</th>
-                                <th>Reason</th>
-                                <th>Actions</th>
-                            </tr>
-                            @for($i = 1; $i <= 5; $i++)
+                        <table class="table table-hover td-middle">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th></th>
+                                    <th>Date</th>
+                                    <th>Reason</th>
+                                    <th>Status</th>
+                                    <th>Payment</th>
+                                    <th class="text-center">Publish</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for($i = 1; $i <= 5; $i++)
                                 <tr>
                                     <td>{{ $i }}</td>
                                     <td class="text-center">
-                                        <a href="#" target="_blank"><img src="/vendor/its-lte/img/no-avatar.png" alt="" style="height: 100px; border-radius: 50%"></a>
-                                        <p>{{ Str::random(5) . ' ' . Str::random(4, 8) }}</p>
+                                        <a href="#" target="_blank">
+                                            <img src="/vendor/its-lte/img/no-avatar.png" class="thumbnail-50">
+                                        </a>
+                                        <p>{{ Str::random(7, 12) }}</p>
                                     </td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="label label-warning">Pending</span></td>
-                                    <td style="text-align: center">
+                                    <td>11/07/2014</td>
+                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                    <td style="width: 150px;">
+                                        @include('lte::fields.field-select2-change-status-ajax', [
+                                            'field_name' => 'status',
+                                            'attributes' => ['new' => 'New', 'success' => 'Success'],
+                                            'selected' => 'new',
+                                            'empty_value' => '--не указано--',
+                                            'data_url' => route('lte.data.status'),
+                                        ])
+                                    </td>
+                                    <td>
+                                        <span class="label label-warning">Pending</span>
+                                    </td>
+                                    <td class="text-center">
                                         <i class="fa fa-check-square-o"></i>
                                     </td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
                                     <td class="text-center">
                                         @include('lte::parts.action-btn', [
                                             'show' => '#',
@@ -57,7 +73,7 @@
                                         ])
                                     </td>
                                 </tr>
-                            @endfor
+                                @endfor
                             </tbody>
                         </table>
                     </div>
@@ -74,7 +90,7 @@
                     <div class="box-header">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h3 class="box-title">Флажки, radio</h3>
+                                <h3 class="box-title">Checkbox, radio</h3>
                             </div>
                         </div>
                     </div>
@@ -103,17 +119,17 @@
                     <div class="box-header">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h3 class="box-title"> Текст, Время, дата, цвет</h3>
+                                <h3 class="box-title"> Date, time, color</h3>
                             </div>
                         </div>
                     </div>
                     <div class="box-body">
                         @include('lte::fields.field-text', [
-                            'label' => 'Имя',
+                            'label' => 'Name',
                             'field_name' => 'name',
                             'value' => isset($name) ? $name : '',
                             'type' => 'text',
-                            'placeholder' => 'Введите ваше имя',
+                            'placeholder' => 'Enter your name',
                         ])
 
                         @include('lte::fields.field-daterangepicker', [
@@ -138,6 +154,13 @@
                              'field_name' => 'created_at',
                              'value' => \Carbon\Carbon::now()->format('Y/m/d H:i:s'),
                          ])
+                        <script>
+                            var datetimepickerOptions = {
+                                format: 'Y/m/d H:i:s',
+                                inline:true,
+                                lang:'ru'
+                            }
+                        </script>
 
                         @include('lte::fields.field-datepicker', [
                              'label' => 'Дата оформления',

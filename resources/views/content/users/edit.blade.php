@@ -22,7 +22,7 @@
                         <h3 class="box-title">Редактирование <strong>{{ isset($user) ? $user->name : '' }}</strong></h3>
                     </div>
                     <div class="box-body">
-                            @include('lte::nodes.users._form')
+                            @include('lte::content.users._form')
                     </div>
                     {!! Form::close() !!}
                 </div>

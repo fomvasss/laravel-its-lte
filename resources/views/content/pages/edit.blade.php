@@ -42,14 +42,14 @@
                                     //'route' => ['admin.pages.seo.save', $node],
                                     'files' => true
                                 ]) !!}
-                                @include('lte::nodes.pages._seo', ['model' => $node])
+                                @include('lte::content.pages._seo', ['model' => $node])
                             @else
                                 {!! Form::model($node ?? null, [
                                     'method' => 'PATCH',
                                     //'route' => ['admin.pages.update', $node],
                                     'files' => true
                                 ]) !!}
-                                @include('lte::nodes.pages._form')
+                                @include('lte::content.pages._form')
                             @endif
                             {!! Form::close() !!}
                         </div>

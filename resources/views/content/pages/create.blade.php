@@ -33,7 +33,7 @@
                                  //'route' => 'admin.pages.store',
                                  'files' => true
                             ]) !!}
-                            @include('lte::nodes.pages._form')
+                            @include('lte::content.pages._form')
                             {!! Form::close() !!}
                         </div>
                     </div>

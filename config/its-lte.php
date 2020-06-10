@@ -2,7 +2,7 @@
 
 return [
 
-    'title' => 'LTE Dashboard',
+    'title' => 'Dashboard',
 
     'logo' => env('LTE_LOGO', '<b>ITS</b>LTE'),
 
@@ -14,13 +14,22 @@ return [
 
     'middleware' => ['web'],
 
-    'alerts' => [
-        'bootstrap',
-        'toastr',
-        'sweetalert',
+    /**
+     * Example aside menu
+     */
+    'aside_menu' => [
+        'static' => env('APP_ENV') !== 'production',
+        'lte' => env('APP_ENV') !== 'production',
     ],
 
-    'default' => [
+    /**
+     * Show next type alerts in dashboard
+     * Example success type alert: \Session::flash('success', 'Welcome to Laravel Admin LTE!');
+     * Available types: success, info, warning, error
+     *
+     */
+
+    'view' => [
         /**
          * Available skins:
          * skin-blue, skin-black, skin-purple, skin-green, skin-red,
@@ -32,5 +41,13 @@ return [
         'layout_boxed' => false,
         'sidebar_collapse' => false,
         'fixed' => false,
-    ]
+
+        'alerts' => [
+            //'bootstrap',
+            //'toastr',
+            'sweetalert',
+        ],
+
+        'btn_actions_class' => 'btn-xs', //'btn-sm btn-flat'
+    ],
 ];

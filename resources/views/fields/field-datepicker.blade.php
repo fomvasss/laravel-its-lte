@@ -3,7 +3,7 @@
     $value = isset($value) ? $value : '';
 @endphp
 <div class="form-group @error($field_name) has-error @enderror">
-    <label for="{{ $field_name }}">{!! $label ?? 'Дата' !!}</label>
+    <label for="{{ $field_name }}">{!! $label ?? 'Дата' !!}</label><br>
     <input type="text" class="form-control field-datepicker @isset($class) {{ $class }} @endisset" name="{{ $field_name }}" value="{{ $value }}" autocomplete="off"/>
     @error(Str::replaceLast('[]', '', $field_name)) <p class="help-block" style="color:red;">{{ $message }}</p> @enderror
 </div>

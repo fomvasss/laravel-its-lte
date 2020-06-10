@@ -35,11 +35,10 @@ class InstallCommand extends Command
         $this->callSilent('vendor:publish', ['--tag' => 'lte-lang']);
 
         $this->comment('Publishing Lte Views Content...');
-        $this->callSilent('vendor:publish', ['--tag' => 'lte-view-content']);
-        $this->callSilent('vendor:publish', ['--tag' => 'lte-view-auth']);
-        $this->callSilent('vendor:publish', ['--tag' => 'lte-view-layouts']);
         $this->callSilent('vendor:publish', ['--tag' => 'lte-view-account']);
-        $this->callSilent('vendor:publish', ['--tag' => 'lte-view-nodes']);
+        $this->callSilent('vendor:publish', ['--tag' => 'lte-view-auth']);
+        $this->callSilent('vendor:publish', ['--tag' => 'lte-view-content']);
+        $this->callSilent('vendor:publish', ['--tag' => 'lte-view-layouts']);
 
         // $this->comment('Publishing LFM Config & Assets...');
         // $this->callSilent('vendor:publish', ['--tag' => 'lfm_config']);

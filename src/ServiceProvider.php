@@ -63,7 +63,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
                 __DIR__.'/../resources/views' => resource_path('views/vendor/lte'),
             ], 'lte-views');
 
-            foreach (['fields', 'content', 'auth', 'layouts', 'inc', 'account', 'nodes'] as $key) {
+            foreach (['account', 'auth', 'content', 'fields', 'layouts', 'parts',] as $key) {
                 $this->publishes([
                     __DIR__.'/../resources/views/'.$key => resource_path('views/vendor/lte/'.$key),
                 ], 'lte-view-'.$key);

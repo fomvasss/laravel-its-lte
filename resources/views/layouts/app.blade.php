@@ -5,7 +5,7 @@
     <div class="content-wrapper">
 
         @include('lte::layouts.inc.content-messages')
-        @includeWhen(in_array('bootstrap', config('its-lte.alerts', [])), 'lte::parts.alerts.bootstrap')
+        @include('lte::parts.alerts')
 
         @yield('content')
     </div>
@@ -14,6 +14,4 @@
 </div>
 @include('lte::layouts.inc.end')
 
-@includeWhen(in_array('toastr', config('its-lte.alerts', [])), 'lte::parts.alerts.toastr')
-@includeWhen(in_array('sweetalert', config('its-lte.alerts', [])), 'lte::parts.alerts.sweetalert')
 @stack('modals')

@@ -13,10 +13,10 @@
 <section class="content">
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Всего: {{ isset($nodes) ? $nodes->total() : 0 }}</h3>
+            <h3 class="box-title">Всего: {{ isset($content) ? $content->total() : 0 }}</h3>
         </div>
         <div class="box-body">
-            @if(empty($nodes) || $nodes->count() < 1)
+            @if(empty($content) || $content->count() < 1)
                 {{-- TODO --}}
                 @include('lte::parts.empty-rows', [/*'url_create' => route('admin.pages.create')*/])
             @else
@@ -32,7 +32,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($nodes as $node)
+                    @foreach($content as $node)
                     <tr>
                         <td>{{ $node->id }}</td>
                         <td>{{ $node->name }}</td>
@@ -58,7 +58,7 @@
 
         <div class="box-footer">
             <div class="pull-right">
-                {{--@include('lte::parts.pagination', ['pages' => $nodes])--}}
+                {{--@include('lte::parts.pagination', ['pages' => $content])--}}
             </div>
         </div>
     </div>

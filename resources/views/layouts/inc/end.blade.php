@@ -93,7 +93,7 @@
         },
         timepickerOptions = {
             datepicker:false,
-            format: 'H:i'
+            format: 'H:i:s',
         }
 </script>
 

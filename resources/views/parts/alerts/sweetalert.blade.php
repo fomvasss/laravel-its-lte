@@ -1,22 +1,22 @@
 <script>
     @php
         $flashKeys = [
-            'warning' => ['type' => 'warning', 'title' => trans('lte::notifications.warning')],
-            'success' => ['type' => 'success', 'title' => trans('lte::notifications.excellent')],
-            'info' => ['type' => 'info', 'title' => trans('lte::notifications.information')],
-            'error' => ['type' => 'danger', 'title' => trans('lte::notifications.failure')],
+            'warning' => trans('lte::alerts.warning'),
+            'success' => trans('lte::alerts.excellent'),
+            'info' => trans('lte::alerts.information'),
+            'error' => trans('lte::alerts.failure'),
         ];
     @endphp
 
-    @foreach ($flashKeys as $keyName => $item)
-        @if (Session::has($keyName))
-            swal('{{ $item['title'] }}', '{{ Session::get($keyName) }}', '{{ $item['type'] }}');
+    @foreach ($flashKeys as $key => $title)
+        @if (Session::has($key))
+            swal('{{ $title }}', '{{ Session::get($key) }}', '{{ $key }}');
         @endif
     @endforeach
 
     @if (isset($errors) && $errors->any())
         @foreach ($errors->all() as $error)
-            swal('{{ trans('notifications.failure') }}', '{{ $error }}', 'danger');
+            swal('{{ trans('alerts.failure') }}', '{{ $error }}', 'error');
         @endforeach
     @endif
 </script>
