@@ -213,22 +213,41 @@
                         </div>
                     </div>
                     <div class="box-body">
-                        @include('lte::fields.field-x-editable', [
-                          'value' => 0,
-                          'type' => 'select',
-                          'field_name' => 'data[show]',
-                          'source' => [["value" => "1", "text" => "Отображать"], ["value" => "0", "text" => "Скрывать"]],
-                          'pk' => 13,
-                          'url' => '#',
-                      ])
 
-                        @include('lte::fields.field-x-editable', [
-                           'value' => '[Текст X-Editable]',
-                           'type' => 'textarea',
-                           'field_name' => 'data[message]',
-                           'pk' => 14,
-                           'url' => '#',
-                        ])
+                            @include('lte::fields.field-x-editable', [
+                              'value' => 0,
+                              'type' => 'select',
+                              'field_name' => 'data[show]',
+                              'source' => [["value" => "1", "text" => "Отображать"], ["value" => "0", "text" => "Скрывать"]],
+                              'pk' => 13,
+                              'url' => '#',
+                              'value_title' => 'Скрывать',
+                            ])
+                            |
+                            @include('lte::fields.field-x-editable', [
+                               'value' => 'Текст для редактирования X-Editable',
+                               'type' => 'textarea',
+                               'field_name' => 'data[message]',
+                               'pk' => 14,
+                               'url' => '#',
+                            ])
+
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="box-header">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h3 class="box-title"> Alerts</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <button type="button" class="btn btn-success js-alert" data-type="success">Success</button>
+                        <button type="button" class="btn btn-info js-alert" data-type="info">Info</button>
+                        <button type="button" class="btn btn-warning js-alert" data-type="warning">Warning</button>
+                        <button type="button" class="btn btn-danger js-alert" data-type="error">Error (danger)</button>
                     </div>
                 </div>
 
@@ -446,11 +465,20 @@
 
 @push('scripts')
     <script>
-        // https://github.com/CodeSeven/toastr
-        toastr.success('Hello ITS developer!')
+        $('.js-alert').on('click', function () {
+            var type = $(this).data('type');
 
-        // https://lipis.github.io/bootstrap-sweetalert/
-        swal("Good job!", "You clicked the button!", "success")
+            if (type) {
+                toastr[type](type.toUpperCase() + ': Hello ITS developer!');
+                swal(type.toUpperCase(), "You clicked the button!", type);
+            } else {
+                // https://github.com/CodeSeven/toastr
+                toastr.success('Hello ITS developer!');
+
+                // https://lipis.github.io/bootstrap-sweetalert/
+                swal("Good job!", "You clicked the button!", "success");
+            }
+        });
     </script>
 @endpush
 

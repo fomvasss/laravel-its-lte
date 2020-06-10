@@ -13,7 +13,7 @@
    @isset($source)data-source="{{ json_encode($source) }}"@endisset
    @isset($url)data-url="{{ $url }}"@endisset
    @isset($pk)data-pk="{{ $pk }}"@endisset
-> {{ $valueTitle ?? $value ?? $label }}
+> {{ $value_title ?? $value ?? $label }}
 </a>
 
 {{--

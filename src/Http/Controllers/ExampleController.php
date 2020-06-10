@@ -13,10 +13,10 @@ class ExampleController extends Controller
 //            \Session::flash('error', 'Error Laravel Admin LTE!');
 //            \Session::flash('warning', 'Warning Laravel Admin LTE!');
 //            \Session::flash('success', 'Success Laravel Admin LTE!');
-            \Session::flash('info', 'Info Laravel Admin LTE!');
+            \Session::flash('info', 'Welcome to Laravel Admin LTE!');
+
             \Session::put('visit', 1);
         }
-        \Session::flash('info', 'Info Laravel Admin LTE!');
 
         return view('lte::content.home');
     }
