@@ -1,7 +1,10 @@
 @php
     $field_name = $field_name ?? '';
 @endphp
-<div class="form-group field-select2-change-status-ajax" data-url="{{ $data_url ?? '#' }}" data-method="POST">
+<div class="form-group field-select2-change-status-ajax"
+     data-url="{{ $data_url ?? '#' }}"
+     data-method="POST"
+>
     @isset($label)
         <label class="control-label">{!! $label !!}</label>
     @endisset

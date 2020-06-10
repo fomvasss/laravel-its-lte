@@ -49,6 +49,7 @@ class ExampleController extends Controller
     {
         return response()->json([
             'status' => 'ok',
+            'message' => 'Status is changed',
         ]);
     }
 

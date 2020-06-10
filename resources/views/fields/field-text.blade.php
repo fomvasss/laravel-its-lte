@@ -12,7 +12,7 @@
            type="{{ isset($type) ? $type : 'text' }}"
            name="{{ $field_name }}"
            value="{{ old($field_name, $value) }}"
-           id="{{ $field_name }}"
+           id="@isset($field_id) {{ $field_name }} @else {{ $field_name }} @endisset"
            autocomplete="off"
     >
     @error($field_name) <p class="help-block">{{ $message }}</p> @enderror
@@ -24,6 +24,7 @@
     'field_name' => 'name',
     'value' => isset($name) ? $name : '',
     'type' => 'text',
+    'field_id' => 'name',
     'placeholder' => 'Введите ваше имя',
 ])
 --}}

@@ -25,13 +25,13 @@
 
             <ul class="nav navbar-nav filter-languages">
                 <li class="dropdown messages-menu">
+                    <a href="#ru" class="act">ru</a>
+                </li>
+                <li class="dropdown messages-menu">
                     <a href="#en">en</a>
                 </li>
                 <li class="dropdown messages-menu">
-                    <a href="#de">de</a>
-                </li>
-                <li class="dropdown messages-menu">
-                    <a href="#ru" class="act">ru</a>
+                    <a href="#ua">ua</a>
                 </li>
             </ul>
         </div>

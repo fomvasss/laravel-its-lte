@@ -15,10 +15,50 @@ $(function () {
             }
         });
 
+        $('.field-checkbox-ajax').each(function(){
+            var $base = $(this),
+                url = $base.data('url'),
+                method = $base.data('method') || 'POST',
+                $input = $base.find('input.checkbox'),
+                fieldName = $input.attr('name'),
+                rawFieldName = $input.data('raw-name'),
+                format = $base.data('format');
+
+            $input.on('change', function () {
+                var value = this.checked ? 1 : 0,
+                    data = format === 'name,value' ? {name: rawFieldName, value: value} : {[rawFieldName] : value};
+                $.ajax({
+                    method: method,
+                    url: url,
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        if (data.message) {
+                            $base.append('<div class="text-success">' + data.message + '</div>')
+                            $base.find('.text-success').delay(2000).fadeOut(500, 'linear', function () {
+                                $(this).remove()
+                            })
+                        }
+                    },
+                    error: function () {
+                        console.log('Error Ajax!')
+                        $base.append('<div class="text-danger">Error Ajax</div>')
+                        $base.find('.text-danger').delay(2000).fadeOut(500, 'linear', function () {
+                            $(this).remove()
+                        })
+                    },
+                    complete: function () {
+                        $base.find('.overlay').addClass('hidden')
+                    }
+                })
+            });
+        });
+
+
         $('.field-select2-change-status-ajax').each(function () {
             var $base = $(this),
                 $select = $base.find('.select2-change-status-ajax'),
-                url = $base.data('url') || $base.data('route'),
+                url = $base.data('url'),
                 fieldName = $base.find('select').attr('name'),
                 method = $base.data('method') || 'GET',
                 $select2 = $select.select2({
@@ -59,7 +99,7 @@ $(function () {
         $('.field-select2-tree-ajax').each(function () {
             var $base = $(this),
                 $select = $base.find('.select2-tree'),
-                url = $base.data('url') || $base.data('route'),
+                url = $base.data('url'),
                 valFld = $base.data('valFld') ? $base.data('valFld') : 'id',
                 labelFld = $base.data('labelFld') ? $base.data('labelFld') : 'name',
                 incFld = $base.data('incFld') ? $base.data('incFld') : 'children'
@@ -92,7 +132,7 @@ $(function () {
         $('.field-tree').each(function () {
             var $base = $(this),
                 $tree = $base.find('.field-tree-data'),
-                url = $base.data('url') || $base.data('route'),
+                url = $base.data('url'),
                 showCheckbox = $base.data('showCheckbox') === undefined ? true : $base.data('showCheckbox'),
                 showIcon = $base.data('showIcon') === undefined ? false : $base.data('showIcon'),
                 fieldName = $base.data('field-name'),
@@ -292,12 +332,14 @@ $(function () {
 
         $('[data-toggle="tooltip"]').tooltip()
 
-        $(document).on('click', '.js-fill-fields-modal', function (e) {
+        $(document).on('click', '.js-fill-modal', function (e) {
             e.preventDefault()
             var $this = $(this),
                 url = $this.data('url'),
                 dataFields = $this.data('fields'),
-                modal = $($this.data('target'))
+                modal = $($this.data('target'));
+
+            console.log(modal);
 
             if (url) {
                 modal.find('form').attr('action', url)
@@ -329,7 +371,7 @@ $(function () {
             e.stopPropagation()
             var $base = $(this),
                 data = treeSortable[$(this).data('entity-name')].sortable("serialize").get(),
-                url = $base.data('url') || $(this).data('route')
+                url = $base.data('url');
 
             $.ajax({
                 method: 'POST',

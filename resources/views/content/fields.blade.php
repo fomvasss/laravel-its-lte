@@ -32,6 +32,7 @@
                                     <th></th>
                                     <th>Date</th>
                                     <th>Reason</th>
+                                    <th>Status</th>
                                     <th>Payment</th>
                                     <th class="text-center">Publish</th>
                                     <th>Actions</th>
@@ -49,6 +50,16 @@
                                     </td>
                                     <td>11/07/2014</td>
                                     <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                                    <td>
+                                        @include('lte::fields.field-checkbox-ajax', [
+                                            //'label' => 'Статус',
+                                            'field_name' => 'status['.$i.']',
+                                            'raw_name' => 'status',
+                                            //'format' => 'name|value',
+                                            'status' => 0,
+                                            'url' => route('lte.data.status'),
+                                        ])
+                                    </td>
                                     <td>
                                         <span class="label label-warning">Pending</span>
                                     </td>
@@ -89,13 +100,6 @@
                             'label' => 'Статус',
                             'field_name' => 'status',
                             'status' => 0,
-                        ])
-
-                        @include('lte::fields.field-checkbox-ajax', [
-                            'label' => 'Статус',
-                            'field_name' => 'status_ajax',
-                            'status' => 0,
-                            'url' => '#'
                         ])
 
                         @include('lte::fields.field-radio-group', [
@@ -222,7 +226,7 @@
                     <div class="box-header">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h3 class="box-title"> Alerts</h3>
+                                <h3 class="box-title"> Alerts, modals</h3>
                             </div>
                         </div>
                     </div>
@@ -238,6 +242,10 @@
                             <p><a href="https://github.com/CodeSeven/toastr" target="_blank">https://github.com/CodeSeven/toastr</a></p>
                             <p><a href="https://lipis.github.io/bootstrap-sweetalert/" target="_blank">https://lipis.github.io/bootstrap-sweetalert/</a></p>
                         </div>
+                    </div>
+                    <div class="box-header">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Modal</button>
+                        <button type="button" class="btn btn-primary js-fill-modal" data-target="#myModal2" data-fields='{"firstname":"Eva","lastname":"Green"}'>Modal with json fills</button>
                     </div>
                 </div>
 
@@ -450,9 +458,6 @@
                 </div>
             </div>
         </div>
-
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Modal</button>
-
     </section>
 @endsection
 
@@ -490,6 +495,32 @@
                 </div>
                 <div class="modal-body">
                     <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="myModal2">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    @include('lte::fields.field-text', [
+                        'label' => 'First name',
+                        'field_name' => 'firstname',
+                    ])
+                    @include('lte::fields.field-text', [
+                        'label' => 'Last name',
+                        'field_name' => 'lastname',
+                        'field_id' => 'lastname'
+                     ])
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
