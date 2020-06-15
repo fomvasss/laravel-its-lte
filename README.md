@@ -152,6 +152,8 @@ Recommend set LFM paths `config/lfm.php`:
 
 In dir `resources/views/vendor/lte` you can edit, create, delete blade-files.
 
+For simple manage file-fields use [fomvasss/laravel-medialibrary-extension](https://github.com/fomvasss/laravel-medialibrary-extension)
+
 ## Credits
 - [web-west/itslte](https://github.com/web-west/itslte)
 - [ColorlibHQ/AdminLTE](https://github.com/ColorlibHQ/AdminLTE)

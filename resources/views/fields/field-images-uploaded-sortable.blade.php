@@ -38,3 +38,12 @@
         @endif
     </div>  
 </div>
+@error(Str::replaceLast('[]', '', $field_name)) <p class="help-block" style="color:red;"> {{ $message }} </p> @enderror
+
+{{--
+@include('lte::fields.field-images-uploaded-sortable',[
+     'label' => 'Изображения',
+     'field_name' => 'simages',
+     'entity' => isset($user) ? $user : null,
+])
+--}}

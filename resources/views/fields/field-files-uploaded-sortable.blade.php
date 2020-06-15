@@ -40,4 +40,12 @@
         @endif
     </div>  
 </div>
-{!! $errors->first(Str::replaceLast('[]', '', $field_name), '<p class="help-block" style="color:red;">:message</p>') !!}
+@error(Str::replaceLast('[]', '', $field_name)) <p class="help-block" style="color:red;"> {{ $message }} </p> @enderror
+
+{{--
+@include('lte::fields.field-files-uploaded-sortable',[
+     'label' => 'Файлы',
+     'field_name' => 'sfiles',
+     'entity' => isset($user) ? $user : null,
+])
+--}}
