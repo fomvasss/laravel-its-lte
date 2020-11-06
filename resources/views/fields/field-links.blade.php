@@ -1,11 +1,12 @@
 @php
     $field_laravel_name = trim(preg_replace('/[\]\[]/', '.', $field_name), '.');
     $items = $items ?? [];
-    //$items = array_merge(old($field_laravel_name, []), ['qq' => 'Qq', 'ww' => 'Ww']); // TODO
     $key_key = $key_key ?? 'key';
     $key_value = $key_value ?? 'value';
     $placeholder_key = $placeholder_key ?? 'Ключ';
     $placeholder_value = $placeholder_value ?? 'Значение';
+    $input_type_key = $input_type_key ?? 'text';
+    $input_type_value = $input_type_value ?? 'text';
 @endphp
 
 <div class="form-group field-links"
@@ -23,9 +24,9 @@
                 <tr class="item first">
                     <td>
                         <div class="input-group input-group-md">
-                            <input type="text" class="form-control" @isset ($item['safe']) readonly @endisset name="{{ $field_name}}[{{$loop->index}}][{{$key_key}}]" value="{{ $item[$key_key] ?? '' }}" placeholder="{{ $placeholder_key }}">
+                            <input type="{{$input_type_key}}" class="form-control" @isset ($item['safe']) readonly @endisset name="{{ $field_name }}[{{$loop->index}}][{{$key_key}}]" value="{{ $item[$key_key] ?? '' }}" placeholder="{{ $placeholder_key }}">
                             <span class="input-group-btn" style="width: 40%">
-                                <input type="text" name="{{ $field_name }}[{{ $loop->index }}][{{ $key_value }}]" value="{!! $item[$key_value] ?? '' !!}" class="form-control" placeholder="{{ $placeholder_value }}">
+                                <input type="{{$input_type_value}}" name="{{ $field_name }}[{{ $loop->index }}][{{ $key_value }}]" value="{!! $item[$key_value] ?? '' !!}" class="form-control" placeholder="{{ $placeholder_value }}">
                                 <input type="hidden" name="{{ $field_name }}[{{ $loop->index }}][safe]" value="1" @empty($item['safe']) disabled @endisset>
                             </span>
                             <span class="input-group-btn">
@@ -43,9 +44,9 @@
                 <tr class="item first">
                     <td>
                         <div class="input-group input-group-md">
-                            <input type="text" class="form-control" name="{{ $field_name}}[0][{{$key_key}}]" placeholder="{{ $placeholder_key }}">
+                            <input type="{{ $input_type_key }}" class="form-control" name="{{ $field_name}}[0][{{$key_key}}]" placeholder="{{ $placeholder_key }}">
                             <span class="input-group-btn" style="width: 40%">
-                                <input type="text" name="{{ $field_name }}[0][{{ $key_value }}]" class="form-control" placeholder="{{ $placeholder_value }}">
+                                <input type="{{ $input_type_value }}" name="{{ $field_name }}[0][{{ $key_value }}]" class="form-control" placeholder="{{ $placeholder_value }}">
                             </span>
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-info btn-flat">
