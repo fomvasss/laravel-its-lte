@@ -74,7 +74,6 @@ mix.copyDirectory(paths.bowerPath + 'font-awesome/fonts', paths.webProd.fonts);
 mix.copyDirectory(paths.bowerPath + 'Ionicons/fonts', paths.webProd.fonts);
 mix.copyDirectory(paths.bowerPath + 'bootstrap/fonts', paths.webProd.fonts);
 mix.copyDirectory(paths.bowerPath + 'ckeditor', paths.webProd.public + 'ckeditor');
-mix.copyDirectory(paths.bowerPath + 'ckeditor', paths.webProd.public + 'ckeditor');
 mix.copyDirectory(paths.bowerPath + 'x-editable/dist/bootstrap3-editable/img', paths.webProd.img);
 
 if (mix.inProduction()) {

@@ -129,7 +129,7 @@ If needed, install [LFM](https://github.com/UniSharp/laravel-filemanager):
 composer require unisharp/laravel-filemanager
 ```
 
-And publish LFM files:
+Publish LFM files:
 - `config/lfm.php`
 - `public/vendor/laravel-filemanager`
 Recommend set LFM paths `config/lfm.php`:
