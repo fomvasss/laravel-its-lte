@@ -10,8 +10,19 @@ return [
 
     'logo_href' => '/lte',
 
+    /*
+     * For example pages
+     */
     'prefix' => 'lte',
 
+    /*
+     * For /profile page
+     */
+    'use_laravel_fortify' => true,
+
+    /*
+     * For /lte/*
+     */
     'middleware' => ['web'],
 
     /**
@@ -42,6 +53,10 @@ return [
         'sidebar_collapse' => false,
         'fixed' => false,
 
+        /**
+         * Allert types: warning, success, info, error
+         * Usage exaple: \Session::flash('info', 'Welcome to Laravel Admin LTE!');
+         */
         'alerts' => [
             //'bootstrap',
             //'toastr',

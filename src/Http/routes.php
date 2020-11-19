@@ -2,11 +2,14 @@
 // These routes are for example in local:
 
 Route::view('login', 'lte::auth.login')->name('login');
+Route::view('login', 'lte::auth.login')->name('login');
+Route::view('login/2fa', 'lte::auth.two-factor-challenge')->name('login.2fa');
+Route::view('confirm-password', 'lte::auth.confirm-password')->name('confirm-password');
 
 Route::get('/', 'ExampleController@home')->name('home');
 Route::view('fields', 'lte::content.fields')->name('fields');
 Route::view('blank', 'lte::content.blank')->name('blank');
-Route::view('account', 'lte::account.edit')->name('account.edit');
+Route::view('profile', 'lte::profile.edit')->name('profile.edit');
 
 Route::view('pages', 'lte::content.pages.index')->name('pages.index');
 Route::view('pages/edit', 'lte::content.pages.edit')->name('pages.edit');

@@ -9,14 +9,22 @@
         <div class="login-box-body">
             <p class="login-box-msg">Подтверждение</p>
             <p>Проверьте свой адрес электронной почты</p>
-            @if (session('resent'))
-                <div class="alert alert-success" role="alert">
-                    На ваш адрес электронной почты отправлена новая ссылка для подтверждения.
+
+            @if (session('status') == 'verification-link-sent')
+                <div>
+                    На Email, который вы указали при регистрации, была отправлена новая ссылка для подтверждения.
                 </div>
             @endif
 
             Прежде чем продолжить, проверьте свою электронную почту на наличие ссылки для подтверждения.
-            Если вы не получили письмо, <a href="{{ route('verification.resend') }}"> нажмите здесь, чтобы запросить другой</a>.
+            Если вы не получили письмо, нажмите
+            <form method="POST" action="{{ route('verification.send') }}">
+                @csrf
+                <button type="submit">
+                    здесь,
+                </button>
+            </form>
+            чтобы запросить новую ссылку
 
         </div>
     </div>

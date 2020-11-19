@@ -8,6 +8,11 @@
         </div>
         <div class="login-box-body">
             <p class="login-box-msg">Вход в систему</p>
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
             <form action="{{ url('login') }}" method="post">
                 @csrf
                 <div class="form-group @error('email') has-error @enderror has-feedback">
@@ -43,15 +48,12 @@
             </form>
 
             @include('lte::auth.social-links')
+
             @if(Route::has('password.request'))
-                <a href="{{ route('password.request') }}">
-                    Восстановить пароль
-                </a>
+                <a href="{{ route('password.request') }}">Восстановить пароль</a><br>
             @endif
             @if(Route::has('register'))
-                <a href="{{ route('register') }}">
-                    Зарегистрироваться
-                </a>
+                <a href="{{ route('register') }}">Зарегистрироваться</a>
             @endif
 
         </div>

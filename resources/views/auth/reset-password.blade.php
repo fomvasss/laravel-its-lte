@@ -10,10 +10,10 @@
             <p class="login-box-msg">Восстановление пароля</p>
             <form action="{{ route('password.update') }}" method="POST">
                 @csrf
-                <input type="hidden" name="token" value="{{ $token }}">
+                <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
                 <div class="form-group @error('email') has-error @enderror has-feedback">
-                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus autocomplete="email" placeholder="Email">
+                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email', $request->email) }}" required autofocus autocomplete="email" placeholder="Email">
                     @error('email')
                         <span class="help-block">
                             <strong>{{ $message }}</strong>
@@ -51,7 +51,9 @@
                 </div>
             </form>
 
-            <a href="{{ route('register') }}" class="text-center">Зарегистрироваться</a>
+            @if(Route::has('register'))
+                <a href="{{ route('register') }}" class="text-center">Зарегистрироваться</a>
+            @endif
 
         </div>
     </div>

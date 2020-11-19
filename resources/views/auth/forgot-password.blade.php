@@ -35,7 +35,12 @@
                 </div>
             </form>
 
-            <a href="{{ route('register') }}" class="text-center">Зарегистрироваться</a>
+            @if (Route::has('login'))
+                <a href="{{ route('login') }}">Войти в систему</a><br>
+            @endif
+            @if(Route::has('register'))
+                <a href="{{ route('register') }}">Зарегистрироваться</a>
+            @endif
 
         </div>
     </div>

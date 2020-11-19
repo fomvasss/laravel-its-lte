@@ -1,5 +1,5 @@
 @if($providers = ['github', 'google', 'facebook'])
-<div class="social-auth-links text-center">
+    <div class="social-auth-links text-center">
     <p>- ИЛИ -</p>
     @if(in_array('github', $providers))
         <a href="#{{--{{ route('socialite.oauth', 'github') }}--}}"
@@ -19,5 +19,5 @@
     ><i class="fa fa-facebook"></i> Sign in using Facebook
     </a>
     @endif
-</div>
+    </div>
 @endif

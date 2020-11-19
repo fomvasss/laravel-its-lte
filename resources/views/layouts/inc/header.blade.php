@@ -16,7 +16,7 @@
         <div class="navbar-custom-menu pull-left">
 
             <ul class="nav navbar-nav">
-                <li class="user user-menu" title="Системное время: {{ \Carbon\Carbon::now() }}">
+                <li class="user user-menu" title="System time: {{ \Carbon\Carbon::now() }}">
                     <a href="#" class="" data-toggle="">
                         <i class="fa fa-clock-o"></i>
                     </a>
@@ -162,15 +162,15 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="/admin/account"
-                                       class="btn btn-default btn-flat">Аккаунт</a>
+                                    <a href="/lte/profile"
+                                       class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="#"
                                        class="btn btn-default btn-flat js-action-form"
                                        data-url="{{ route('logout') }}"
-                                       data-confirm="Подтверждаете выход?"
-                                    >Выйти</a>
+                                       data-confirm="Confirm logout?"
+                                    >Logout</a>
                                 </div>
                             </li>
                         </ul>

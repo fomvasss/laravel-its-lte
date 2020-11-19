@@ -16,7 +16,7 @@
 
     @if (isset($errors) && $errors->any())
         @foreach ($errors->all() as $error)
-            swal('{{ trans('alerts.failure') }}', '{{ $error }}', 'error');
+            swal('{{ trans('lte::alerts.failure') }}', '{{ $error }}', 'error');
         @endforeach
     @endif
 </script>

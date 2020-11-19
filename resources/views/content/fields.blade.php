@@ -35,7 +35,8 @@
                                     <th>Status</th>
                                     <th>Payment</th>
                                     <th class="text-center">Publish</th>
-                                    <th>Actions</th>
+                                    <th class="text-center">Actions</th>
+                                    <th class="text-center">Actions2</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,6 +73,24 @@
                                             'edit' => '#',
                                             'delete' => '#',
                                         ])
+                                    </td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="" class="btn btn-xs bg-purple"><i class="fa fa-copy"></i></a>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-xs btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" style="right: 0; left: unset;">
+                                                    <li>
+                                                        <a href="#" data-url="" class=" js-action-form" data-method="GET"><i class="fa fa-trash text-danger"></i> Delete</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" data-url="#" class="js-action-form" data-method="GET"><i class="fa fa-eye text-info"></i> Mailind</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                                 @endfor
