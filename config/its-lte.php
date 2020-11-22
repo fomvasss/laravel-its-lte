@@ -2,12 +2,15 @@
 
 return [
 
-    'title' => 'Dashboard',
+    'title' => env('APP_NAME', '') . ' - Dashboard',
 
     'logo' => env('LTE_LOGO', '<b>ITS</b>LTE'),
 
     'logo_mini' => env('LTE_LOGO_MINI', '<b>IT</b>LT'),
 
+    /*
+     * Dashboard home page path
+     */
     'logo_href' => '/lte',
 
     /*
@@ -21,17 +24,9 @@ return [
     'use_laravel_fortify' => true,
 
     /*
-     * For /lte/*
+     * For LTE exaple pages (/lte/*)
      */
     'middleware' => ['web'],
-
-    /**
-     * Example aside menu
-     */
-    'aside_menu' => [
-        'static' => env('APP_ENV') !== 'production',
-        'lte' => env('APP_ENV') !== 'production',
-    ],
 
     /**
      * Show next type alerts in dashboard
@@ -41,6 +36,7 @@ return [
      */
 
     'view' => [
+
         /**
          * Available skins:
          * skin-blue, skin-black, skin-purple, skin-green, skin-red,
@@ -63,10 +59,24 @@ return [
             'sweetalert',
         ],
 
+        'btn_actions_class' => 'btn-xs', //'btn-sm btn-flat'
+
+        /**
+         * Example aside menu
+         */
+        'aside_menu' => [
+            'static' => false,
+            'static_example' => env('APP_ENV') !== 'production',
+            'lte' => env('APP_ENV') !== 'production',
+        ],
+
         'aside_auth_user_info' => false,
 
         'aside_search' => false,
 
-        'btn_actions_class' => 'btn-xs', //'btn-sm btn-flat'
+        'header_filter_languages' => true,
+
+        'header_notify_menus' => true,
+
     ],
 ];

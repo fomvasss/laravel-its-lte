@@ -12,7 +12,7 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <div class="box">
                     {!! Form::open([
-                         //'route' => 'admin.users.store',
+                         'route' => 'admin.users.store',
                          'files' => true
                     ]) !!}
                     <div class="box-header">

@@ -12,11 +12,11 @@
             <div class="box-header">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="box-title"> Редактировать <strong>{{ isset($node) ? $node->name : '' }}</strong></h3>
+                        <h3 class="box-title"> Редактировать <strong>{{ isset($page) ? $page->name : '' }}</strong></h3>
                         @include('lte::parts.entity-navigation', [
-                           'next' => '#', //$node->previous() ? route('admin.pages.edit', $node->previous()) : '',
-                           'current' => '#', //route('pages.show', $node),
-                           'previous' => '#', //$node->next() ? route('admin.pages.edit', $node->next()) : '',
+                           'next' => '#', //$page->previous() ? route('admin.pages.edit', $page->previous()) : '',
+                           'current' => '#', //route('pages.show', $page),
+                           'previous' => '#', //$page->next() ? route('admin.pages.edit', $page->next()) : '',
                         ])
                     </div>
                 </div>
@@ -25,28 +25,27 @@
                 <div class="nav-tabs-justified">
                     <ul class="nav nav-tabs">
                         @foreach([
-                            'Данные' => '#', //route('admin.pages.edit', $node)
-                            'SEO' => '#', //route('admin.pages.seo', $node)
+                            'Данные' => '#', //route('admin.pages.edit', $page)
+                            'SEO' => '#', //route('admin.pages.seo', $page)
                         ] as $title => $path)
                             <li class="@if(Request::url() == rtrim($path, '/')) active @endif"><a href="@if(Request::url() !== rtrim($path, '/')){{ $path }}@else # @endif">{{ $title }}</a></li>
                         @endforeach
-                        {{--<li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>--}}
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_1">
                             <br>
                             @php($tab = isset($tab) ? $tab : request('tab'))
                             @if($tab == 'seo')
-                                {!! Form::model(isset($node) ? $node : null, [
+                                {!! Form::model(isset($page) ? $page : null, [
                                     'method' => 'POST',
-                                    //'route' => ['admin.pages.seo.save', $node],
+                                    //'route' => ['admin.pages.seo.save', $page],
                                     'files' => true
                                 ]) !!}
-                                @include('lte::content.pages._seo', ['model' => $node])
+                                @include('lte::content.pages._seo', ['model' => $page])
                             @else
-                                {!! Form::model($node ?? null, [
+                                {!! Form::model($page ?? null, [
                                     'method' => 'PATCH',
-                                    //'route' => ['admin.pages.update', $node],
+                                    //'route' => ['admin.pages.update', $page],
                                     'files' => true
                                 ]) !!}
                                 @include('lte::content.pages._form')

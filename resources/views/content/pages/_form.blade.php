@@ -1,7 +1,7 @@
 @include('lte::fields.field-checkbox', [
     'label' => 'Публиковать',
     'field_name' => 'publish',
-    'status' => isset($node) ? $node->publish : 1,
+    'status' => isset($page) ? $page->publish : 1,
 ])
 
 <div class="form-group @error('name') has-error @enderror">
@@ -22,10 +22,10 @@
     @error('blade') <p class="help-block">{{$message}}</p> @enderror
 </div>
 
-@empty($node)
+@empty($page)
 <div class="form-group @error('url_alias') has-error @enderror">
     {!! Form::label('url_alias', 'URL-алиас', ['class' => 'control-label']) !!}
-    {!! Form::text('url_alias', isset($node) ? optional($node->urlAlias)->alias : null, ['class' => 'form-control', isset($node) ? 'readonly' : '']) !!}
+    {!! Form::text('url_alias', isset($page) ? optional($page->urlAlias)->alias : null, ['class' => 'form-control', isset($page) ? 'readonly' : '']) !!}
     @error('url_alias') <p class="help-block">{{$message}}</p> @enderror
 </div>
 @endempty

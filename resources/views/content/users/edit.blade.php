@@ -7,14 +7,13 @@
         'url_back' => session('admin.users.index'),
     ])
 
-
     <section class="content">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <div class="box">
-                    {!! Form::model(isset($user) ? $user : null, [
+                    {!! Form::model($user, [
                         'method' => 'PATCH',
-                        //'route' => ['admin.users.update', $user],
+                        'route' => ['admin.users.update', $user],
                         'files' => true
                     ]) !!}
                     <div class="box-header">
@@ -22,7 +21,7 @@
                         <h3 class="box-title">Редактирование <strong>{{ isset($user) ? $user->name : '' }}</strong></h3>
                     </div>
                     <div class="box-body">
-                            @include('lte::content.users._form')
+                        @include('lte::content.users._form')
                     </div>
                     {!! Form::close() !!}
                 </div>

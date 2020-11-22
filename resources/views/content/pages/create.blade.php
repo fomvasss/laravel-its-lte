@@ -28,7 +28,6 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_1">
                             <br>
-                            {{-- TODO --}}
                             {!! Form::open([
                                  //'route' => 'admin.pages.store',
                                  'files' => true

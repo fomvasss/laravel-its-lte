@@ -9,7 +9,7 @@
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-aqua">
                     <div class="inner">
-                        <h3>123</h3>
+                        <h3>{{ $totals['new_orders'] ?? 0 }}</h3>
                         <p>Новых заказов</p>
                     </div>
                     <div class="icon">
@@ -22,7 +22,7 @@
                 <!-- small box -->
                 <div class="small-box bg-green">
                     <div class="inner">
-                        <h3>234</h3>
+                        <h3>{{ $totals['success_orders'] ?? 0 }}</h3>
 
                         <p>Успешных заказов</p>
                     </div>
@@ -36,7 +36,7 @@
                 <!-- small box -->
                 <div class="small-box bg-yellow">
                     <div class="inner">
-                        <h3>534</h3>
+                        <h3>{{ $totals['clients'] ?? 0 }}</h3>
 
                         <p>Клиентов магазина</p>
                     </div>
@@ -50,7 +50,7 @@
                 <!-- small box -->
                 <div class="small-box bg-red">
                     <div class="inner">
-                        <h3>23</h3>
+                        <h3>{{ $totals['new_web_forms'] ?? 0 }}</h3>
 
                         <p>Не обработанных веб-форм</p>
                     </div>
@@ -71,7 +71,7 @@
                     <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Регистраций</span>
-                        <span class="info-box-number"><a href="#">231</a></span>
+                        <span class="info-box-number"><a href="#">{{ $todays['registers'] ?? 0 }}</a></span>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Подписчиков</span>
-                        <span class="info-box-number"><a href="#">18</a></span>
+                        <span class="info-box-number"><a href="#">{{ $todays['subscribers'] ?? 0 }}</a></span>
                     </div>
                 </div>
             </div>
@@ -94,7 +94,7 @@
                     <span class="info-box-icon bg-yellow"><i class="fa fa-recycle"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Автопродлений</span>
-                        <span class="info-box-number"><a href="#">9</a></span>
+                        <span class="info-box-number"><a href="#">{{ $todays['autopayments'] ?? 0 }}</a></span>
                     </div>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                     <span class="info-box-icon bg-fuchsia"><i class="fa fa-meh-o"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Закончилось подписок</span>
-                        <span class="info-box-number"><a href="#">35</a></span>
+                        <span class="info-box-number"><a href="#">{{ $todays['stop_subscribes'] ?? 0 }}</a></span>
                     </div>
                 </div>
             </div>

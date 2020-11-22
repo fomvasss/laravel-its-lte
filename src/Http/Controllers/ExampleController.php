@@ -18,7 +18,21 @@ class ExampleController extends Controller
             \Session::put('visit', 1);
         }
 
-        return view('lte::content.home');
+        $totals = [
+            'new_orders' => rand(0, 100),
+            'success_orders' => rand(0, 100),
+            'clients' => rand(0, 100),
+            'new_web_forms' => rand(0, 100),
+        ];
+
+        $todays = [
+            'registers' => rand(0, 1000),
+            'subscribers' => rand(0, 100),
+            'autopayments' => rand(0, 100),
+            'stop_subscribes' => rand(0, 100),
+        ];
+
+        return view('lte::content.home', compact('totals', 'todays'));
     }
 
     public function treeselect(Request $request)

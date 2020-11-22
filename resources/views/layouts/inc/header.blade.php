@@ -23,6 +23,7 @@
                 </li>
             </ul>
 
+            @if(config('its-lte.view.header_filter_languages'))
             <ul class="nav navbar-nav filter-languages">
                 <li class="dropdown messages-menu">
                     <a href="#ru" class="act">ru</a>
@@ -34,11 +35,13 @@
                     <a href="#ua">ua</a>
                 </li>
             </ul>
+            @endif
         </div>
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
 
+                @if(config('its-lte.view.header_notify_menus'))
                 <li class="messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-shopping-cart"></i>
@@ -151,6 +154,7 @@
                         </li>
                     </ul>
                 </li>
+                @endif
 
                 <li class="dropdown user user-menu">
                     @auth

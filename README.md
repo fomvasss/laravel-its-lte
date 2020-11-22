@@ -51,6 +51,7 @@ php artisan lte:publish --tag=lte-assets --force
 ```
 
 ## Configuration
+
 After publishing assets, its primary configuration file will be located at `config/its-lte.php`
 ```php
 <?php
@@ -125,6 +126,21 @@ return [
         'btn_actions_class' => 'btn-xs', //'btn-sm btn-flat'
     ],
 ];
+```
+
+In dashboard used Bootstrap styles and for correct show pagination links, set next in service provider
+```
+    public function boot()
+    {
+        //...
+        Paginator::useBootstrap();
+        //...
+    }
+```
+
+For correct work navigation in dashboard, apply next middleware for routes to dashboard:
+```
+\Fomvasss\ItsLte\Http\Middleware\ApplyRequestOptions::class,
 ```
 
 ## Structure

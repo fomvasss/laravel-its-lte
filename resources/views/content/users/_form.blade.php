@@ -11,39 +11,39 @@
 </div>
 @endif
 
-<div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
+<div class="form-group @error('name') has-error @enderror">
     {!! Form::label('name', 'Имя', ['class' => 'control-label',]) !!}
     {!! Form::text('name', null, ['class' => 'form-control','placeholder' => 'Bill']) !!}
-    {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
+    @error('name') <p class="help-block">{{ $message }}</p>@enderror
 </div>
-<div class="form-group {{ $errors->has('lastname') ? 'has-error' : ''}}">
+<div class="form-group @error('lastname') has-error @enderror">
     {!! Form::label('lastname', 'Фамилия', ['class' => 'control-label',]) !!}
     {!! Form::text('lastname', null, ['class' => 'form-control','placeholder' => 'Bill']) !!}
-    {!! $errors->first('lastname', '<p class="help-block">:message</p>') !!}
+    @error('lastname') <p class="help-block">{{ $message }}</p>@enderror
 </div>
 
-<div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
+<div class="form-group @error('email') has-error @enderror">
     {!! Form::label('email', 'Email', ['class' => 'control-label']) !!}
     {!! Form::email('email', null, ['class' => 'form-control']) !!}
-    {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
+    @error('email') <p class="help-block">{{ $message }}</p>@enderror
 </div>
 
-<div class="form-group {{ $errors->has('phone') ? 'has-error' : ''}}">
+<div class="form-group @error('phone') has-error @enderror">
     {!! Form::label('phone', 'Phone', ['class' => 'control-label']) !!}
     {!! Form::text('phone', null, ['class' => 'form-control']) !!}
-    {!! $errors->first('phone', '<p class="help-block">:message</p>') !!}
+    @error('phone') <p class="help-block">{{ $message }}</p>@enderror
 </div>
 
-<div class="form-group {{ $errors->has('password') ? 'has-error' : ''}}">
+<div class="form-group @error('password') has-error @enderror">
     {!! Form::label('password', 'Новый пароль', ['class' => 'control-label']) !!}
     {!! Form::password('password', ['class' => 'form-control']) !!}
-    {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
+    @error('password') <p class="help-block">{{ $message }}</p>@enderror
 </div>
 
-<div class="form-group {{ $errors->has('password_confirmation') ? 'has-error' : ''}}">
+<div class="form-group @error('password_confirmation') has-error @enderror">
     {!! Form::label('password_confirmation', 'Подтверждение пароля', ['class' => 'control-label',]) !!}
     {!! Form::password('password_confirmation', ['class' => 'form-control',]) !!}
-    {!! $errors->first('password_confirmation', '<p class="help-block">:message</p>') !!}
+    @error('password_confirmation') <p class="help-block">{{ $message }}</p>@enderror
 </div>
 
 @include('lte::fields.field-select2-static', [
@@ -53,8 +53,8 @@
     'max' => 1,
     'disabled' => 0,
     'required' => 1,
-    'attributes' => ['Клиент' => 'client'], //\Spatie\Permission\Models\Role::all()->pluck('title', 'name')->toArray(),
-    'selected' => 'client', //isset($user) ? $user->roles->pluck('name')->toArray() : [],
+    'attributes' => ['Клиент' => 'client'],
+    'selected' => 'client',
     'old' => old('roles')
 ])
 

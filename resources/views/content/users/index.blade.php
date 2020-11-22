@@ -4,7 +4,7 @@
 
     @include('lte::layouts.inc.content-header', [
         'page_title' => 'Пользователи',
-        'url_create' => url('admin/users/create')
+        'url_create' => '#'
     ])
 
     <section class="content">
@@ -37,7 +37,7 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->phone }}</td>
-                            <td>{{ $user->roles ? $user->roles->implode('title', ', ') : 'Пользователь' }}</td>
+                            <td>{{ $user->role }}</td>
                             <td style="text-align: center">
                                 @if($user->active)<i class="fa fa-check-square-o"></i>@else<i class="fa fa-square-o"></i>@endif
                             </td>
