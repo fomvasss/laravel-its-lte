@@ -23,6 +23,7 @@
             </div>
             <div class="box-body">
                 <div class="nav-tabs-justified">
+
                     <ul class="nav nav-tabs">
                         @foreach([
                             'Данные' => '#', //route('admin.pages.edit', $page)
@@ -31,6 +32,7 @@
                             <li class="@if(Request::url() == rtrim($path, '/')) active @endif"><a href="@if(Request::url() !== rtrim($path, '/')){{ $path }}@else # @endif">{{ $title }}</a></li>
                         @endforeach
                     </ul>
+
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_1">
                             <br>

@@ -19,12 +19,14 @@
             <div class="box-body">
 
                 <div class="nav-tabs-justified">
+
                     <ul class="nav nav-tabs">
                         @foreach(['Данные' => '#', 'SEO' => '#'] as $title => $url)
                             <li class="@if(Request::url() == rtrim($url, '/')) active @else disabled @endif"><a @if(Request::url() != rtrim($url, '/')) && $url != '#')href="{{ $url }}"@endif>{{ $title }}</a></li>
                         @endforeach
                         {{--<li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>--}}
                     </ul>
+
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_1">
                             <br>

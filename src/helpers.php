@@ -124,7 +124,6 @@ if (! function_exists('explode_assoc')) {
     }
 }
 
-
 if (! function_exists('array_values_recursive')) {
     /**
      * @param array $ary
@@ -145,7 +144,6 @@ if (! function_exists('array_values_recursive')) {
         return $lst;
     }
 }
-
 
 if (! function_exists('string_to_color_code')) {
     /**

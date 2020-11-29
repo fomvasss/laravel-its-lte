@@ -1,7 +1,7 @@
 @include('lte::fields.field-checkbox', [
-    'label' => 'Публиковать',
-    'field_name' => 'publish',
-    'status' => isset($page) ? $page->publish : 1,
+    'label' => 'Опубликовано',
+    'field_name' => 'is_publish',
+    'status' => isset($page) ? $page->is_publish : 1,
 ])
 
 <div class="form-group @error('name') has-error @enderror">

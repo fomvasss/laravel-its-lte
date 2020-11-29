@@ -44,8 +44,8 @@
                             <td>{{ $user->created_at }}</td>
                             <td style="width: 110px">
                                 <div class="btn-group">
-                                    <a href="{{ url('admin.users.edit', $user) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-                                    <a href="#" data-url="{{ /*route('admin.users.destroy', $user)*/ }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
+                                    <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+                                    <a href="#" data-url="{{ route('admin.users.destroy', $user) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
                                 </div>
                             </td>
                         </tr>

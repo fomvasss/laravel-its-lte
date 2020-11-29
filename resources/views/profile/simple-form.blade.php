@@ -2,7 +2,7 @@
     <div class="box-header with-border">
         <h3 class="box-title">Data</h3>
     </div>
-    <form role="form" method="GET" action="#">
+    <form role="form" method="POST" action="#">
         @csrf
         <div class="box-body">
             <div class="form-group @error('name') has-error @enderror">

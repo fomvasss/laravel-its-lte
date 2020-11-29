@@ -13,12 +13,12 @@
 
 <div class="form-group @error('name') has-error @enderror">
     {!! Form::label('name', 'Имя', ['class' => 'control-label',]) !!}
-    {!! Form::text('name', null, ['class' => 'form-control','placeholder' => 'Bill']) !!}
+    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Bill']) !!}
     @error('name') <p class="help-block">{{ $message }}</p>@enderror
 </div>
 <div class="form-group @error('lastname') has-error @enderror">
     {!! Form::label('lastname', 'Фамилия', ['class' => 'control-label',]) !!}
-    {!! Form::text('lastname', null, ['class' => 'form-control','placeholder' => 'Bill']) !!}
+    {!! Form::text('lastname', null, ['class' => 'form-control', 'placeholder' => 'Gates']) !!}
     @error('lastname') <p class="help-block">{{ $message }}</p>@enderror
 </div>
 
