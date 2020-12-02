@@ -23,3 +23,4 @@ Route::get('data/statuses', 'ExampleController@statuses')->name('data.statuses')
 Route::post('data/statuses', 'ExampleController@status')->name('data.status');
 Route::get('data/treeselect', 'ExampleController@treeselect')->name('data.treeselect');
 Route::get('data/treeview', 'ExampleController@treeview')->name('data.treeview');
+Route::get('data/tags', 'ExampleController@tags')->name('data.tags');

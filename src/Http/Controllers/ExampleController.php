@@ -98,4 +98,40 @@ class ExampleController extends Controller
             ],
         ];
     }
+
+    public function tags(Request $request)
+    {
+        return response()->json([
+            'results' => [
+                [
+                    'id' => '1',
+                    'text' => 'Новости',
+                ],
+                [
+                    'id' => '2',
+                    'text' => 'Наука',
+                ],
+                [
+                    'id' => '3',
+                    'text' => 'Спорт',
+                ],
+                [
+                    'id' => '4',
+                    'text' => 'Авто',
+                ],
+                [
+                    'id' => '5',
+                    'text' => 'Погода',
+                ],
+                [
+                    'id' => '6',
+                    'text' => 'Экономика',
+                ],
+                [
+                    'id' => '7',
+                    'text' => 'Природа',
+                ],
+            ],
+        ]);
+    }
 }

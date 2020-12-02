@@ -279,8 +279,8 @@
                     <div class="box-body">
 
                         @include('lte::fields.field-select2-static', [
-                            'label' => 'Теги',
-                            'field_name' => 'values[]',
+                            'label' => 'Технология',
+                            'field_name' => 'technology',
                             'multiple' => 1,
                             'max' => 2,
                             'disabled' => 0,
@@ -291,7 +291,7 @@
                         ])
 
                         @include('lte::fields.field-select2-ajax-autocomplete', [
-                            'label' => 'Теги статьи',
+                            'label' => 'Статус статьи',
                             'data_url' => route('lte.data.statuses'),
                             'field_name' => 'tags',
                             'multiple' => 1,
@@ -301,18 +301,34 @@
                         ])
 
                         @include('lte::fields.field-select2-change-status-ajax', [
-                            'label' => 'Статус',
-                            'field_name' => 'status',
-                            'attributes' => ['new' => 'New', 'success' => 'Success'],
-                            'selected' => 'new',
+                            'label' => 'Публиковать',
+                            'field_name' => 'is_publish',
+                            'attributes' => ['yes' => 'Да', 'no' => 'Нет'],
+                            'selected' => 'yes',
                             'empty_value' => '--не выбрано--',
                             'data_url' => route('lte.data.status'),
+                        ])
+
+                        @include('lte::fields.field-select2-tags', [
+                            'label' => 'Теги',
+                            'data_url' => route('lte.data.tags'),
+                            'selected' => [1 => 'Новости'],
+                            //'attributes' => [1 => 'Новости', 2 => 'Спорт', 3 => 'Политика'],
+                            //'selected' => [2],
+                            'field_name' => 'tags',
+                            'separators' => "[';']",
+                            'new_tag_label' => ' [NEW]',
+                            'max' => 4,
+                            'multiple' => 1,
+                            'disabled' => 0,
+                            'old' => old('tags'),
+                            'help_text' => 'Укажите через знак запятой (,) теги'
                         ])
 
                         @include('lte::fields.field-select2-tree-ajax', [
                             'label' => 'Основная категория',
                             'field_name' => 'category_id',
-                            'multiple' => 1,
+                            'multiple' => 0,
                             'disabled' => 0,
                             'required' => 1,
                             'help_block' => '* Какая-то подсказка о поле',

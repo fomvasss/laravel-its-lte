@@ -22,6 +22,9 @@
             <option value="{{ $value }}" selected>{{ $title }}</option>
         @endforeach
     </select>
+    @isset($help_text)
+        <p class="help-block small">{!! $help_text !!}</p>
+    @endisset
 </div>
 
 {!! $errors->first(Str::replaceLast('[]', '', $field_name), '<p class="help-block" style="color:red;">:message</p>') !!}

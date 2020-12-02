@@ -237,16 +237,62 @@ $(function () {
             return false
         })
 
-        if ($('.select2:not(.field-select-ajax):not(.sortable)').length) {
-            $('.select2:not(.field-select-ajax):not(.sortable)').select2({
-                language: 'ru',
+        if ($('.select2.select2-static').length) {
+            $('.select2.select2-static').select2({
+                language: LANGUAGE,
                 tags: false
             })
         }
 
+        if ($('.select2.select2-tags').length) {
+            $('.select2.select2-tags').each(function (index) {
+                var url = $(this).data('url') || $(this).data('route'),
+                    maximumSelection = $(this).data('max') || -1,
+                    tokenSeparators = $(this).data('separators') || [',', ';'],
+                    newTagLabel = $(this).data('new-tag-label') || ' (new tag)';
+
+                $(this).select2({
+                    language: LANGUAGE,
+                    tags: true,
+                    tokenSeparators: tokenSeparators,
+
+                    ajax: url ? {
+                        delay: 250,
+                        url: url,
+                        dataType: 'json',
+                        processResults: function(data) {
+                            return {
+                                results: data.results
+                            }
+                        }
+                    } : undefined,
+
+                    // Some nice improvements:
+
+                    // max tags is 3
+                    maximumSelectionLength: maximumSelection,
+
+                    // add "(new tag)" for new tags
+                    createTag: function (params) {
+                        var term = $.trim(params.term);
+
+                        if (term === '') {
+                            return null;
+                        }
+
+                        return {
+                            id: term,
+                            text: term + newTagLabel
+                        };
+                    },
+                })
+            })
+
+        }
+
         if ($('.select2.sortable').length) {
             $('.select2.sortable').select2({
-                language: 'ru',
+                language: LANGUAGE,
                 tags: true
             })
 

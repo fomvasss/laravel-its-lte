@@ -15,7 +15,7 @@
 
     <select
             name="{{ $field_name_input }}"
-            class="form-control select2 @isset($class) {{ $class }} @endisset"
+            class="form-control select2 select2-static @isset($class) {{ $class }} @endisset"
             @if(isset($multiple) && $multiple && (empty($max) || $max > 1)) multiple @endif
             @if(isset($disabled) && $disabled) disabled @endif
             @if(isset($required) && $required) required @endif
@@ -36,7 +36,7 @@
 
     </select>
     @isset($help_text)
-        <p class="help-block small">{{  $help_text }}</p>
+        <p class="help-block small">{!! $help_text !!}</p>
     @endisset
 </div>
 {!! $errors->first(Str::replaceLast('[]', '', $field_name), '<p class="help-block" style="color:red;">:message</p>') !!}
