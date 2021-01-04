@@ -116,15 +116,15 @@
                     </div>
                     <div class="box-body">
                         @include('lte::fields.field-checkbox', [
-                            'label' => 'Статус',
+                            'label' => 'Status',
                             'field_name' => 'status',
                             'status' => 0,
                         ])
 
                         @include('lte::fields.field-radio-group', [
-                            'field_name' => 'Способ доставки',
+                            'field_name' => 'Delivery method',
                             'selected' => 1,
-                            'attributes' => [1 => 'Самовывоз', 2 => 'Почта',]
+                            'attributes' => [1 => 'Pickup', 2 => 'Postman',]
                         ])
                     </div>
                 </div>
@@ -163,19 +163,19 @@
                         ])
 
                         @include('lte::fields.field-datetimepicker', [
-                             'label' => 'Дата и время создания',
+                             'label' => 'Date and time of creation',
                              'field_name' => 'created_at',
                              'value' => \Carbon\Carbon::now()->format('Y/m/d H:i:s'),
                          ])
 
                         @include('lte::fields.field-datepicker', [
-                             'label' => 'Дата оформления',
+                             'label' => 'Date of registration',
                              'field_name' => 'confirmed_at',
                              'value' => \Carbon\Carbon::now()->format('d/m/Y'),
                          ])
 
                         @include('lte::fields.field-timepicker', [
-                            'label' => 'Время созадния',
+                            'label' => 'Time of creation',
                             'field_name' => 'created_at',
                             'value' => \Carbon\Carbon::now()->format('H:i:s'),
                         ])
@@ -186,26 +186,26 @@
                     <div class="box-header">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h3 class="box-title">Списки</h3>
+                                <h3 class="box-title">Lists</h3>
                             </div>
                         </div>
                     </div>
                     <div class="box-body">
                         @include('lte::fields.field-linear-list', [
-                           'label' => 'Пример линейного списка',
+                           'label' => 'Linear list example',
                            'field_name' => 'vars_json[countries]',
-                           'placeholder_value' => 'Значение',
-                           'items' => ['США', 'Франция', 'Англия',],
+                           'placeholder_value' => 'Value',
+                           'items' => ['USA', 'Ukraine', 'Germany',],
                         ])
 
                         @include('lte::fields.field-links', [
-                           'label' => 'Пример списка',
+                           'label' => 'List example',
                            'field_name' => 'delivery_method',
                            'key_key' => 'key',
                            'key_value' => 'value',
-                           'placeholder_key' => 'Ключ',
-                           'placeholder_value' => 'Значение',
-                           'items' => [['key' => 0, 'value' => 'Самовывоз', 'safe' => 1], ['key' => 1, 'value' => 'Новая почта']]
+                           'placeholder_key' => 'Sume Key',
+                           'placeholder_value' => 'Some Value',
+                           'items' => [['key' => 0, 'value' => 'Pickup', 'safe' => 1], ['key' => 1, 'value' => 'Postman']]
                         ])
                     </div>
                 </div>
@@ -224,14 +224,14 @@
                               'value' => 0,
                               'type' => 'select',
                               'field_name' => 'data[show]',
-                              'source' => [["value" => "1", "text" => "Отображать"], ["value" => "0", "text" => "Скрывать"]],
+                              'source' => [["value" => "1", "text" => "Show"], ["value" => "0", "text" => "Hide"]],
                               'pk' => 13,
                               'url' => route('lte.data.status'),
-                              'value_title' => 'Скрывать',
+                              'value_title' => 'Hide',
                             ])
                             |
                             @include('lte::fields.field-x-editable', [
-                               'value' => 'Текст для редактирования X-Editable',
+                               'value' => 'Text to edit X-Editable',
                                'type' => 'textarea',
                                'field_name' => 'data[message]',
                                'pk' => 14,
@@ -279,7 +279,7 @@
                     <div class="box-body">
 
                         @include('lte::fields.field-select2-static', [
-                            'label' => 'Технология',
+                            'label' => 'Technology',
                             'field_name' => 'technology',
                             'multiple' => 1,
                             'max' => 2,
@@ -287,32 +287,32 @@
                             'required' => 1,
                             'attributes' => [1 => 'PHP', 2 => 'Laravel', 3 => 'JS', 4 => 'Vue'],
                             'selected' => [2,4],
-                            'empty_value' => '--не выбрано--',
+                            'empty_value' => '--not chosen--',
                         ])
 
                         @include('lte::fields.field-select2-ajax-autocomplete', [
-                            'label' => 'Статус статьи',
+                            'label' => 'Article status',
                             'data_url' => route('lte.data.statuses'),
                             'field_name' => 'tags',
                             'multiple' => 1,
                             'disabled' => 0,
-                            'selected' => [1 => 'Новый заказ',],
+                            'selected' => [1 => 'New order',],
                             'old' => old('tags') // TODO OLD
                         ])
 
                         @include('lte::fields.field-select2-change-status-ajax', [
-                            'label' => 'Публиковать',
+                            'label' => 'Publish',
                             'field_name' => 'is_publish',
-                            'attributes' => ['yes' => 'Да', 'no' => 'Нет'],
+                            'attributes' => ['yes' => 'Yes', 'no' => 'No'],
                             'selected' => 'yes',
-                            'empty_value' => '--не выбрано--',
+                            'empty_value' => '--not chosen--',
                             'data_url' => route('lte.data.status'),
                         ])
 
                         @include('lte::fields.field-select2-tags', [
                             'label' => 'Теги',
                             'data_url' => route('lte.data.tags'),
-                            'selected' => [1 => 'Новости'],
+                            'selected' => [1 => 'News'],
                             //'attributes' => [1 => 'Новости', 2 => 'Спорт', 3 => 'Политика'],
                             //'selected' => [2],
                             'field_name' => 'tags',
@@ -322,16 +322,16 @@
                             'multiple' => 1,
                             'disabled' => 0,
                             'old' => old('tags'),
-                            'help_text' => 'Укажите через знак запятой (,) теги'
+                            'help_text' => 'Specify tags separated by comma (,)'
                         ])
 
                         @include('lte::fields.field-select2-tree-ajax', [
-                            'label' => 'Основная категория',
+                            'label' => 'Main category',
                             'field_name' => 'category_id',
                             'multiple' => 0,
                             'disabled' => 0,
                             'required' => 1,
-                            'help_block' => '* Какая-то подсказка о поле',
+                            'help_block' => '* Some kind of clue about the field',
                             'data_url_tree' => route('lte.data.treeselect'),
                         ])
                     </div>
@@ -344,32 +344,32 @@
                     <div class="box-header">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h3 class="box-title">Файлы</h3>
+                                <h3 class="box-title">Files</h3>
                             </div>
                         </div>
                     </div>
                     <div class="box-body">
                         @include('lte::fields.field-file-uploaded-simple',[
-                            'label' => 'Простой файл',
+                            'label' => 'Simple file',
                             'field_name' => 'file',
                             'path' => '',
                         ])
 
                         {{-- TODO: test --}}
                         @include('lte::fields.field-file-uploaded',[
-                           'label' => 'Файл',
+                           'label' => 'File',
                            'field_name' => 'file',
                            'entity' => isset($menuItem) ? $menuItem : null,
                        ])
                         {{-- TODO: test --}}
                         @include('lte::fields.field-files-uploaded',[
-                             'label' => 'Файлы',
+                             'label' => 'Files',
                              'field_name' => 'files',
                              'entity' => isset($menuItem) ? $menuItem : null,
                         ])
                         {{-- TODO: test --}}
                         @include('lte::fields.field-files-uploaded-sortable',[
-                             'label' => 'Файлы с сортировкой',
+                             'label' => 'Sorted files',
                              'field_name' => 'files',
                              'entity' => isset($menuItem) ? $menuItem : null,
                         ])
@@ -380,31 +380,31 @@
                     <div class="box-header">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h3 class="box-title">Изображения</h3>
+                                <h3 class="box-title">Images</h3>
                             </div>
                         </div>
                     </div>
                     <div class="box-body">
                         @include('lte::fields.field-image-uploaded-simple',[
-                            'label' => 'Простое изображение',
+                            'label' => 'Simple image',
                             'field_name' => 'image',
                             'path' => isset($path) ? $path : null,
                         ])
 
                         @include('lte::fields.field-image-uploaded',[
-                            'label' => 'Изображение',
+                            'label' => 'Image',
                             'field_name' => 'image',
                             'entity' => isset($menuItem) ? $menuItem : null,
                         ])
 
                         @include('lte::fields.field-images-uploaded',[
-                             'label' => 'Изображения',
+                             'label' => 'Images',
                              'field_name' => 'images',
                              'entity' => isset($menuItem) ? $menuItem : null,
                         ])
 
                         @include('lte::fields.field-images-uploaded-sortable',[
-                             'label' => 'Изображения с весом',
+                             'label' => 'Sorted images',
                              'field_name' => 'images',
                              'entity' => isset($menuItem) ? $menuItem : null,
                         ])
@@ -416,7 +416,7 @@
                     <div class="box-header">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h3 class="box-title"> Древовидная структура</h3>
+                                <h3 class="box-title"> Tree structure</h3>
                             </div>
                         </div>
                     </div>
@@ -425,7 +425,7 @@
                             //'terms' => $terms,
                             //'tree' => $tree,
                             'has_hierarchy' => 1,
-                            'box_title' => 'Список терминов таксономии',
+                            'box_title' => 'List of taxonomy terms',
                             'entity_name' => 'term',
                             //'route_name_save_tree' => 'lte.terms.order',
                             //'route_name_edit' => 'lte.terms.edit',
@@ -438,7 +438,7 @@
                         <hr>
 
                         @include('lte::fields.field-treeview', [
-                            'label' => 'Категории',
+                            'label' => 'Categories',
                             'field_name' => 'terms[categories]',
                             'url_tree' => route('lte.data.treeview'),
                         ])

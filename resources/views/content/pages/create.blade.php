@@ -3,7 +3,7 @@
 @section('content')
 
     @include('lte::layouts.inc.content-header', [
-        'page_title' => 'Страницы',
+        'page_title' => trans('lte::main.Pages'),
         'url_back' => session('admin.pages.index'),
     ])
 
@@ -12,7 +12,7 @@
             <div class="box-header">
                 <div class="row">
                     <div class="col-lg-8">
-                        <h3 class="box-title"> Создать</h3>
+                        <h3 class="box-title">c</h3>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 <div class="nav-tabs-justified">
 
                     <ul class="nav nav-tabs">
-                        @foreach(['Данные' => '#', 'SEO' => '#'] as $title => $url)
+                        @foreach([trans('lte::main.Data') => '#', trans('lte::main.SEO') => '#'] as $title => $url)
                             <li class="@if(Request::url() == rtrim($url, '/')) active @else disabled @endif"><a @if(Request::url() != rtrim($url, '/')) && $url != '#')href="{{ $url }}"@endif>{{ $title }}</a></li>
                         @endforeach
                         {{--<li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>--}}

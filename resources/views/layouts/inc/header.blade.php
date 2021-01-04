@@ -16,7 +16,7 @@
         <div class="navbar-custom-menu pull-left">
 
             <ul class="nav navbar-nav">
-                <li class="user user-menu" title="System time: {{ \Carbon\Carbon::now() }}">
+                <li class="user user-menu" title="{{ config('app.timezone') }}: {{ now()->timezone(config('app.timezone')) }}&#013;{{ config('app.timezone_web') }}: {{ now()->timezone(config('app.timezone_web')) }}">
                     <a href="#" class="" data-toggle="">
                         <i class="fa fa-clock-o"></i>
                     </a>
@@ -167,14 +167,14 @@
                             <li class="user-footer">
                                 <div class="pull-left">
                                     <a href="/lte/profile"
-                                       class="btn btn-default btn-flat">Profile</a>
+                                       class="btn btn-default btn-flat">{{ trans('lte::main.Profile') }}</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="#"
                                        class="btn btn-default btn-flat js-action-form"
                                        data-url="{{ route('logout') }}"
-                                       data-confirm="Confirm logout?"
-                                    >Logout</a>
+                                       data-confirm="{{ trans('lte::main.Confirm logout?') }}"
+                                    >{{ trans('lte::main.Logout') }}</a>
                                 </div>
                             </li>
                         </ul>

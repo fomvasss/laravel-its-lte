@@ -78,7 +78,7 @@
                 "firstDay": 1
             },
             notifications: {
-                "confirmAction": "Подтверждаете действие?"
+                "confirmAction": "{{ trans('lte::main.Do you confirm the action?') }}"
             }
         },
 

@@ -4,5 +4,5 @@
        class="btn btn-default btn-sm"
        style="margin-top: -5px; border: 0px; box-shadow: none; color: rgb(243, 156, 18); font-weight: 600; background: rgb(255, 255, 255);"
        onclick="swal('Good job!', 'You clicked the button!', 'success')"
-    >Read more</a>
+    >{{ trans('lte::main.Read more') }}</a>
 </div>

@@ -3,14 +3,14 @@
 @section('content')
 
     @include('lte::layouts.inc.content-header', [
-        'page_title' => 'Пользователи',
+        'page_title' => trans('lte::main.Users'),
         'url_create' => '#'
     ])
 
     <section class="content">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Всего: ({{ isset($users) ? $users->total() : 0 }})</h3>
+                <h3 class="box-title">{{ trans('lte::main.Total') }}: ({{ isset($users) ? $users->total() : 0 }})</h3>
             </div>
             <div class="box-body">
                 @if(empty($users) || $users->count() < 1)
@@ -21,13 +21,13 @@
                         <thead>
                         <tr>
                             <th style="width:35px;">#</th>
-                            <th>Имя</th>
-                            <th>Email</th>
-                            <th style="width:130px;">Телефон</th>
-                            <th style="width:130px;">Роль</th>
-                            <th style="width: 30px; text-align: center">Активный</th>
-                            <th style="width:150px;">Регистрация</th>
-                            <th style="width:100px;">Действия</th>
+                            <th>{{ trans('lte::main.Name') }}</th>
+                            <th>{{ trans('lte::main.Email') }}</th>
+                            <th style="width:130px;">{{ trans('lte::main.Phone') }}</th>
+                            <th style="width:130px;">{{ trans('lte::main.Role') }}</th>
+                            <th style="width: 30px; text-align: center">{{ trans('lte::main.Active') }}</th>
+                            <th style="width:150px;">{{ trans('lte::main.Registration') }}</th>
+                            <th style="width:100px;">{{ trans('lte::main.Actions') }}</th>
                         </tr>
                         </thead>
                         <tbody>

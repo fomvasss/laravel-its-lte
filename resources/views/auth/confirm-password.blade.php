@@ -7,7 +7,7 @@
             <a href="{{ config('its-lte.logo_href') }}">{!! config('its-lte.logo') !!}</a>
         </div>
         <div class="login-box-body">
-            <p class="login-box-msg">Подтверждение пароля</p>
+            <p class="login-box-msg">{{ trans('lte::main.Password confirmation') }}</p>
             @if (session('status'))
                 <div class="alert alert-success" role="alert">
                     {{ session('status') }}
@@ -16,7 +16,7 @@
             <form action="{{ route('password.confirm') }}" method="post">
                 @csrf
                 <div class="form-group @error('password') has-error @enderror has-feedback">
-                    <input id="password" type="password" class="form-control" name="password" required autocomplete="current-password" placeholder="Пароль">
+                    <input id="password" type="password" class="form-control" name="password" required autocomplete="current-password" placeholder="{{ trans('lte::main.Password') }}">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     @error('password')
                     <span class="help-block">
@@ -29,7 +29,7 @@
                     <div class="col-xs-6">
                     </div>
                     <div class="col-xs-6">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Подтвердить</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('lte::main.Confirm') }}</button>
                     </div>
                 </div>
             </form>

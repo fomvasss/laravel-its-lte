@@ -10,7 +10,7 @@
             <p class="login-box-msg">2FA</p>
             @if ($errors->any())
                 <div>
-                    <div>Whoops! Something went wrong.</div>
+                    <div>{{ trans('lte::main.Whoops! Something went wrong') }}</div>
 
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -29,7 +29,7 @@
                --}}
 
                 <div>
-                    Please confirm access to your account by entering the authentication code provided by your authenticator application.
+                    {!! trans('lte::main.Please confirm access to your account by entering the authentication code provided by your authenticator application.') !!}
                 </div>
 
                 <div class="form-group @error('code') has-error @enderror has-feedback">
@@ -45,11 +45,11 @@
                 {{-- ** OR ** --}}
 
                 <div>
-                   Please confirm access to your account by entering one of your emergency recovery codes.
+                   {!! trans('lte::main.Please confirm access to your account by entering one of your emergency recovery codes.') !!}
                 </div>
 
                 <div class="form-group @error('recovery_code') has-error @enderror has-feedback">
-                    <input id="recovery_code" type="text" class="form-control" name="recovery_code" autocomplete="one-time-code" placeholder="Recovery Code">
+                    <input id="recovery_code" type="text" class="form-control" name="recovery_code" autocomplete="one-time-code" placeholder="{{ trans('lte::main.Recovery Code') }}">
                     @error('recovery_code')
                     <span class="help-block">
                             <strong>{{ $message }}</strong>
@@ -62,16 +62,16 @@
                     <div class="col-xs-8">
                     </div>
                     <div class="col-xs-4">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">Отправить</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('lte::main.Send') }}</button>
                     </div>
                 </div>
             </form>
 
             @if(Route::has('password.request'))
-                <a href="{{ route('password.request') }}">Восстановить пароль</a><br>
+                <a href="{{ route('password.request') }}">{{ trans('lte::main.Restore password') }}</a><br>
             @endif
             @if(Route::has('register'))
-                <a href="{{ route('register') }}">Зарегистрироваться</a>
+                <a href="{{ route('register') }}">{{ trans('lte::main.Register') }}</a>
             @endif
 
         </div>

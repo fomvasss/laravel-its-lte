@@ -3,8 +3,8 @@
 @section('content')
 
     @include('lte::layouts.inc.content-header', [
-       'page_title' => 'Profile',
-       'small_page_title' => 'Edit',
+       'page_title' => trans('lte::main.User Profile'),
+       'small_page_title' => trans('lte::main.Edit'),
        'url_back' => '',
        'url_create' => ''
    ])
@@ -30,7 +30,7 @@
                 @endif
             </div>
             @else
-                <h2 class="margin">You are guest!</h2>
+                <h2 class="margin">{{ trans('lte::main.You are guest! Need to login') }}</h2>
             @endauth
         </div>
     </section>

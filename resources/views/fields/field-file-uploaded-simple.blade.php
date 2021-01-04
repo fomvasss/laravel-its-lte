@@ -6,7 +6,7 @@
     <input type="file" name="{{ $field_name_input }}">
     {{--<p class="help-block">Максимальный размер файла 10мБ</p>--}}
     @empty($path)
-        <p class="text-warning">Файл не загружен</p>
+        <p class="text-warning">{!! trans('lte::fields.File not loaded')  !!}</p>
     @else
         <div class="table-responsive">
             <table class="table table-striped">

@@ -29,11 +29,11 @@ return [
     'middleware' => ['web'],
 
     /**
-     * Show next type alerts in dashboard
-     * Example success type alert: \Session::flash('success', 'Welcome to Laravel Admin LTE!');
-     * Available types: success, info, warning, error
-     *
+     * Use in Fomvasss\ItsLte\Http\Middleware\ApplyRequestOptions
      */
+    'control' => [
+        'next_destination_key' => 'destination',
+    ],
 
     'view' => [
 
@@ -50,13 +50,15 @@ return [
         'fixed' => false,
 
         /**
-         * Allert types: warning, success, info, error
-         * Usage exaple: \Session::flash('info', 'Welcome to Laravel Admin LTE!');
+         * Show next type alerts in dashboard
+         * Example success type alert: \Session::flash('success', 'Welcome to Laravel Admin LTE!');
+         * Available types: success, info, warning, error
+         *
          */
         'alerts' => [
+            'toastr',
+            //'sweetalert',
             //'bootstrap',
-            //'toastr',
-            'sweetalert',
         ],
 
         'btn_actions_class' => 'btn-xs', //'btn-sm btn-flat'
@@ -77,6 +79,5 @@ return [
         'header_filter_languages' => true,
 
         'header_notify_menus' => true,
-
     ],
 ];

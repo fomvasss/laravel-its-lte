@@ -35,7 +35,7 @@
         </ul>
         @else
             <div class="box-body">
-                <p class="text-warning">Файлы не загруженны</p>
+                <p class="text-warning">{!! trans('lte::fields.Files not loaded')  !!}</p>
             </div>
         @endif
     </div>  

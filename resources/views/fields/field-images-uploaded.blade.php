@@ -36,7 +36,7 @@
         </table>
     </div>
     @else
-        <p class="text-warning">Файлы не загруженны</p>
+        <p class="text-warning">{!! trans('lte::fields.Files not loaded')  !!}</p>
     @endif
 </div>
 {!! $errors->first(Str::replaceLast('[]', '', $field_name), '<p class="help-block" style="color:red;">:message</p>') !!}

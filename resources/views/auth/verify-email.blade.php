@@ -7,25 +7,22 @@
             <a href="{{ config('its-lte.logo_href') }}">{!! config('its-lte.logo') !!}</a>
         </div>
         <div class="login-box-body">
-            <p class="login-box-msg">Подтверждение</p>
-            <p>Проверьте свой адрес электронной почты</p>
+            <p class="login-box-msg">{{ trans('lte::main.Confirmation') }}</p>
+            <p>{{ trans('lte::main.Check your email address') }}</p>
 
             @if (session('status') == 'verification-link-sent')
                 <div>
-                    На Email, который вы указали при регистрации, была отправлена новая ссылка для подтверждения.
+                    {{ trans('lte::main.A new confirmation link has been sent to the Email that you specified during registration.') }}
                 </div>
             @endif
-
-            Прежде чем продолжить, проверьте свою электронную почту на наличие ссылки для подтверждения.
-            Если вы не получили письмо, нажмите
+            {!! trans('lte::main.Please check your email for the confirmation link before proceeding. If you have not received the email, click') !!}
             <form method="POST" action="{{ route('verification.send') }}">
                 @csrf
                 <button type="submit">
-                    здесь,
+                    {{ trans('lte::main.here') }},
                 </button>
             </form>
-            чтобы запросить новую ссылку
-
+            {!! trans('lte::main.to request a new link') !!}
         </div>
     </div>
 </body>

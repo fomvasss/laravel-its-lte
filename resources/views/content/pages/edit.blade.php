@@ -3,7 +3,7 @@
 @section('content')
 
     @include('lte::layouts.inc.content-header', [
-        'page_title' => 'Страницы',
+        'page_title' => trans('lte::main.Pages'),
         'url_back' => session('admin.pages.index'),
     ])
 
@@ -12,7 +12,7 @@
             <div class="box-header">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="box-title"> Редактировать <strong>{{ isset($page) ? $page->name : '' }}</strong></h3>
+                        <h3 class="box-title"> {{ trans('lte::main.Edit') }} <strong>{{ isset($page) ? $page->name : '' }}</strong></h3>
                         @include('lte::parts.entity-navigation', [
                            'next' => '#', //$page->previous() ? route('admin.pages.edit', $page->previous()) : '',
                            'current' => '#', //route('pages.show', $page),
@@ -26,8 +26,8 @@
 
                     <ul class="nav nav-tabs">
                         @foreach([
-                            'Данные' => '#', //route('admin.pages.edit', $page)
-                            'SEO' => '#', //route('admin.pages.seo', $page)
+                            trans('lte::main.Data') => '#', //route('admin.pages.edit', $page)
+                            trans('lte::main.SEO') => '#', //route('admin.pages.seo', $page)
                         ] as $title => $path)
                             <li class="@if(Request::url() == rtrim($path, '/')) active @endif"><a href="@if(Request::url() !== rtrim($path, '/')){{ $path }}@else # @endif">{{ $title }}</a></li>
                         @endforeach

@@ -3,7 +3,7 @@
 @section('content')
 
     @include('lte::layouts.inc.content-header', [
-        'page_title' => 'Пользователи',
+        'page_title' => trans('lte::main.Users'),
         'url_back' => session('admin.users.index'),
     ])
 
@@ -17,7 +17,7 @@
                     ]) !!}
                     <div class="box-header">
                         <i class="ion ion-clipboard"></i>
-                        <h3 class="box-title">Создание </h3>
+                        <h3 class="box-title">{{ trans('lte::main.Edit') }}</h3>
                     </div>
                     <div class="box-body">
                         @include('lte::content.users._form')

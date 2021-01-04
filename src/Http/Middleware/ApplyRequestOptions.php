@@ -44,6 +44,7 @@ class ApplyRequestOptions
         $this->beforeHandle($request);
 
         // установить Destination URL
+        $destinationKey = config('its-lte.control.next_destination_key', $this->nextDestinationUrlSessionKey);
         if ($request->has($this->nextDestinationUrlSessionKey) && $request->get($this->nextDestinationUrlSessionKey)) {
             $request->session()->put($this->nextDestinationUrlSessionKey, $request->get($this->nextDestinationUrlSessionKey));
         }

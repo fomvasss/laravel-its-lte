@@ -53,9 +53,9 @@ class ExampleController extends Controller
     public function statuses()
     {
         return response()->json(['results' => [
-            ['id' => 1, 'text' => 'Новый заказ',],
-            ['id' => 2, 'text' => 'Отклонен',],
-            ['id' => 3, 'text' => 'Одобрен',],
+            ['id' => 1, 'text' => 'New order',],
+            ['id' => 2, 'text' => 'Canceled',],
+            ['id' => 3, 'text' => 'Approved',],
         ]]);
     }
 
@@ -105,31 +105,31 @@ class ExampleController extends Controller
             'results' => [
                 [
                     'id' => '1',
-                    'text' => 'Новости',
+                    'text' => 'News',
                 ],
                 [
                     'id' => '2',
-                    'text' => 'Наука',
+                    'text' => 'Scince',
                 ],
                 [
                     'id' => '3',
-                    'text' => 'Спорт',
+                    'text' => 'Sport',
                 ],
                 [
                     'id' => '4',
-                    'text' => 'Авто',
+                    'text' => 'Auto',
                 ],
                 [
                     'id' => '5',
-                    'text' => 'Погода',
+                    'text' => 'Weather',
                 ],
                 [
                     'id' => '6',
-                    'text' => 'Экономика',
+                    'text' => 'Economy',
                 ],
                 [
                     'id' => '7',
-                    'text' => 'Природа',
+                    'text' => 'Nature',
                 ],
             ],
         ]);
