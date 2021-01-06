@@ -16,7 +16,7 @@
         <div class="navbar-custom-menu pull-left">
 
             <ul class="nav navbar-nav">
-                <li class="user user-menu" title="{{ config('app.timezone') }}: {{ now()->timezone(config('app.timezone')) }}&#013;{{ config('app.timezone_web') }}: {{ now()->timezone(config('app.timezone_web')) }}">
+                <li class="user user-menu" title="{{ config('app.timezone') }}: {{ now()->timezone(config('app.timezone')) }}&#013;@if(config('app.timezone_web')){{ config('app.timezone_web') }}: {{ now()->timezone(config('app.timezone_web')) }}@endif">
                     <a href="#" class="" data-toggle="">
                         <i class="fa fa-clock-o"></i>
                     </a>

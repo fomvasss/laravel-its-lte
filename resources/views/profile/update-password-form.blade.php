@@ -31,7 +31,7 @@
         </div>
 
         <div class="box-footer">
-            <button type="submit" class="btn btn-primary pull-right">{{ trans('lte::main.Save') }}</button>
+            @include('lte::fields.field-form-buttons')
         </div>
     </form>
 </div>

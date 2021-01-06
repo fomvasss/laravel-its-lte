@@ -5,8 +5,6 @@
     @include('lte::layouts.inc.content-header', [
        'page_title' => trans('lte::main.User Profile'),
        'small_page_title' => trans('lte::main.Edit'),
-       'url_back' => '',
-       'url_create' => ''
    ])
 
     <section class="content">

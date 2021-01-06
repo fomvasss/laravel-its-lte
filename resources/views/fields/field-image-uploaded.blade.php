@@ -12,9 +12,9 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Название</th>
-                    <th>Фото</th>
-                    <th style="width: 40px">Действие</th>
+                    <th>{{ trans('lte::main.Title') }}</th>
+                    <th>{{ trans('lte::main.Photo') }}</th>
+                    <th style="width: 40px">{{ trans('lte::main.Actions') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,7 +33,7 @@
         <p class="text-warning">{!! trans('lte::fields.File not loaded')  !!}</p>
     @endif
 </div>
-{!! $errors->first(Str::replaceLast('[]', '', $field_name), '<p class="help-block" style="color:red;">:message</p>') !!}
+@error(Str::replaceLast('[]', '', $field_name)) <p class="help-block" style="color:red;">{{ $message }}</p> @enderror
 
 {{--
 @include('lte::fields.field-image-uploaded',[

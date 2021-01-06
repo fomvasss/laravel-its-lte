@@ -3,14 +3,14 @@
 @section('content')
     <section class="content">
         <div class="row">
-            <div class="col-md-12"><h4>Всего:</h4></div>
+            <div class="col-md-12"><h4>{{ trans('lte::main.Total') }}:</h4></div>
         </div>
         <div class="row">
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-aqua">
                     <div class="inner">
                         <h3>{{ $totals['new_orders'] ?? 0 }}</h3>
-                        <p>Новых заказов</p>
+                        <p>New orders</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
@@ -24,7 +24,7 @@
                     <div class="inner">
                         <h3>{{ $totals['success_orders'] ?? 0 }}</h3>
 
-                        <p>Успешных заказов</p>
+                        <p>Success orders</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
@@ -38,7 +38,7 @@
                     <div class="inner">
                         <h3>{{ $totals['clients'] ?? 0 }}</h3>
 
-                        <p>Клиентов магазина</p>
+                        <p>Clients</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person"></i>
@@ -52,7 +52,7 @@
                     <div class="inner">
                         <h3>{{ $totals['new_web_forms'] ?? 0 }}</h3>
 
-                        <p>Не обработанных веб-форм</p>
+                        <p>New Web-forms</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-social-chrome"></i>
@@ -63,14 +63,14 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12"><h4>Сегодня:</h4></div>
+            <div class="col-md-12"><h4>{{ trans('lte::main.Today') }}:</h4></div>
         </div>
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
                     <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
                     <div class="info-box-content">
-                        <span class="info-box-text">Регистраций</span>
+                        <span class="info-box-text">Registrations</span>
                         <span class="info-box-number"><a href="#">{{ $todays['registers'] ?? 0 }}</a></span>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                     <span class="info-box-icon bg-green"><i class="fa fa-money"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Подписчиков</span>
+                        <span class="info-box-text">Subscribers</span>
                         <span class="info-box-number"><a href="#">{{ $todays['subscribers'] ?? 0 }}</a></span>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
                 <div class="info-box">
                     <span class="info-box-icon bg-yellow"><i class="fa fa-recycle"></i></span>
                     <div class="info-box-content">
-                        <span class="info-box-text">Автопродлений</span>
+                        <span class="info-box-text">Payments</span>
                         <span class="info-box-number"><a href="#">{{ $todays['autopayments'] ?? 0 }}</a></span>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                 <div class="info-box">
                     <span class="info-box-icon bg-fuchsia"><i class="fa fa-meh-o"></i></span>
                     <div class="info-box-content">
-                        <span class="info-box-text">Закончилось подписок</span>
+                        <span class="info-box-text">Out of subscriptions</span>
                         <span class="info-box-number"><a href="#">{{ $todays['stop_subscribes'] ?? 0 }}</a></span>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                 <div class="box box-primary">
                     <div class="box-header">
                         <i class="fa fa-line-chart"></i>
-                        <h3 class="box-title">Динамика заказов за 30 дней</h3>
+                        <h3 class="box-title">Dynamics of orders for 30 days</h3>
                     </div>
                     <div class="box-body">
                         <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
@@ -125,7 +125,7 @@
 
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <i class="fa fa-shopping-cart"></i><h3 class="box-title">Последние 15 заказов</h3>
+                        <i class="fa fa-shopping-cart"></i><h3 class="box-title">Last 15 orders</h3>
                     </div>
                     <div class="box-body">
                         <div class="table-responsive">
@@ -133,10 +133,10 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Сумма</th>
-                                    <th>Статус</th>
-                                    <th>Товаров</th>
-                                    <th>Оформлено</th>
+                                    <th>{{ trans('lte::main.Sum') }}</th>
+                                    <th>{{ trans('lte::main.Status') }}</th>
+                                    <th>{{ trans('lte::main.Products') }}</th>
+                                    <th>{{ trans('lte::main.Creation') }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -144,7 +144,7 @@
                                         <td>1</td>
                                         <td>$234.00</td>
                                         <td>
-                                            <span class="label label-success">Новый</span>
+                                            <span class="label label-success">New</span>
                                         </td>
                                         <td>5 [3]</td>
                                         <td>2019.11.29 22:27:34</td>
@@ -153,7 +153,7 @@
                                         <td>2</td>
                                         <td>$420.00</td>
                                         <td>
-                                            <span class="label label-danger">Отменен</span>
+                                            <span class="label label-danger">Cancel</span>
                                         </td>
                                         <td>2 [2]</td>
                                         <td>2019.12.03 21:17:31</td>

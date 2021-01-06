@@ -14,9 +14,9 @@
             <thead>
                 <tr>
                     <th style="width: 10px">#</th>
-                    <th>Назваие</th>
-                    <th>Размер</th>
-                    <th style="width: 40px">Действия</th>
+                    <th>{{ trans('lte::main.Title') }}</th>
+                    <th>{{ trans('lte::main.Size') }}</th>
+                    <th style="width: 40px">{{ trans('lte::main.Actions') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,4 +38,4 @@
         <p class="text-warning">{!! trans('lte::fields.Files not loaded')  !!}</p>
     @endif
 </div>
-{!! $errors->first(Str::replaceLast('[]', '', $field_name), '<p class="help-block" style="color:red;">:message</p>') !!}
+@error(Str::replaceLast('[]', '', $field_name)) <p class="help-block" style="color:red;">{{ $message }}</p> @enderror
