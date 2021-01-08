@@ -90,4 +90,8 @@ return [
     'Actions' => 'Действия',
     'Attention!' => 'Внимание!',
     'A password is automatically generated for the user:' => 'Для пользователя автоматически сгенерирован пароль:',
+    '--not chosen--' => '--не выбрано--',
+    'Filter' => 'Фильтр',
+    'Reset' => 'Сбросить',
+    'Apply' => 'Применить',
 ];

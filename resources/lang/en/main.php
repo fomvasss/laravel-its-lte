@@ -90,4 +90,8 @@ return [
     'Actions' => 'Actions',
     'Attention!' => 'Attention!',
     'A password is automatically generated for the user:' => 'A password is automatically generated for the user:',
+    '--not chosen--' => '--not chosen--',
+    'Filter' => 'Filter',
+    'Reset' => 'Reset',
+    'Apply' => 'Apply',
 ];
