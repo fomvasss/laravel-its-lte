@@ -1,7 +1,7 @@
 <div class="box">
     <div class="box-header">
         <i class="ion ion-clipboard"></i>
-        <h3 class="box-title">{{ $box_title ?? 'Список терминов таксономии' }} @isset($terms)({{ $terms->count() }})@endisset</h3>
+        <h3 class="box-title">{{ ($box_title ?? 'List') . ': ' . (isset($terms) ? $terms->count() : '')  }} </h3>
         <div class="pull-right box-tools">
             <button
                     type="button"
