@@ -217,6 +217,26 @@ $(function () {
         });
     }
 
+    if ($('.js-verification-slug-field').length) {
+        if ($('input.js-slug-field-change').is(':checked')) {
+            $('.js-verification-slug-field input.js-slug-field-input')
+                .prop('readonly', false)
+                .prop('disabled', false)
+        }
+        $(document).on('change', '.js-verification-slug-field [type="checkbox"]', function () {
+            var $wrap = $(this).closest('.js-verification-slug-field');
+            if(this.checked) {
+                $wrap.find('input.js-slug-field-input')
+                    .prop('readonly', false)
+                    .prop('disabled', false)
+            } else {
+                $wrap.find('input.js-slug-field-input')
+                    .prop('readonly', true)
+                    .prop('disabled', true)
+            }
+        })
+    }
+
     $(document).on('click', '.js-action-form', function (e) {
         e.preventDefault()
         var $form = $('#js-action-form'),

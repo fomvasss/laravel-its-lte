@@ -19,6 +19,7 @@ return [
     'Login' => 'Login',
     'Restore password' => 'Restore password',
     'Register' => 'Register',
+    'Activity' => 'Activity',
     'Password' => 'Password',
     'Email' => 'Email',
     'OR' => 'OR',
@@ -90,6 +91,7 @@ return [
     'Processing' => 'Processing',
 
     'Teaser' => 'Teaser',
+    'Link' => 'Link',
     'Description' => 'Description',
     'Image' => 'Image',
     'Images' => 'Images',
@@ -114,6 +116,7 @@ return [
     'SEO' => 'SEO',
     'Users' => 'Users',
     'Phone' => 'Phone',
+    'Balance' => 'Balance',
     'Role' => 'Role',
     'Lastname' => 'Lastname',
     'New Password' => 'New password',

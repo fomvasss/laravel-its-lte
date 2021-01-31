@@ -145,6 +145,14 @@
                             'placeholder' => 'Enter your name',
                         ])
 
+                        @include('lte::fields.field-slug', [
+                            'label' => 'Slug',
+                            'field_name' => 'slug',
+                            'entity' => isset($page) ? $page : '',
+                            //'value' => 'page-already-slug', // optional
+                            'placeholder' => 'Entered slug',
+                        ])
+
                         @include('lte::fields.field-daterangepicker', [
                             'label' => 'Укажите период:',
                             'field_name' => 'range',

@@ -19,6 +19,7 @@ return [
     'Login' => 'Вход',
     'Restore password' => 'Восстановить пароль',
     'Register' => 'Зарегистрироватся',
+    'Activity' => 'Активность',
     'Password' => 'Пароль',
     'Email' => 'Email',
     'OR' => 'ИЛИ',
@@ -90,6 +91,7 @@ return [
     'Processing' => 'В работе',
 
     'Teaser' => 'Краткое описание',
+    'Link' => 'Ссылка',
     'Description' => 'Описание',
     'Image' => 'Изображение',
     'Images' => 'Изображения',
@@ -114,6 +116,7 @@ return [
     'SEO' => 'SEO',
     'Users' => 'Пользователи',
     'Phone' => 'Телефон',
+    'Balance' => 'Баланс',
     'Role' => 'Роль',
     'Lastname' => 'Фамилия',
     'New Password' => 'Новый пароль',
