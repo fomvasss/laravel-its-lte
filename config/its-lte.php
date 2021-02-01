@@ -24,7 +24,7 @@ return [
     'use_laravel_fortify' => true,
 
     /*
-     * For LTE exaple pages (/lte/*)
+     * For LTE example pages (/lte/*)
      */
     'middleware' => ['web'],
 
