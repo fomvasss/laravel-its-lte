@@ -33,6 +33,7 @@
                                     <th>Date</th>
                                     <th>Reason</th>
                                     <th>Status</th>
+                                    <th>Price</th>
                                     <th>Payment</th>
                                     <th class="text-center">Publish</th>
                                     <th class="text-center">Actions</th>
@@ -40,26 +41,31 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @for($i = 1; $i <= 5; $i++)
+                                @for($i = 1; $i <= 4; $i++)
                                 <tr>
                                     <td>{{ $i }}</td>
                                     <td class="text-center">
                                         <a href="#" target="_blank">
-                                            <img src="/vendor/its-lte/img/no-avatar.png" class="thumbnail-50">
+                                            <img src="/vendor/its-lte/img/no-image.png" class="thumbnail-100">
                                         </a>
-                                        <p>{{ Str::random(7, 12) }}</p>
+                                        <span class="node-row-title">
+                                            <a href="/vendor/its-lte/img/no-image.png">
+                                                Perspiciatis Aperiam <i class="fa fa-pencil"></i>
+                                            </a>
+                                        </span>
                                     </td>
-                                    <td>11/07/2014</td>
+                                    <td>13.01.1989</td>
                                     <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
                                     <td>
                                         @include('lte::fields.field-checkbox-ajax', [
-                                            //'label' => 'Статус',
                                             'field_name' => 'status['.$i.']',
                                             'raw_name' => 'status',
-                                            //'format' => 'name|value',
-                                            'status' => 0,
+                                            'status' => $i % 2,
                                             'url' => route('lte.data.status'),
                                         ])
+                                    </td>
+                                    <td>
+                                        <span class="js-num-format">{{ pow($i*10, $i) }}</span>
                                     </td>
                                     <td>
                                         <span class="label label-warning">Pending</span>

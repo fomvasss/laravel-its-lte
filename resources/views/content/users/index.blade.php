@@ -34,18 +34,31 @@
                         @foreach($users as $user)
                         <tr>
                             <td>{{ $user->id }}</td>
-                            <td>{{ $user->name }}</td>
+                            <td class="text-center">
+                                <a href="/vendor/its-lte/img/no-avatar.png" target="_blank">
+                                    <img src="/vendor/its-lte/img/no-avatar.png" class="thumbnail-100">
+                                </a>
+                                <span class="node-row-title">
+                                    <a href="/vendor/its-lte/img/no-avatar.png">
+                                        {{ $user->name }} <i class="fa fa-pencil"></i>
+                                    </a>
+                                </span>
+                            </td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->phone }}</td>
                             <td>{{ $user->role }}</td>
                             <td style="text-align: center">
-                                @if($user->active)<i class="fa fa-check-square-o"></i>@else<i class="fa fa-square-o"></i>@endif
+                                @if($user->is_active)
+                                    <i class="fa fa-check-square-o"></i>
+                                @else
+                                    <i class="fa fa-square-o"></i>
+                                @endif
                             </td>
                             <td>{{ $user->created_at }}</td>
                             <td style="width: 110px">
                                 <div class="btn-group">
-                                    <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-                                    <a href="#" data-url="{{ route('admin.users.destroy', $user) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
+                                    <a href="{{ route('users.edit', $user) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+                                    <a href="#" data-url="{{ route('users.destroy', $user) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -58,7 +71,7 @@
 
             <div class="box-footer">
                 <div class="pull-right">
-    {{--                @include('lte::parts.pagination', ['pages' => $users])--}}
+                    @includeWhen('lte::parts.pagination', ['pages' => $users])
                 </div>
             </div>
         </div>

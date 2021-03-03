@@ -202,6 +202,11 @@ img {
 	font-weight: 600;
 }
 
+img.thumbnail-100 {
+	max-height: 120px;
+	max-width: 120px;
+	border-radius: 100px;
+}
 img.thumbnail-50 {
 	height: 100px;
 	border-radius: 50%
@@ -212,6 +217,18 @@ img.thumbnail-10 {
 }
 img.thumbnail-0 {
 	height: 100px;
+}
+.node-row-title {
+	display:inline-block;
+	width: 180px;
+	vertical-align: middle;
+	padding: 0 15px
+}
+.node-row-title i {
+	opacity: 0;
+}
+.node-row-title:hover i {
+	opacity: 1;
 }
 
 .navbar-nav.filter-languages span {

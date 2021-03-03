@@ -104,8 +104,8 @@
 
 <form action="" class="hidden" method="POST" id="js-action-form">
     @csrf
-    @method('POST')
-    <input type="hidden" name="destination" value="{{ Request::fullUrl() }}">
+    <input type="hidden" name="_method" value="POST">
+    <input type="hidden" name="destination" value="{{ Request::fullUrl() }}" class="js-destination-val">
 </form>
 
 <script>

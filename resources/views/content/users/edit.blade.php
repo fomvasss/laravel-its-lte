@@ -13,7 +13,7 @@
                 <div class="box">
                     {!! Form::model($user, [
                         'method' => 'PATCH',
-                        'route' => ['admin.users.update', $user],
+                        'route' => ['users.update', $user],
                         'files' => true
                     ]) !!}
                     <div class="box-header">

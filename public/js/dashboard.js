@@ -242,18 +242,28 @@ $(function () {
         var $form = $('#js-action-form'),
             $this = $(this),
             method = $this.data('method') || 'POST',
-            strConfirm = $this.data('confirm') || translates.notifications.confirmAction || 'Confirm action?',
+            strConfirm = $this.data('confirm') ? confirm($this.data('confirm')) : true,
             destination = $(this).data('destination'),
             url = $(this).data('url');
-        if (url && $form && confirm(strConfirm)) {
+        
+        if (url && $form && strConfirm) {
             $form.find('input[name="_method"]').val(method)
             if (destination) {
-                $form.find('input[name="destination"]').val(destination)
+                $form.find('input.js-destination-val').val(destination)
             }
             $form.attr('action', url).submit()
         }
         return false
-    })
+    });
+
+    // 10000 -> 10 000
+    $('.js-num-format').each(function (index, value) {
+        var number = parseFloat(value.textContent);
+        value.textContent = numberWithSpaces(number);
+    });
+    function numberWithSpaces(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
 
     if ($('.select2.select2-static').length) {
         $('.select2.select2-static').select2({

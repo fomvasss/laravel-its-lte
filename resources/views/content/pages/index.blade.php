@@ -33,15 +33,19 @@
                             <td>{{ $page->id }}</td>
                             <td>{{ $page->name }}</td>
                             <td style="text-align: center">
-                                @if($page->publish)<i class="fa fa-check-square-o"></i>@else<i class="fa fa-square-o"></i>@endif
+                                @if($page->status === 'publish')
+                                    <i class="fa fa-check-square-o"></i>
+                                @else
+                                    <i class="fa fa-square-o"></i>
+                                @endif
                             </td>
                             <td>{{ $page->blade ?? trans('lte::main.Default') }}</td>
 
                             <td style="width: 110px">
                                 <div class="btn-group">
                                     <a href="{{ route('pages.show', $page) }}" target="_blank" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
-                                    <a href="{{ route('admin.pages.edit', $page) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-                                    <a href="#" data-url="{{ route('admin.users.destroy', $page) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
+                                    <a href="{{ route('pages.edit', $page) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+                                    <a href="#" data-url="{{ route('users.destroy', $page) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -54,7 +58,7 @@
 
             <div class="box-footer">
                 <div class="pull-right">
-                    {{--@include('lte::parts.pagination', ['pages' => $pages])--}}
+                    @includeWhen(isset($pages), 'lte::parts.pagination', ['pages' => $pages])
                 </div>
             </div>
         </div>

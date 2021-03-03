@@ -1,7 +1,7 @@
 @include('lte::fields.field-checkbox', [
     'label' => trans('lte::main.active'),
-    'field_name' => 'active',
-    'status' => isset($user) ? $user->active : 1,
+    'field_name' => 'is_active',
+    'status' => isset($user) ? $user->is_active : 1,
 ])
 
 @if(!empty($user->data['password']))
@@ -58,10 +58,4 @@
     'old' => old('roles')
 ])
 
-@include('lte::fields.field-form-buttons', [
-    //'url_store_and_create' => route('admin.users.create'),
-    //'url_store_and_close' => session('admin.users.index'),
-    //'url_destroy' => isset($user) ? route('admin.users.destroy', $user) : '',
-    //'url_after_destroy' => session('admin.users.index'),
-    'url_close' => session('admin.users.index'),
-])
+@include('lte::fields.field-form-buttons')
