@@ -4,7 +4,7 @@
 
     @include('lte::layouts.inc.content-header', [
         'page_title' => trans('lte::main.Pages'),
-        'url_back' => session('admin.pages.index'),
+        'url_back' => session('control.pages.index'),
     ])
 
     <section class="content">
@@ -40,14 +40,14 @@
                             @if($tab == 'seo')
                                 {!! Form::model(isset($page) ? $page : null, [
                                     'method' => 'POST',
-                                    //'route' => ['admin.pages.seo.save', $page],
+                                    'route' => ['control.pages.seo.save', $page],
                                     'files' => true
                                 ]) !!}
                                 @include('lte::content.pages._seo', ['model' => $page])
                             @else
                                 {!! Form::model($page ?? null, [
                                     'method' => 'PATCH',
-                                    //'route' => ['admin.pages.update', $page],
+                                    'route' => ['control.pages.update', $page],
                                     'files' => true
                                 ]) !!}
                                 @include('lte::content.pages._form')

@@ -4,7 +4,7 @@
 
     @include('lte::layouts.inc.content-header', [
         'page_title' => trans('lte::main.Users'),
-        'url_back' => session('admin.users.index'),
+        'url_back' => session('control.users.index'),
     ])
 
     <section class="content">
@@ -12,7 +12,7 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <div class="box">
                     {!! Form::open([
-                         'route' => 'users.store',
+                         'route' => 'control.users.store',
                          'files' => true
                     ]) !!}
                     <div class="box-header">

@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class ApplyRequestOptions
 {
     /** @var string */
-    protected $nextDestinationUrlSessionKey = 'destination';
+    protected $nextDestinationUrlSessionKey;
 
     /** @var array */
     protected $enabledOptionKeys = [
@@ -44,7 +44,7 @@ class ApplyRequestOptions
         $this->beforeHandle($request);
 
         // установить Destination URL
-        $destinationKey = config('its-lte.control.next_destination_key', $this->nextDestinationUrlSessionKey);
+        $destinationKey = config('its-lte.control.next_destination_key', 'destination');
         if ($request->has($this->nextDestinationUrlSessionKey) && $request->get($this->nextDestinationUrlSessionKey)) {
             $request->session()->put($this->nextDestinationUrlSessionKey, $request->get($this->nextDestinationUrlSessionKey));
         }

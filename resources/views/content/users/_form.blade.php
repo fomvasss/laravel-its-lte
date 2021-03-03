@@ -1,15 +1,30 @@
+@if(!empty($user->data['password']))
+    <div class="callout callout-warning">
+        <h4>{{ trans('lte::main.Attention!') }}</h4>
+        <p>{{ trans('lte::main.A password is automatically generated for the user:') }} <strong>{{ $user->data['password'] }}</strong></p>
+    </div>
+@endif
+
+@include('lte::fields.field-image-uploaded',[
+    'label' => 'Avatar',
+    'field_name' => 'avatar',
+    'entity' => isset($user) ? $user : null,
+])
+
+@include('lte::fields.field-select2-static', [
+    'label' => trans('lte::main.Status'),
+    'field_name' => 'status',
+    'attributes' => ['active' => 'Active'],
+    'selected' => isset($user) ? $user->status : null,
+    'old' => old('status')
+])
+{{--
 @include('lte::fields.field-checkbox', [
     'label' => trans('lte::main.active'),
     'field_name' => 'is_active',
     'status' => isset($user) ? $user->is_active : 1,
 ])
-
-@if(!empty($user->data['password']))
-<div class="callout callout-warning">
-    <h4>{{ trans('lte::main.Attention!') }}</h4>
-    <p>{{ trans('lte::main.A password is automatically generated for the user:') }} <strong>{{ $user->data['password'] }}</strong></p>
-</div>
-@endif
+--}}
 
 <div class="form-group @error('name') has-error @enderror">
     {!! Form::label('name', trans('lte::main.Name'), ['class' => 'control-label',]) !!}
@@ -53,7 +68,7 @@
     'max' => 1,
     'disabled' => 0,
     'required' => 1,
-    'attributes' => ['Client' => 'client'],
+    'attributes' => ['Client' => 'Admin', 'Client' => 'client'],
     'selected' => 'client',
     'old' => old('roles')
 ])

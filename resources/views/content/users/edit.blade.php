@@ -4,7 +4,7 @@
 
     @include('lte::layouts.inc.content-header', [
         'page_title' => trans('lte::main.Users'),
-        'url_back' => session('admin.users.index'),
+        'url_back' => session('control.users.index'),
     ])
 
     <section class="content">
@@ -13,7 +13,7 @@
                 <div class="box">
                     {!! Form::model($user, [
                         'method' => 'PATCH',
-                        'route' => ['users.update', $user],
+                        'route' => ['control.users.update', $user],
                         'files' => true
                     ]) !!}
                     <div class="box-header">

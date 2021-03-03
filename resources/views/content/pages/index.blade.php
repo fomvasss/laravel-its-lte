@@ -44,8 +44,8 @@
                             <td style="width: 110px">
                                 <div class="btn-group">
                                     <a href="{{ route('pages.show', $page) }}" target="_blank" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
-                                    <a href="{{ route('pages.edit', $page) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-                                    <a href="#" data-url="{{ route('users.destroy', $page) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
+                                    <a href="{{ route('control.pages.edit', $page) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+                                    <a href="#" data-url="{{ route('control.pages.destroy', $page) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
                                 </div>
                             </td>
                         </tr>

@@ -157,3 +157,35 @@ if (! function_exists('string_to_color_code')) {
         return substr($code, 0, 6);
     }
 }
+
+if (! function_exists('old_contain')) {
+    /**
+     * @param null $key
+     * @param null $needle
+     * @return bool|void
+     */
+    function old_contain($key = null, $needle = null)
+    {
+        $old = old($key);
+
+        if (is_array($old)) {
+            return in_array($needle, $old);
+        }
+        elseif (is_scalar($old)) {
+            return $needle == $old;
+        }
+
+        return false;
+    }
+}
+
+if (! function_exists('comparison_boolean')) {
+    /**
+     * @param $value
+     * @return bool
+     */
+    function comparison_bool($value)
+    {
+        return $value === "true" || $value === "1" || $value === true || $value === 1;
+    }
+}

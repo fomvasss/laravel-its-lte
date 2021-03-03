@@ -8,6 +8,7 @@
     ])
 
     <section class="content">
+        @include('lte::content.users.inc.filter')
         <div class="box">
             <div class="box-header">
                 <h3 class="box-title">{{ trans('lte::main.Total') }}: ({{ isset($users) ? $users->total() : 0 }})</h3>
@@ -57,8 +58,8 @@
                             <td>{{ $user->created_at }}</td>
                             <td style="width: 110px">
                                 <div class="btn-group">
-                                    <a href="{{ route('users.edit', $user) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-                                    <a href="#" data-url="{{ route('users.destroy', $user) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
+                                    <a href="{{ route('control.users.edit', $user) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+                                    <a href="#" data-url="{{ route('control.users.destroy', $user) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
                                 </div>
                             </td>
                         </tr>
