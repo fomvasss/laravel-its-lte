@@ -153,4 +153,8 @@ return [
     'Filter' => 'Filter',
     'Reset' => 'Reset',
     'Apply' => 'Apply',
+    
+    'Logs' => 'Logs',
+    'Console' => 'Console',
+    'Variables' => 'Variables',
 ];

@@ -11,6 +11,10 @@ Route::view('fields', 'lte::content.fields')->name('fields');
 Route::view('blank', 'lte::content.blank')->name('blank');
 Route::view('profile', 'lte::profile.edit')->name('profile.edit');
 
+Route::view('settings/logs', 'lte::settings.logs');
+Route::view('settings/tinker', 'lte::settings.tinker');
+Route::view('settings/vars', 'lte::settings.vars');
+
 Route::view('pages', 'lte::content.pages.index')->name('pages.index');
 Route::view('pages/edit', 'lte::content.pages.edit')->name('pages.edit');
 Route::view('pages/create', 'lte::content.pages.create')->name('pages.create');

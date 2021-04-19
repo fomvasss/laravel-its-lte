@@ -11,7 +11,7 @@
         @include('lte::content.users.inc.filter')
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">{{ trans('lte::main.Total') }}: ({{ isset($users) ? $users->total() : 0 }})</h3>
+                <h3 class="box-title">{{ trans('lte::main.Total') }}: {{ isset($users) ? $users->total() : 0 }}</h3>
             </div>
             <div class="box-body">
                 @if(empty($users) || $users->count() < 1)
@@ -28,7 +28,7 @@
                             <th style="width:130px;">{{ trans('lte::main.Role') }}</th>
                             <th style="width: 30px; text-align: center">{{ trans('lte::main.Active') }}</th>
                             <th style="width:150px;">{{ trans('lte::main.Registration') }}</th>
-                            <th style="width:100px;">{{ trans('lte::main.Actions') }}</th>
+                            <th style="max-width:100px;">{{ trans('lte::main.Actions') }}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -56,7 +56,7 @@
                                 @endif
                             </td>
                             <td>{{ $user->created_at }}</td>
-                            <td style="width: 110px">
+                            <td style="max-width: 110px">
                                 <div class="btn-group">
                                     <a href="{{ route('control.users.edit', $user) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
                                     <a href="#" data-url="{{ route('control.users.destroy', $user) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
