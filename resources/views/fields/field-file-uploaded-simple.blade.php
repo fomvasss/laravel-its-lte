@@ -1,5 +1,5 @@
 <div class="form-group field-more-items">
-    <label>{!! $label ?? 'Файл' !!}</label>
+    @isset($label)<label>{!! $label !!}</label>@endisset
     @php
         $field_name_input = isset($field_name) ? (Str::replaceLast('[]', '', $field_name)) : '';
     @endphp
@@ -34,8 +34,8 @@
 @error(Str::replaceLast('[]', '', $field_name)) <p class="help-block" style="color:red;">{{ $message }}</p> @enderror
 {{--
 @include('lte::fields.field-file-uploaded-simple',[
-    'label' => 'Файл',
+    'label' => 'File',
     'field_name' => 'file',
-    'entity' => $path,
+    'path' => $path,
 ])
 --}}

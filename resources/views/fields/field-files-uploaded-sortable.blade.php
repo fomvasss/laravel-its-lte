@@ -1,6 +1,6 @@
 <div class="box box-warning box-solid field-more-items-sortable">
     <div class="box-header">
-        <h3 class="box-title">{!! $label ?? 'Файлы' !!}</h3>
+        @isset($label)<h3 class="box-title">{!! $label !!}</h3>@endisset
         @php
             $field_name_input = isset($field_name) ? (Str::replaceLast('[]', '', $field_name) . '[]') : '';
             $field_name_deleted = isset($field_name) ? (Str::replaceLast('[]', '', $field_name) . '_deleted[]') : '';

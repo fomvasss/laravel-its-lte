@@ -1,7 +1,17 @@
+{{--
 @include('lte::fields.field-checkbox', [
     'label' => trans('lte::main.Publish'),
     'field_name' => 'is_publish',
     'status' => isset($page) ? $page->is_publish : 1,
+])
+--}}
+
+@include('lte::fields.field-select2-static', [
+    'label' => trans('lte::main.Status'),
+    'field_name' => 'status',
+    'attributes' => ['published' => 'Publishsd', 'unpublished' => 'Unpublished'],
+    'selected' => isset($page) ? $page->status : null,
+    'old' => old('status')
 ])
 
 <div class="form-group @error('name') has-error @enderror">
@@ -22,12 +32,12 @@
     @error('blade') <p class="help-block">{{$message}}</p> @enderror
 </div>
 
-@empty($page)
-<div class="form-group @error('url_alias') has-error @enderror">
-    {!! Form::label('url_alias', trans('lte::main.URL-alias'), ['class' => 'control-label']) !!}
-    {!! Form::text('url_alias', isset($page) ? optional($page->urlAlias)->alias : null, ['class' => 'form-control', isset($page) ? 'readonly' : '']) !!}
-    @error('url_alias') <p class="help-block">{{$message}}</p> @enderror
-</div>
-@endempty
+@include('lte::fields.field-slug', [
+    'label' => 'Slug',
+    'field_name' => 'slug',
+    'entity' => isset($page) ? $page : null,
+    //'value' => 'page-already-slug' // optional
+    'placeholder' => 'Entered slug',
+])
 
 @include('lte::fields.field-form-buttons')

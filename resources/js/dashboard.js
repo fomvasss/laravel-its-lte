@@ -569,4 +569,16 @@ $(function () {
             $(this).parents('tr').hide().find('.field-delete-item').val($(this).data('id'))
         })
     }
+
+    // LTE template
+    $('.js-check-skin').on('click', function (e) {
+        e.preventDefault();
+        var skin = $(this).data('skin');
+        $('body').removeClass($('#lte_default_skin').val()).addClass(skin);
+        $('#lte_default_skin').val(skin);
+    });
+    $('.js-set-body-class').change(function () {
+        var bodyClass = $(this).data('bodyClass');
+        this.checked ? $('body').addClass(bodyClass) : $('body').removeClass(bodyClass);
+    })
 });

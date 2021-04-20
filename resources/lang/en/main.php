@@ -157,4 +157,5 @@ return [
     'Logs' => 'Logs',
     'Console' => 'Console',
     'Variables' => 'Variables',
+    'Appearance' => 'Appearance',
 ];

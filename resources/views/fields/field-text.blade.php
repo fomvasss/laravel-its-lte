@@ -7,14 +7,23 @@
     @isset($label)
     <label for="{{ $field_name }}" class="control-label">{{ $label }}</label>
     @endisset
-    <input class="form-control"
-           placeholder="{{ isset($placeholder) ? $placeholder : '' }}"
-           type="{{ isset($type) ? $type : 'text' }}"
-           name="{{ $field_name }}"
-           value="{{ old($field_name, $value) }}"
-           id="@isset($field_id) {{ $field_name }} @else {{ $field_name }} @endisset"
-           autocomplete="off"
-    >
+    @if(isset($type) && $type === 'textarea')
+        <textarea class="form-control"
+                  rows="{{ isset($rows) ? $rows : 3 }}"
+                  name="{{ $field_name }}"
+                  placeholder="{{ isset($placeholder) ? $placeholder : '' }}"
+                  id="@isset($field_id) {{ $field_name }} @else {{ $field_name }} @endisset"
+        >{{ old($field_name, $value) }}</textarea>
+    @else
+        <input class="form-control"
+               placeholder="{{ isset($placeholder) ? $placeholder : '' }}"
+               type="{{ isset($type) ? $type : 'text' }}"
+               name="{{ $field_name }}"
+               value="{{ old($field_name, $value) }}"
+               id="@isset($field_id) {{ $field_name }} @else {{ $field_name }} @endisset"
+               autocomplete="off"
+        >
+    @endif
     @error($field_name) <p class="help-block">{{ $message }}</p> @enderror
 </div>
 

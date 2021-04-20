@@ -161,4 +161,5 @@ return [
     'Logs' => 'Логи',
     'Console' => 'Консоль',
     'Variables' => 'Переменные',
+    'Appearance' => 'Внешний вид',
 ];

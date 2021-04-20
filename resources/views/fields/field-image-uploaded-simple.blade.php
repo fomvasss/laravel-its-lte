@@ -1,5 +1,5 @@
 <div class="form-group field-more-items">
-    <label>{!! $label ?? 'Изображение' !!}</label>
+    @isset($label)<label>{!! $label !!}</label>@endisset
     @php
         $field_name_input = isset($field_name) ? (Str::replaceLast('[]', '', $field_name)) : '';
         $field_name_deleted = isset($field_name) ? (Str::replaceLast('[]', '', $field_name) . '_deleted') : '';
@@ -38,6 +38,6 @@
 @include('lte::fields.field-image-uploaded',[
     'label' => 'Изображение',
     'field_name' => 'image',
-    'entity' => isset($menuItem) ? $menuItem : null,
+    'path' => isset($menuItem) ? $menuItem : null,
 ])
 --}}

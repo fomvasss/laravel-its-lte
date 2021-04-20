@@ -1,5 +1,5 @@
 <div class="form-group field-more-items">
-    <label>{!! $label ?? 'Файлы' !!}</label>
+    @isset($label)<label>{!! $label !!}</label>@endisset
     @php
         $field_name_input = isset($field_name) ? (Str::replaceLast('[]', '', $field_name) . '[]') : '';
         $field_name_deleted = isset($field_name) ? (Str::replaceLast('[]', '', $field_name) . '_deleted[]') : '';
