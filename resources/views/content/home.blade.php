@@ -7,38 +7,10 @@
         </div>
         <div class="row">
             <div class="col-lg-3 col-xs-6">
-                <div class="small-box bg-aqua">
-                    <div class="inner">
-                        <h3>{{ $totals['new_orders'] ?? 0 }}</h3>
-                        <p>New orders</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-bag"></i>
-                    </div>
-                    <a href="#" class="small-box-footer"><i class="fa"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-green">
-                    <div class="inner">
-                        <h3>{{ $totals['success_orders'] ?? 0 }}</h3>
-
-                        <p>Success orders</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
-                    </div>
-                    <a href="#" class="small-box-footer"><i class="fa"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-yellow">
+                <div class="small-box bg-fuchsia">
                     <div class="inner">
                         <h3>{{ $totals['clients'] ?? 0 }}</h3>
-
-                        <p>Clients</p>
+                        <p>Users</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person"></i>
@@ -47,17 +19,40 @@
                 </div>
             </div>
             <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-red">
+                <div class="small-box bg-aqua">
                     <div class="inner">
-                        <h3>{{ $totals['new_web_forms'] ?? 0 }}</h3>
-
-                        <p>New Web-forms</p>
+                        <h3>{{ $totals['orders'] ?? 0 }}</h3>
+                        <p>Orders</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-social-chrome"></i>
+                        <i class="ion ion-social-instagram"></i>
                     </div>
                     <a href="#" class="small-box-footer"> <i class="fa"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-blue">
+                    <div class="inner">
+                        <h3>{{ $totals['payments'] ?? 0 }}</h3>
+                        <p>Payments, sum</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-rub"></i>
+                    </div>
+                    <a href="#" class="small-box-footer"><i class="fa"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3>{{ round($totals['balance'] ?? 0) }}</h3>
+                        <p>Balance, sum</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-bank"></i>
+                    </div>
+                    <a href="#" class="small-box-footer"><i class="fa"></i></a>
                 </div>
             </div>
         </div>
@@ -70,8 +65,8 @@
                 <div class="info-box">
                     <span class="info-box-icon bg-aqua"><i class="fa fa-users"></i></span>
                     <div class="info-box-content">
-                        <span class="info-box-text">Registrations</span>
-                        <span class="info-box-number"><a href="#">{{ $todays['registers'] ?? 0 }}</a></span>
+                        <span class="info-box-text">Users</span>
+                        <span class="info-box-number"><a href="#">{{ $todays['users'] ?? 0 }}</a></span>
                     </div>
                 </div>
             </div>
@@ -80,8 +75,8 @@
                     <span class="info-box-icon bg-green"><i class="fa fa-money"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Subscribers</span>
-                        <span class="info-box-number"><a href="#">{{ $todays['subscribers'] ?? 0 }}</a></span>
+                        <span class="info-box-text">Orders</span>
+                        <span class="info-box-number"><a href="#">{{ $todays['orders'] ?? 0 }}</a></span>
                     </div>
                 </div>
             </div>
@@ -102,8 +97,8 @@
                 <div class="info-box">
                     <span class="info-box-icon bg-fuchsia"><i class="fa fa-meh-o"></i></span>
                     <div class="info-box-content">
-                        <span class="info-box-text">Out of subscriptions</span>
-                        <span class="info-box-number"><a href="#">{{ $todays['stop_subscribes'] ?? 0 }}</a></span>
+                        <span class="info-box-text">Reviews</span>
+                        <span class="info-box-number"><a href="#">{{ $todays['reviews'] ?? 0 }}</a></span>
                     </div>
                 </div>
             </div>
@@ -125,7 +120,7 @@
 
                 <div class="box box-info">
                     <div class="box-header with-border">
-                        <i class="fa fa-shopping-cart"></i><h3 class="box-title">Last 15 orders</h3>
+                        <i class="fa fa-shopping-cart"></i><h3 class="box-title">Lasts</h3>
                     </div>
                     <div class="box-body">
                         <div class="table-responsive">

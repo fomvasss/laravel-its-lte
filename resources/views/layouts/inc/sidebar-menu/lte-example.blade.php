@@ -1,4 +1,3 @@
-@if (!app()->environment('production'))
 <ul class="sidebar-menu" data-widget="tree">
     <li class="header">LTE example</li>
     <li><a href="/lte"><i class="fa fa-compass"></i> <span>Home</span></a></li>
@@ -29,6 +28,7 @@
         </a>
         <ul class="treeview-menu">
             <li><a href="/lte/settings/vars"><i class="fa fa-circle-o text-yellow"></i> <span>Variables</span></a></li>
+            <li><a href="/lte/settings/tabs"><i class="fa fa-circle-o text-yellow"></i> <span>Tabs</span></a></li>
             <li><a href="/lte/settings/logs"><i class="fa fa-circle-o text-yellow"></i> <span>Logs</span></a></li>
             <li><a href="/lte/settings/tinker"><i class="fa fa-circle-o text-yellow"></i> <span>Tinker</span></a></li>
             <li><a href="/lte/settings/lte"><i class="fa fa-circle-o text-yellow"></i> <span>LTE</span></a></li>
@@ -40,4 +40,3 @@
     <li><a href="/lte/login"><i class="fa fa-sign-in"></i> <span>Login</span></a></li>
     <li><a href="/lte/blank"><i class="fa fa-circle-o text-green"></i> <span>Blank</span></a></li>
 </ul>
-@endif

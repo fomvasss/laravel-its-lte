@@ -153,7 +153,9 @@ return [
     'Filter' => 'Filter',
     'Reset' => 'Reset',
     'Apply' => 'Apply',
-    
+
+    'Commands' => 'Commands',
+    'Settings' => 'Settings',
     'Logs' => 'Logs',
     'Console' => 'Console',
     'Variables' => 'Variables',

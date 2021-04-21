@@ -15,6 +15,7 @@ Route::view('settings/logs', 'lte::settings.logs');
 Route::view('settings/tinker', 'lte::settings.tinker');
 Route::view('settings/lte', 'lte::settings.lte');
 Route::view('settings/vars', 'lte::settings.vars');
+Route::view('settings/tabs/{tab?}', 'lte::settings.tabs')->name('settings.tabs');
 
 Route::view('pages', 'lte::content.pages.index')->name('pages.index');
 Route::view('pages/edit', 'lte::content.pages.edit')->name('pages.edit');
