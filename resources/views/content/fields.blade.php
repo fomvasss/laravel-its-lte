@@ -6,19 +6,34 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Example items list</h3>
+                        <h3 class="box-title">Example entries</h3>
 
                         <div class="box-tools pull-right">
-                            <ul class="pagination pagination-sm inline">
-                                @foreach(['RU' => 'Русский', 'EN' => 'English', 'UA' => 'Українська'] as $key => $locale)
-                                    <li @if($loop->first) class="active" @endif>
-                                        <a href="#">{{ $key }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                            &nbsp;
+                            <div class="btn-group" data-toggle="btn-toggle">
+                                <button type="button" class="btn btn-default btn-sm">
+                                    <i class="fa fa-file-pdf-o"></i>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm">
+                                    <i class="fa fa-file-excel-o"></i>
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm">
+                                    <i class="fa fa-print"></i>
+                                </button>
+                            </div>
+
+                            <div class="btn-group">
+                                <ul class="pagination pagination-sm inline">
+                                    @foreach(['RU' => 'Русский', 'EN' => 'English', 'UA' => 'Українська'] as $key => $locale)
+                                        <li @if($loop->first) class="active" @endif>
+                                            <a href="#">{{ $key }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            &nbsp;</div>
+
                             @include('lte::parts.entity-navigation', [
                                'next' => '#',
+                               'current' => '#',
                                'previous' => '#',
                             ])
                         </div>
@@ -31,7 +46,8 @@
                                     <th>#</th>
                                     <th></th>
                                     <th>Date</th>
-                                    <th>Reason</th>
+                                    <th>Progress</th>
+                                    <th>Description</th>
                                     <th>Status</th>
                                     <th>Price</th>
                                     <th>Payment</th>
@@ -41,7 +57,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {{--
+                                <tr class="odd">
+                                    <td colspan="10" class="text-center">{{ trans('lte::main.No records found') }}</td>
+                                </tr>
+                                --}}
                                 @for($i = 1; $i <= 4; $i++)
+                                    @php($progress = rand(1,100))
                                 <tr>
                                     <td>{{ $i }}</td>
                                     <td class="text-center">
@@ -55,6 +77,16 @@
                                         </span>
                                     </td>
                                     <td>13.01.1989</td>
+                                    <td>
+                                        <div class="progress-group">
+                                            <span class="progress-text">Completed</span>
+                                            <span class="progress-number"><b>{{ $progress }}</b>/100</span>
+
+                                            <div class="progress sm">
+                                                <div class="progress-bar progress-bar-aqua" style="width: {{$progress}}%"></div>
+                                            </div>
+                                        </div>
+                                    </td>
                                     <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
                                     <td>
                                         @include('lte::fields.field-checkbox-ajax', [
@@ -92,7 +124,10 @@
                                                         <a href="#" data-url="" class=" js-action-form" data-method="GET"><i class="fa fa-trash text-danger"></i> Delete</a>
                                                     </li>
                                                     <li>
-                                                        <a href="#" data-url="#" class="js-action-form" data-method="GET"><i class="fa fa-eye text-info"></i> Mailind</a>
+                                                        <a href="#" data-url="#" class="js-action-form" data-method="GET"><i class="fa fa-envelope text-info"></i> Mailing</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" data-url="#" class="js-action-form" data-method="GET"><i class="fa fa-print text-aqua"></i> Print</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -104,7 +139,39 @@
                         </table>
                     </div>
                     <div class="box-footer">
+                        <div class="pull-left">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div style="margin: 20px 0;" class="form-inline">
+                                        <label>
+                                            {{ trans('lte::main.Show') }}
+                                            <select name="" class="form-control input-sm">
+                                                <option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option><option value="100">5000</option>
+                                            </select>
+                                            {{ trans('lte::main.entries') }}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         @include('lte::parts.pagination')
+                        <div class="pull-right">
+                            <div class="pagination-wrapper text-center">
+                                <nav>
+                                    <ul class="pagination">
+                                        <li class="page-item disabled" aria-disabled="true" aria-label="« Previous">
+                                            <span class="page-link" aria-hidden="true">‹</span>
+                                        </li>
+                                        <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+                                        <li class="page-item"><a class="page-link" href="#page=2">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#page=3">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#page=2" rel="next" aria-label="Next »">›</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
