@@ -362,13 +362,14 @@
                         @include('lte::fields.field-select2-static', [
                             'label' => 'Technology',
                             'field_name' => 'technology',
-                            'multiple' => 1,
+                            'multiple' => 0,
                             'max' => 2,
                             'disabled' => 0,
                             'required' => 1,
-                            'attributes' => [1 => 'PHP', 2 => 'Laravel', 3 => 'JS', 4 => 'Vue'],
-                            'selected' => [2,4],
+                            'attributes' => [12 => 'PHP', 23 => 'Laravel', 34 => 'JS', 45 => 'Vue', 56 => 'NodeJS'],
+                            'selected' => [12,34],
                             'empty_value' => '--not chosen--',
+                            'data_url_save' => route('lte.data.status'),
                         ])
 
                         @include('lte::fields.field-select2-ajax-autocomplete', [
@@ -391,7 +392,7 @@
                         ])
 
                         @include('lte::fields.field-select2-tags', [
-                            'label' => 'Теги',
+                            'label' => 'Tags',
                             'data_url' => route('lte.data.tags'),
                             'selected' => [1 => 'News'],
                             //'attributes' => [1 => 'Новости', 2 => 'Спорт', 3 => 'Политика'],

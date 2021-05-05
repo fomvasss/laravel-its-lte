@@ -1,3 +1,4 @@
+{{-- DEPRECATED! Use *field-select2-static*--}}
 @php
     $field_name = $field_name ?? '';
 @endphp

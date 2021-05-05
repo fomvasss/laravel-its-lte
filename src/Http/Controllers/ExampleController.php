@@ -63,7 +63,8 @@ class ExampleController extends Controller
     {
         return response()->json([
             'status' => 'ok',
-            'message' => 'Status is changed',
+            'message' => 'Data saved!',
+            'request' => $request->all(),
         ]);
     }
 

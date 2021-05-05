@@ -264,13 +264,56 @@ $(function () {
     function numberWithSpaces(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
+    
+    $('.field-select2-static').each(function () {
+        var $base = $(this),
+            $select = $base.find('.select2-static'),
+            urlSave = $base.data('url-save');
 
-    if ($('.select2.select2-static').length) {
-        $('.select2.select2-static').select2({
-            language: LANGUAGE,
-            tags: false
-        })
-    }
+        // Autosave after change
+        if (urlSave) {
+            var fieldName = $base.find('select').data('name'),
+                method = $base.data('method-save') || 'POST',
+                $select2 = $select.select2({
+                    language: LANGUAGE,
+                    tags: false
+                });
+
+            $select2.on('change', function (e) {
+                var values = $select.first(':selected').val();
+                $base.find('.overlay').removeClass('hidden');
+                $.ajax({
+                    method: method,
+                    url: urlSave,
+                    dataType: 'json',
+                    data: {name: fieldName, value: values},
+                    success: function (data) {
+                        if (data.message) {
+                            $base.append('<div class="text-success">' + data.message + '</div>')
+                            $base.find('.text-success').delay(2000).fadeOut(500, 'linear', function () {
+                                $(this).remove()
+                            })
+                        }
+                    },
+                    error: function () {
+                        console.log('Error Ajax!')
+                        $base.append('<div class="text-danger">Error Ajax</div>')
+                        $base.find('.text-danger').delay(2000).fadeOut(500, 'linear', function () {
+                            $(this).remove()
+                        })
+                    },
+                    complete: function () {
+                        $base.find('.overlay').addClass('hidden')
+                    }
+                });
+            });
+        } else {
+            $select.select2({
+                language: LANGUAGE,
+                tags: false
+            });
+        }
+    });
 
     if ($('.select2.select2-tags').length) {
         $('.select2.select2-tags').each(function (index) {

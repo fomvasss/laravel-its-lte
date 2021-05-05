@@ -1,4 +1,11 @@
-<div class="form-group">
+<div class="form-group field-select2-static"
+     @isset($data_url_save)
+     data-url-save="{{ $data_url_save }}"
+     @endisset
+     @isset($data_method_save)
+     data-method-save="{{ $data_method_save }}"
+     @endisset
+>
     @isset($label)
     <label class="control-label">{!! $label !!}</label>
     @endisset
@@ -17,6 +24,7 @@
 
     <select
             name="{{ $field_name_input }}"
+            data-name="{{ Str::replaceLast('[]', '', $field_name) }}"
             class="form-control select2 select2-static @isset($class) {{ $class }} @endisset"
             @if(isset($multiple) && $multiple && (empty($max) || $max > 1)) multiple @endif
             @if(isset($disabled) && $disabled) disabled @endif
@@ -40,20 +48,24 @@
     @isset($help_text)
         <p class="help-block small">{!! $help_text !!}</p>
     @endisset
+    <div class="overlay hidden">
+        <i class="fa fa-refresh fa-spin"></i>
+    </div>
 </div>
 {!! $errors->first(Str::replaceLast('[]', '', $field_name), '<p class="help-block" style="color:red;">:message</p>') !!}
 
-{{-- Select2 с статически загруженными данными--}}
+{{-- Select2 with static options --}}
 {{--
 @include('lte::fields.field-select2-static', [
-    'label' => 'Значения атрибута "' . $attribute->title . '"',
-    'field_name' => 'values['.$attribute->id.']',
+    'label' => 'Status',
+    'field_name' => 'status,
     'multiple' => 0,
     'max' => 1,
     'disabled' => 0,
     'required' => 1,
-    'attributes' => [1 => 'Новый заказ', 2 => 'В обработке'], //$attribute->values->pluck('value', 'id')->toArray(),
-    'selected' => isset($product) ? $product->values->pluck('id')->toArray() : [],
-    'empty_value' => '--не указано--',
+    'attributes' => [1 => 'New order', 2 => 'In progress'],
+    'selected' => [2],
+    'empty_value' => '--no chusen--',
+    //'data_url_save' => route('lte.data.status'), // For autosave after change
 ])
 --}}

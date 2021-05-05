@@ -1,5 +1,7 @@
 <div class="form-group">
-    <label>{!! $label ?? 'Значения' !!}</label>
+    @isset($label)
+        <label>{!! $label !!}</label>
+    @endisset
     @php
         $field_name = $field_name ?? '';
         $field_name_input = (isset($multiple) && $multiple) ? (Str::replaceLast('[]', '', $field_name) . '[]') : Str::replaceLast('[]', '', $field_name);
@@ -29,15 +31,14 @@
 
 {!! $errors->first(Str::replaceLast('[]', '', $field_name), '<p class="help-block" style="color:red;">:message</p>') !!}
 
-{{-- Select2 с динамически загруженными данными через AJAX --}}
+{{-- Select2 with dynamic download AJAX options --}}
 {{--
 @include('lte::fields.field-select2-ajax-autocomplete', [
-    'label' => 'Теги статьи',
-    'data_url' => '/src/data/change-status.php',
+    'label' => 'Tags',
+    'data_url' => route('lte.data.tags'),
     'field_name' => 'tags',
     'multiple' => 1,
     'disabled' => 0,
-    'selected' => isset($article) && ($article->tags) ? [$article->tags->id => url($article->tags->name)] : null,
-    'old' => old('tags')
+    'selected' => [1 => 'New order',],
 ])
 --}}
