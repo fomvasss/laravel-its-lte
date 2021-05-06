@@ -201,6 +201,19 @@
                     </div>
                     <div class="box-body">
 
+                        @include('lte::fields.field-select2-static2', [
+                            'label' => 'Status (autosave)',
+                            'field_name' => 'status',
+                            'multiple' => 1,
+                            'max' => 0,
+                            'disabled' => 0,
+                            'required' => 1,
+                            'attributes' => [1 => 'New order', 2 => 'In progress'],
+                            'selected' => [2],
+                            'empty_value' => '--no chusen--',
+                            'data_url_save' => route('lte.data.status'), // For autosave after change
+                        ])
+
                         @include('lte::fields.field-select2-ajax-autocomplete', [
                             'label' => 'Теги статьи',
                             'data_url' => route('lte.data.statuses'),

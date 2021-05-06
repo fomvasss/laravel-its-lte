@@ -191,6 +191,56 @@ $(function () {
             })
         }
 
+        $('.field-select2-static2').each(function () {
+            var $base = $(this),
+                $select = $base.find('.select2-static2'),
+                urlSave = $base.data('url-save');
+
+            // Autosave after change
+            if (urlSave) {
+                var fieldName = $base.find('select').data('name'),
+                    method = $base.data('method-save') || 'POST',
+                    $select2 = $select.select2({
+                        language: LANGUAGE,
+                        tags: false
+                    });
+
+                $select2.on('change', function (e) {
+                    var values = $select.first(':selected').val();
+                    $base.find('.overlay').removeClass('hidden');
+                    $.ajax({
+                        method: method,
+                        url: urlSave,
+                        dataType: 'json',
+                        data: {name: fieldName, value: values},
+                        success: function (data) {
+                            if (data.message) {
+                                $base.append('<div class="text-success">' + data.message + '</div>')
+                                $base.find('.text-success').delay(2000).fadeOut(500, 'linear', function () {
+                                    $(this).remove()
+                                })
+                            }
+                        },
+                        error: function () {
+                            console.log('Error Ajax!')
+                            $base.append('<div class="text-danger">Error Ajax</div>')
+                            $base.find('.text-danger').delay(2000).fadeOut(500, 'linear', function () {
+                                $(this).remove()
+                            })
+                        },
+                        complete: function () {
+                            $base.find('.overlay').addClass('hidden')
+                        }
+                    });
+                });
+            } else {
+                $select.select2({
+                    language: LANGUAGE,
+                    tags: false
+                });
+            }
+        });
+
         if ($('.select2.sortable').length) {
             $('.select2.sortable').select2({
                 language: 'ru',

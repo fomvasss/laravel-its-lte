@@ -31,6 +31,15 @@ class ExampleController extends Controller
         ]]);
     }
 
+    public function status(Request $request)
+    {
+        return response()->json([
+            'status' => 'ok',
+            'message' => 'Data saved!',
+            'request' => $request->all(),
+        ]);
+    }
+
     protected function getTree()
     {
         return [
