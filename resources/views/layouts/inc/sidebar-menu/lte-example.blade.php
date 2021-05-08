@@ -53,10 +53,19 @@
 
 <ul class="sidebar-menu" data-widget="tree">
     <li class="header">LTE process</li>
-    <li>
+    <li class="process">
         <a href="#">
-            <span style="margin-right: 10px; color: orange"><i class="fa fa-refresh fa-spin" ></i></span>
-            <span style="font-weight: bold">Sending...</span>
+            <i class="fa fa-circle-o-notch fa-spin" style="color: red"></i>
+            <span style="">Process 1...</span>
+        </a>
+    </li>
+    <li class="process">
+        <a href="#">
+            <i class="fa fa-refresh fa-spin" style=""></i>
+            <span style="">Process 2...</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-yellow">12%</small>
+            </span>
         </a>
     </li>
 </ul>

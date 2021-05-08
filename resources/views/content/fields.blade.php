@@ -52,8 +52,8 @@
                                     <th>Price</th>
                                     <th>Payment</th>
                                     <th class="text-center">Publish</th>
-                                    <th class="text-center">Actions</th>
-                                    <th class="text-center">Actions2</th>
+                                    <th class="text-center" style="min-width: 85px;">Actions</th>
+                                    <th class="text-center" style="min-width: 70px">Actions2</th>
                                 </tr>
                             </thead>
                             <tbody>
