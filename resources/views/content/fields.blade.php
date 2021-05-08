@@ -362,7 +362,7 @@
                         @include('lte::fields.field-select2-static', [
                             'label' => 'Technology',
                             'field_name' => 'technology',
-                            'multiple' => 0,
+                            'multiple' => 1,
                             'max' => 2,
                             'disabled' => 0,
                             'required' => 1,
