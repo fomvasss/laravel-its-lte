@@ -85,11 +85,11 @@
         xEditable = {},
         colorpickerOptions = {},
         datetimepickerOptions = {
-            format: 'Y/m/d H:i:s'
+            format: 'Y-m-d H:i:s'
         },
         datepickerOptions = {
             timepicker:false,
-            format:'d/m/Y'
+            format:'d-m-Y'
         },
         timepickerOptions = {
             datepicker:false,
