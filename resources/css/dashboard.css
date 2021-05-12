@@ -238,3 +238,14 @@ img.thumbnail-0 {
 	border-bottom: solid 2px white;
 	font-weight: bold;
 }
+
+.sidebar-menu>li.process>a>.fa,
+.sidebar-menu>li.process>a>.glyphicon,
+.sidebar-menu>li.process>a>.ion {
+	width: auto;
+	color: orange;
+}
+.sidebar-menu>li.process>a>span {
+	font-weight: bold;
+	padding-left: 10px;
+}

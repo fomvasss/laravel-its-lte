@@ -67,9 +67,9 @@ return [
          * Example aside menu
          */
         'aside_menu' => [
-            'static' => false,
-            'static_example' => env('APP_ENV') !== 'production',
-            'lte' => env('APP_ENV') !== 'production',
+            'static' => true,
+            'lte' => env('APP_ENV') === 'local',
+            'store' => env('APP_ENV') === 'local',
         ],
 
         'aside_auth_user_info' => false,

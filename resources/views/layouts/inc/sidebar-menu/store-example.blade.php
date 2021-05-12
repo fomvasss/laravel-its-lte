@@ -32,22 +32,13 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-circle-o text-green"></i>
-                    <span>Rubricator</span>
-                    <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="#/control/terms?vocabulary=product_categories"><i class="fa fa-circle-o text-green"></i> Product categories</a></li>
-                    <li><a href="#/control/terms?vocabulary=article_categories"><i class="fa fa-circle-o text-green"></i> Article categories</a></li>
-                    <li><a href="#/control/terms?vocabulary=faq_subjects"><i class="fa fa-circle-o text-green"></i> FAQ Topics</a></li>
-                </ul>
-            </li>
-            <li><a href="#/control/shop/attributes"><i class="fa fa-circle-o text-green"></i> Attributes</a></li>
             <li><a href="#/control/menu"><i class="fa fa-circle-o text-green"></i> Menu</a></li>
+            <li><a href="#/control/shop/attributes"><i class="fa fa-circle-o text-green"></i> Attributes</a></li>
+
+            <li><a href="#/control/terms?vocabulary=product_categories"><i class="fa fa-circle-o text-green"></i> Product categories</a></li>
+            <li><a href="#/control/terms?vocabulary=article_categories"><i class="fa fa-circle-o text-green"></i> Article categories</a></li>
+            <li><a href="#/control/terms?vocabulary=faq_subjects"><i class="fa fa-circle-o text-green"></i> FAQ Topics</a></li>
+            <li><a href="#/control/tegs"><i class="fa fa-circle-o text-green"></i> Tags</a></li>
         </ul>
     </li>
 
