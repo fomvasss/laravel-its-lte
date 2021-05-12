@@ -104,6 +104,7 @@ return [
     'Category' => 'Category',
     'Categories' => 'Categories',
     'Tags' => 'Tags',
+    'Tag' => 'Tag',
 
     'New' => 'New',
     'Published' => 'Published',
