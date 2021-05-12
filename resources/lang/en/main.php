@@ -99,6 +99,12 @@ return [
     'Payment' => 'Payment',
     'Payments' => 'Payments',
 
+    'Locale' => 'Locale',
+    'Location' => 'Location',
+    'Category' => 'Category',
+    'Categories' => 'Categories',
+    'Tags' => 'Tags',
+
     'New' => 'New',
     'Published' => 'Published',
     'Unpublished' => 'Unpublished',
@@ -137,7 +143,6 @@ return [
     'Partners' => 'Partners',
     'Client' => 'Client',
     'Clients' => 'Clients',
-    'User' => 'User',
     'Users' => 'Users',
     'Guest' => 'Guest',
     'Guests' => 'Guests',

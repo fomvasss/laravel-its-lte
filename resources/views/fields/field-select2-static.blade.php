@@ -58,14 +58,14 @@
 {{--
 @include('lte::fields.field-select2-static', [
     'label' => 'Status',
-    'field_name' => 'status,
+    'field_name' => 'status',
     'multiple' => 0,
     'max' => 1,
     'disabled' => 0,
     'required' => 1,
     'attributes' => [1 => 'New order', 2 => 'In progress'],
     'selected' => [2],
-    'empty_value' => '--no chusen--',
+    'empty_value' => trans('lte::main.--not chosen--'),
     //'data_url_save' => route('lte.data.status'), // For autosave after change
 ])
 --}}
