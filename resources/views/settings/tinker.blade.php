@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-12">
 
-                <iframe src="/control/tinker" frameborder="0" width="100%"  style="border: 0;height: calc(100vh - 0px);"></iframe>
+                <iframe src="/{{ config('web-tinker.path', '#') }}" frameborder="0" width="100%"  style="border: 0;height: calc(100vh - 0px);"></iframe>
                 
             </div>
         </div>

@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-12">
 
-                <iframe src="/control/logs" frameborder="0" width="100%"  style="border: 0;height: calc(100vh - 0px);"></iframe>
+                <iframe src="/control/flogs" frameborder="0" width="100%"  style="border: 0;height: calc(100vh - 0px);"></iframe>
                 
             </div>
         </div>
