@@ -133,6 +133,8 @@ return [
     'Attributes' => 'Атрыбуты',
     'Values' => 'Значения',
     'Date' => 'Дата',
+    'Datetime' => 'Дата и время',
+    'Time' => 'Время',
     'List' => 'Список',
     'Vocabulary' => 'Словарь',
     'Term' => 'Терм',

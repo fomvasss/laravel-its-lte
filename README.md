@@ -176,9 +176,11 @@ If needed, install [LFM](https://github.com/UniSharp/laravel-filemanager):
 composer require unisharp/laravel-filemanager
 ```
 
-Publish LFM files:
-- `config/lfm.php`
-- `public/vendor/laravel-filemanager`
+Publish LFM files: `config/lfm.php`, `public/vendor/laravel-filemanager`:
+```bash
+php artisan vendor:publish --tag=lfm_config
+php artisan vendor:publish --tag=lfm_public
+```
 Recommend set LFM paths `config/lfm.php`:
 ```php
     'shared_folder_name' => 'shares',

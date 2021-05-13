@@ -66,7 +66,7 @@
                                     @php($progress = rand(1,100))
                                 <tr>
                                     <td>{{ $i }}</td>
-                                    <td class="text-center">
+                                    <td class="wh-center">
                                         <a href="#" target="_blank">
                                             <img src="/vendor/its-lte/img/no-image.png" class="thumbnail-100">
                                         </a>
@@ -76,7 +76,7 @@
                                             </a>
                                         </span>
                                     </td>
-                                    <td>13.01.1989</td>
+                                    <td><a href="#" class="hover-edit">13.01.1989</a></td>
                                     <td>
                                         <div class="progress-group">
                                             <span class="progress-text">Completed</span>

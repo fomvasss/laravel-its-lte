@@ -613,6 +613,33 @@ $(function () {
         })
     }
 
+    $('.js-copy-to-clipboard').on('click', function (e) {
+        e.preventDefault()
+        var $tmp = $("<textarea>"),
+            $text = $(this).data('text');
+        $("body").append($tmp);
+        $tmp.val($text).select();
+        document.execCommand("copy");
+        $tmp.remove();
+        $(this).hide().show(100);
+    })
+
+    if ($('.sidebar-menu.js-activeable').length) {
+        var pathnameUrl = window.location.pathname,
+            url = window.location.href,
+            path = url.split('?')[0];
+
+        $('.sidebar-menu.js-activeable li>a').each(function () {
+            var aHref = $(this).attr("href"),
+                regexp = $(this).data('pat') ? new RegExp($(this).data('pat')) : false;
+
+            if (path === aHref || pathnameUrl === aHref || regexp && regexp.test(url)) {
+                $(this).closest('li').addClass('active');
+                $(this).closest('li.treeview').addClass('active');
+            }
+        });
+    }
+
     // LTE template
     $('.js-check-skin').on('click', function (e) {
         e.preventDefault();

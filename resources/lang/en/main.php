@@ -133,6 +133,8 @@ return [
     'Attributes' => 'Attributes',
     'Values' => 'Values',
     'Date' => 'Date',
+    'Datetime' => 'Datetime',
+    'Time' => 'Time',
     'List' => 'List',
     'Vocabulary' => 'Vocabulary',
     'Term' => 'Term',
