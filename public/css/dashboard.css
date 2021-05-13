@@ -262,3 +262,7 @@ img.thumbnail-0 {
 	text-align: center;
 	vertical-align: middle;
 }
+
+a.hierarchy-item-title {
+	color: rgb(68, 68, 68);
+}
