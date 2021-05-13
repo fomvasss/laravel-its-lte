@@ -105,7 +105,7 @@
                                     <td class="text-center">
                                         <i class="fa fa-check-square-o"></i>
                                     </td>
-                                    <td class="text-center">
+                                    <td class="wh-center btn-media">
                                         @include('lte::parts.action-btn', [
                                             'show' => '#',
                                             'edit' => '#',
@@ -121,7 +121,7 @@
                                                 </button>
                                                 <ul class="dropdown-menu" style="right: 0; left: unset;">
                                                     <li>
-                                                        <a href="#" data-url="" class=" js-action-form" data-method="GET"><i class="fa fa-trash text-danger"></i> Delete</a>
+                                                        <a href="#" data-url="" class=" js-action-form" data-method="GET" data-confirm="{{ trans('lte::main.Delete') }}?"><i class="fa fa-trash text-danger"></i> Delete</a>
                                                     </li>
                                                     <li>
                                                         <a href="#" data-url="#" class="js-action-form" data-method="GET"><i class="fa fa-envelope text-info"></i> Mailing</a>

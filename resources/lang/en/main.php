@@ -80,6 +80,9 @@ return [
     'Property' => 'Property',
     'Form' => 'Form',
     'Pages' => 'Pages',
+    'Comments' => 'Comments',
+    'Reviews' => 'Reviews',
+    'Incoming' => 'Incoming',
     'Total' => 'Total',
     'Default' => 'Default',
     'Publish' => 'Publish',
@@ -105,6 +108,8 @@ return [
     'Categories' => 'Categories',
     'Tags' => 'Tags',
     'Tag' => 'Tag',
+    'Rating' => 'Rating',
+    'Star' => 'Star',
 
     'New' => 'New',
     'Published' => 'Published',
@@ -115,6 +120,8 @@ return [
     'Moderation' => 'Moderation',
     'Completed' => 'Completed',
     'Processing' => 'Processing',
+    'Accepted' => 'Прийнято',
+    'Delivered' => 'Delivered',
 
     'Teaser' => 'Teaser',
     'Link' => 'Link',

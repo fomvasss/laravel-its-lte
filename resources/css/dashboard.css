@@ -263,6 +263,17 @@ img.thumbnail-0 {
 	vertical-align: middle;
 }
 
+@media screen and (max-width: 960px) {
+	td.btn-media>.btn.btn-xs {
+		padding: 6px 12px;
+		font-size: 14px;
+		line-height: 1.42857143;
+		margin-bottom: 2px;
+		display: block;
+	}
+}
+
 a.hierarchy-item-title {
 	color: rgb(68, 68, 68);
 }
+
