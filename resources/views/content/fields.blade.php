@@ -526,6 +526,29 @@
                         ])
                     </div>
                 </div>
+
+
+                <div class="box">
+                    <div class="box-header">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h3 class="box-title"> Image cropper</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body">
+
+                        @include('lte::fields.field-image-cropper-uploaded',[
+                              'label' => 'Crop Image',
+                              'field_name' => 'image_pr',
+                              'img_width' => 300,
+                              'img_height' => 240,
+                              'show_preview' => true,
+                              'entity' => isset($post) ? $post : null,
+                          ])
+
+                    </div>
+                </div>
             </div>
         </div>
 

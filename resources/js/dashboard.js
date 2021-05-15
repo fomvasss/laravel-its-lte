@@ -622,7 +622,87 @@ $(function () {
         document.execCommand("copy");
         $tmp.remove();
         $(this).hide().show(100);
-    })
+    });
+
+    /**
+     * Add cropper editor for input type file
+     */
+    $.fn.addCropperToFiled = function (options) {
+        this.each(function () {
+            var _self = $(this),
+                settings = $.extend({
+                    width: _self?.data('size-width') ? +_self.data('size-width') : (options?.width ? +options.width : 150),
+                    height: _self?.data('size-height') ? +_self.data('size-height') : (options?.height ? +options.height : 100),
+                    show_preview: _self?.data('show-preview') ? +_self.data('show-preview') : false,
+                }, options),
+                field_name = _self?.data('field-name') ? _self?.data('field-name') : 'field_cropper_'+settings.width+'x'+settings.height;
+
+            // Cahnge variables
+            var timeOut,
+                // Function for read file from field and convert to base64
+                toBase64Fn = file => new Promise(function (resolve, reject) {
+                    var reader = new FileReader();
+
+                    reader.readAsDataURL(file);
+                    reader.onload = function () { return resolve(reader.result) };
+                    reader.onerror = function (error) { return reject(error) };
+                });
+
+            // Event change file and cropped to size
+            _self.on('change', async function (e) {
+                if (_self.parents('.field-cropper').length) {
+                    _self.parents('.field-cropper').find('.field-cropper-container').remove();
+                    _self.removeClass('.field-cropper');
+                }
+
+                _self.wrap('<div class="field-cropper"></div>');
+                _self.after(`<div class="field-cropper-container">
+                            <div class="field-cropper-container__editor"><img style="max-width: 100%;"/></div>`
+                    +(settings.show_preview ? `<h3 class="field-cropper-container__title">${settings.width}x${settings.height}</h3>
+                            <div class="field-cropper-container__preview"><img width="${settings.width}" height="${settings.height}"/></div>` : ``)
+                    +`<input class="field-cropper-container__input" type="hidden" name="${field_name}"/>
+                        </div>`);
+                //<input class="field-cropper-container__input" type="hidden" name="field_cropper_${settings.width}x${settings.height}"/>
+
+                var data = await toBase64Fn(e.target.files[0]),
+                    $parent = _self.parents('.field-cropper'),
+                    $container = $parent.find('.field-cropper-container'),
+                    $editor = $container.find('.field-cropper-container__editor img'),
+                    $input = $container.find('.field-cropper-container__input'),
+                    $preview = $container.find('.field-cropper-container__preview img');
+
+                $editor.attr('src', data);
+                $editor.cropper({
+                    aspectRatio: settings.width / settings.height,
+                    crop: function (event) {
+                        clearTimeout(timeOut);
+                        timeOut = setTimeout(function () {
+                            var cropper = event.target.cropper,
+                                prevData = cropper.getCroppedCanvas({ width: settings.width, height: settings.height }).toDataURL('image/jpeg');
+
+                            // Insert base64 to preview
+                            $preview.attr('src', prevData);
+                            // Insert base64 to input
+                            $input.val(prevData);
+                        }, 200);
+                    }
+                });
+            });
+        });
+
+        return this;
+    };
+
+
+    if ($('.field-image-cropper-uploaded').length) {
+        $('.field-image-cropper-uploaded input.field-cropper').addCropperToFiled();
+
+        $('.field-image-cropper-uploaded').on('click', '.filed-remove', function (e) {
+            e.preventDefault()
+            $(this).parents('tr').hide().find('.field-delete-item').val($(this).data('id'))
+        });
+    }
+
 
     if ($('.sidebar-menu.js-activeable').length) {
         var pathnameUrl = window.location.pathname,
