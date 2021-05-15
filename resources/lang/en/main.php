@@ -194,5 +194,6 @@ return [
     'Logs' => 'Logs',
     'Console' => 'Console',
     'Variables' => 'Variables',
+    'Value' => 'Value',
     'Appearance' => 'Appearance',
 ];

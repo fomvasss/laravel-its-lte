@@ -13,7 +13,7 @@
                     class="post-tree-sortaple btn btn-success btn-sm ajax"
                     data-widget="add"
                     data-toggle="tooltip"
-                    title="Сохранить">
+                    title="{{ trans('lte::main.Save') }}">
                 <i class="fa fa-save"></i>
             </button>
         </div>

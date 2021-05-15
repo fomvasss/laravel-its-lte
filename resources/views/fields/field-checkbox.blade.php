@@ -11,7 +11,7 @@
                value="1"
                @if(old($field_name, $status ?? false)) checked @endif
         >
-        <label for="{{ $field_name }}">{!! $label ?? 'Статус' !!}</label>
+        @isset($label)<label for="{{ $field_name }}">{!! $label !!}</label>@endisset
     </div>
     @isset($help_block) <p class="help-block small">{!! $help_block !!}</p>@endisset
     @error(Str::replaceLast('[]', '', $field_name)) <p class="help-block" style="color:red;">{{ $error }}</p> @enderror
@@ -19,7 +19,7 @@
 
 {{--
 @include('lte::fields.field-checkbox', [
-    'label' => 'Статус',
+    'label' => 'Status',
     'field_name' => 'status',
     'status' => 0,
 ])

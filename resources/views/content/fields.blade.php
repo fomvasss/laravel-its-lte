@@ -227,7 +227,7 @@
                         ])
 
                         @include('lte::fields.field-daterangepicker', [
-                            'label' => 'Укажите период:',
+                            'label' => 'Date range:',
                             'field_name' => 'range',
                             'field_name_start' => 'start_at',
                             'field_name_end' => 'end_at',

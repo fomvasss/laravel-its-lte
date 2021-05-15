@@ -1,5 +1,5 @@
 <div class="form-group">
-    <label>{!! $label ?? 'Значения' !!}</label>
+    <label>{!! $label !!}</label>
     @php
         $field_name = $field_name ?? '';
         $field_name_input = (isset($multiple) && $multiple) ? (Str::replaceLast('[]', '', $field_name) . '[]') : Str::replaceLast('[]', '', $field_name);

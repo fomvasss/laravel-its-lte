@@ -194,5 +194,6 @@ return [
     'Logs' => 'Логи',
     'Console' => 'Консоль',
     'Variables' => 'Переменные',
+    'Value' => 'Значение',
     'Appearance' => 'Внешний вид',
 ];

@@ -7,7 +7,7 @@
 >
 
     <div class="box-header">
-        <h3 class="box-title">{{ $label ?? 'Категории' }}</h3>
+        @isset($label)<h3 class="box-title">{!! $label !!}</h3>@endisset
     </div>
     <div class="box-body">
         <div class="field-tree-data"></div>
@@ -21,7 +21,7 @@
 
 {{--
 @include('lte::fields.field-treeview', [
-    'label' => 'Категории',
+    'label' => 'Categories',
     'field_name' => 'terms[categories]',
     'url_tree' => url('lte/test/treeview'),
 ])
