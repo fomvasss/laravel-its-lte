@@ -54,6 +54,7 @@ return [
     'Edit' => 'Edit',
     'You are guest! Need to login' => 'You are guest! Need to login',
     'No records found' => 'No records found',
+    '* Enter tags, separating them , or ;' => '* Enter tags, separating them , or ;',
     'Show' => 'Show',
     'entries' => 'entries',
     'Data' => 'Data',
@@ -121,6 +122,10 @@ return [
     'Rating' => 'Rating',
     'Star' => 'Star',
     'Group' => 'Group',
+    'Rotation' => 'Rotation',
+    'Start' => 'Start',
+    'End' => 'End',
+    'Expirind' => 'Expirind',
 
     'Active' => 'Active',
     'Blocked' => 'Blocked',

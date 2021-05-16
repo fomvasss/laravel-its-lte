@@ -54,6 +54,7 @@ return [
     'Edit' => 'Редактировать',
     'You are guest! Need to login' => 'Вы гость! Необходимо войти',
     'No records found' => 'Записей не найдено',
+    '* Enter tags, separating them , or ;' => '* Введите теги, разделяя их , или ;',
     'Show' => 'Показать',
     'entries' => 'записей',
     'Data' => 'Данные',
@@ -121,7 +122,11 @@ return [
     'Rating' => 'Рейтинг',
     'Star' => 'Оценка',
     'Group' => 'Группа',
-    
+    'Rotation' => 'Ротация',
+    'Start' => 'Начало',
+    'End' => 'Конец',
+    'Expirind' => 'Истичение',
+
     'Active' => 'Активный',
     'Blocked' => 'Заблокирован',
     'New' => 'Новый',

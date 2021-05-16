@@ -54,6 +54,7 @@ return [
     'Edit' => 'Редагувати',
     'You are guest! Need to login' => 'Ви гість! необхідно увійти',
     'No records found' => 'Записів не знайдено',
+    '* Enter tags, separating them , or ;' => '* Ведіть теги, разділюючи їх , чи ;',
     'Show' => 'Показати',
     'entries' => 'записів',
     'Data' => 'Дані',
@@ -121,6 +122,10 @@ return [
     'Rating' => 'Рейтинг',
     'Star' => 'Оценка',
     'Group' => 'Група',
+    'Rotation' => 'Ротація',
+    'Start' => 'Початок',
+    'End' => 'Кінець',
+    'Expirind' => 'Закінчення',
 
     'Active' => 'Активний',
     'Blocked' => 'Заблокований',

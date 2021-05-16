@@ -218,6 +218,13 @@
                             'placeholder' => 'Enter your name',
                         ])
 
+                        @include('lte::fields.field-url', [
+                            'label' => 'URL',
+                            'field_name' => 'url',
+                            //'entity' => isset($banner) ? $banner : null,
+                            'value' => isset($post) ? $post->url : '',
+                        ])
+
                         @include('lte::fields.field-slug', [
                             'label' => 'Slug',
                             'field_name' => 'slug',
@@ -404,7 +411,7 @@
                             'multiple' => 1,
                             'disabled' => 0,
                             'old' => old('tags'),
-                            'help_text' => 'Specify tags separated by comma (,)'
+                            'help_text' => trans('lte::main.* Enter tags, separating them , or ;'),
                         ])
 
                         @include('lte::fields.field-select2-tree-ajax', [
@@ -660,7 +667,6 @@
                         'field_name' => 'lastname',
                         'field_id' => 'lastname'
                      ])
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
