@@ -653,15 +653,17 @@ $(function () {
                 if (_self.parents('.field-cropper').length) {
                     _self.parents('.field-cropper').find('.field-cropper-container').remove();
                     _self.removeClass('.field-cropper');
+                } else {
+                    _self.wrap('<div class="field-cropper"></div>');
                 }
 
-                _self.wrap('<div class="field-cropper"></div>');
                 _self.after(`<div class="field-cropper-container">
                             <div class="field-cropper-container__editor"><img style="max-width: 100%;"/></div>`
                     +(settings.show_preview ? `<h3 class="field-cropper-container__title">${settings.width}x${settings.height}</h3>
                             <div class="field-cropper-container__preview"><img width="${settings.width}" height="${settings.height}"/></div>` : ``)
                     +`<input class="field-cropper-container__input" type="hidden" name="${field_name}"/>
                         </div>`);
+
                 //<input class="field-cropper-container__input" type="hidden" name="field_cropper_${settings.width}x${settings.height}"/>
 
                 var data = await toBase64Fn(e.target.files[0]),
@@ -672,6 +674,11 @@ $(function () {
                     $preview = $container.find('.field-cropper-container__preview img');
 
                 $editor.attr('src', data);
+
+                if(Object.keys($editor.cropper('getData')).length) {
+                    $editor.cropper('destroy');
+                }
+
                 $editor.cropper({
                     aspectRatio: settings.width / settings.height,
                     crop: function (event) {
