@@ -52,6 +52,7 @@ return [
     'User Profile' => 'Профіль користувача',
     'Profile' => 'Профіль',
     'Edit' => 'Редагувати',
+    'Copy' => 'Копіювати',
     'You are guest! Need to login' => 'Ви гість! необхідно увійти',
     'No records found' => 'Записів не знайдено',
     '* Enter tags, separating them , or ;' => '* Ведіть теги, разділюючи їх , чи ;',
@@ -188,6 +189,15 @@ return [
     'Users' => 'Користувачі',
     'Guest' => 'Гость',
     'Guests' => 'Гості',
+
+    'Banner campaigns' => 'Банерні кампанії',
+    'Banner' => 'Банер',
+    'Views count' => 'Кількість переглядів',
+    'Clicks count' => 'Кількість кліків',
+    'Condition' => 'Правило',
+    'Segment' => 'Сегмент',
+    'Purpose' => 'Призначення',
+    'Conversion' => 'Конверсія',
 
     'SEO' => 'SEO',
     'Phone' => 'Телефон',

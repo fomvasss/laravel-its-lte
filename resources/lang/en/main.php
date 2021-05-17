@@ -52,6 +52,7 @@ return [
     'User Profile' => 'User Profile',
     'Profile' => 'Profile',
     'Edit' => 'Edit',
+    'Copy' => 'Copy',
     'You are guest! Need to login' => 'You are guest! Need to login',
     'No records found' => 'No records found',
     '* Enter tags, separating them , or ;' => '* Enter tags, separating them , or ;',
@@ -188,6 +189,15 @@ return [
     'Users' => 'Users',
     'Guest' => 'Guest',
     'Guests' => 'Guests',
+
+    'Banner campaigns' => 'Banner campaigns',
+    'Banner' => 'Banner',
+    'Views count' => 'Views count',
+    'Clicks count' => 'Clicks count',
+    'Condition' => 'Condition',
+    'Segment' => 'Segment',
+    'Purpose' => 'Purpose',
+    'Conversion' => 'Conversion',
 
     'SEO' => 'SEO',
     'Phone' => 'Phone',

@@ -52,6 +52,7 @@ return [
     'User Profile' => 'Профиль пользователя',
     'Profile' => 'Профиль',
     'Edit' => 'Редактировать',
+    'Copy' => 'Копировать',
     'You are guest! Need to login' => 'Вы гость! Необходимо войти',
     'No records found' => 'Записей не найдено',
     '* Enter tags, separating them , or ;' => '* Введите теги, разделяя их , или ;',
@@ -189,6 +190,15 @@ return [
     'Guest' => 'Гость',
     'Guests' => 'Гости',
 
+    'Banner campaigns' => 'Баннерные кампании',
+    'Banner' => 'Баннер',
+    'Views count' => 'Количество просмотров',
+    'Clicks count' => 'Количество кликов',
+    'Condition' => 'Правило',
+    'Segment' => 'Сегмент',
+    'Purpose' => 'Назначение',
+    'Conversion' => 'Конверсия',
+    
     'SEO' => 'SEO',
     'Phone' => 'Телефон',
     'Balance' => 'Баланс',
