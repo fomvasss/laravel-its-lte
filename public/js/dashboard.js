@@ -633,7 +633,7 @@ $(function () {
                 settings = $.extend({
                     width: _self?.data('size-width') ? +_self.data('size-width') : (options?.width ? +options.width : 150),
                     height: _self?.data('size-height') ? +_self.data('size-height') : (options?.height ? +options.height : 100),
-                    show_preview: _self?.data('show-preview') ? +_self.data('show-preview') : false,
+                    show_preview: _self?.data('show-preview') ? _self.data('show-preview') : false
                 }, options),
                 field_name = _self?.data('field-name') ? _self?.data('field-name') : 'field_cropper_'+settings.width+'x'+settings.height;
 
@@ -695,7 +695,7 @@ $(function () {
 
 
     if ($('.field-image-cropper-uploaded').length) {
-        $('.field-image-cropper-uploaded input.field-cropper').addCropperToFiled();
+        $('.field-image-cropper-uploaded input.field-input-cropper').addCropperToFiled();
 
         $('.field-image-cropper-uploaded').on('click', '.filed-remove', function (e) {
             e.preventDefault()

@@ -8,7 +8,7 @@
         $show_preview = isset($show_preview) ? $show_preview : false;
     @endphp
     @isset($label)<label>{!! $label !!} ({{ trans('lte::main.Size') .': '. $img_width .'х'. $img_height }})</label>@endisset
-    <input type="file" class="form-control field-cropper"
+    <input type="file" class="form-control field-input-cropper"
            data-size-width="{{ $img_width }}"
            data-size-height="{{ $img_height }}"
            data-field-name="{{ $field_name_input }}"
