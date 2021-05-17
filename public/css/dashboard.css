@@ -276,3 +276,6 @@ a.hierarchy-item-title {
 	color: rgb(68, 68, 68);
 }
 
+.direct-chat-text {
+	white-space: normal;
+}
