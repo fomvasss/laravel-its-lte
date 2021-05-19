@@ -26,6 +26,7 @@ return [
     'Activity' => 'Активність',
     'Password' => 'Пароль',
     'Email' => 'Email',
+    'URL' => 'URL',
     'OR' => 'АБО',
     'Sign in using' => 'Увійти через',
     'Password confirmation' => 'Підтвердження пароля',
@@ -95,6 +96,7 @@ return [
     'Pages' => 'Сторінки',
     'Comments' => 'Коментарі',
     'Reviews' => 'Відгуки',
+    'Review' => 'Відгук',
     'Incoming' => 'Вхідні',
     'Total' => 'Всього',
     'Default' => 'За замовчуванням',
@@ -144,6 +146,10 @@ return [
     'Accepted' => 'Прийнято',
     'Delivered' => 'Доставлено',
 
+    'Created at' => 'Створено',
+    'Updated at' => 'Оновлено',
+    'Moderate' => 'Модерувати',
+
     'Teaser' => 'Короткий опис',
     'Link' => 'Посилання',
     'Description' => 'Опис',
@@ -192,6 +198,13 @@ return [
 
     'Banner campaigns' => 'Банерні кампанії',
     'Banner' => 'Банер',
+    'Banners' => 'Банери',
+    'Section' => 'Розділ',
+    'Region' => 'Регіон',
+    'Period' => 'Період',
+    'Views' => 'Перегляди',
+    'Clicks' => 'Кліки',
+
     'Views count' => 'Кількість переглядів',
     'Clicks count' => 'Кількість кліків',
     'Condition' => 'Правило',

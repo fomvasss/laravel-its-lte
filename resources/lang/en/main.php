@@ -26,6 +26,7 @@ return [
     'Activity' => 'Activity',
     'Password' => 'Password',
     'Email' => 'Email',
+    'URL' => 'URL',
     'OR' => 'OR',
     'Sign in using' => 'Sign in using',
     'Password confirmation' => 'Password confirmation',
@@ -95,6 +96,7 @@ return [
     'Pages' => 'Pages',
     'Comments' => 'Comments',
     'Reviews' => 'Reviews',
+    'Review' => 'Review',
     'Incoming' => 'Incoming',
     'Total' => 'Total',
     'Default' => 'Default',
@@ -143,6 +145,10 @@ return [
     'Processing' => 'Processing',
     'Accepted' => 'Прийнято',
     'Delivered' => 'Delivered',
+    
+    'Created at' => 'Создано',
+    'Updated at' => 'Обновлено',
+    'Moderate' => 'Moderate',
 
     'Teaser' => 'Teaser',
     'Link' => 'Link',
@@ -192,6 +198,13 @@ return [
 
     'Banner campaigns' => 'Banner campaigns',
     'Banner' => 'Banner',
+    'Banners' => 'Banners',
+    'Section' => 'Section',
+    'Region' => 'Region',
+    'Period' => 'Period',
+    'Views' => 'Views',
+    'Clicks' => 'Clicks',
+    
     'Views count' => 'Views count',
     'Clicks count' => 'Clicks count',
     'Condition' => 'Condition',

@@ -26,6 +26,7 @@ return [
     'Activity' => 'Активность',
     'Password' => 'Пароль',
     'Email' => 'Email',
+    'URL' => 'URL',
     'OR' => 'ИЛИ',
     'Sign in using' => 'Войти через',
     'Password confirmation' => 'Подтверждение пароля',
@@ -95,6 +96,7 @@ return [
     'Pages' => 'Страницы',
     'Comments' => 'Комментарии',
     'Reviews' => 'Отзывы',
+    'Review' => 'Отзыв',
     'Incoming' => 'Входящие',
     'Total' => 'Всего',
     'Default' => 'По умолчанию',
@@ -144,6 +146,10 @@ return [
     'Accepted' => 'Принято',
     'Delivered' => 'Доставлено',
 
+    'Created at' => 'Created at',
+    'Updated at' => 'Updated at',
+    'Moderate' => 'Модерировать',
+
     'Teaser' => 'Краткое описание',
     'Link' => 'Ссылка',
     'Description' => 'Описание',
@@ -192,6 +198,13 @@ return [
 
     'Banner campaigns' => 'Баннерные кампании',
     'Banner' => 'Баннер',
+    'Banners' => 'Баннеры',
+    'Section' => 'Раздел',
+    'Region' => 'Регион',
+    'Period' => 'Период',
+    'Views' => 'Просмотры',
+    'Clicks' => 'Клики',
+
     'Views count' => 'Количество просмотров',
     'Clicks count' => 'Количество кликов',
     'Condition' => 'Правило',
