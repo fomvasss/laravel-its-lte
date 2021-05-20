@@ -17,6 +17,11 @@
             @isset($new_tag_label) data-new-tag-label="{{$new_tag_label}}" @endisset
             @isset($data_url) data-url="{{ $data_url }}" @endisset
             style="width: 100%;"
+            @if(isset($data_attrs) && is_array($data_attrs))
+            @foreach($data_attrs as $attr => $val)
+            data-{{$attr}}='@json($val)'
+            @endforeach
+            @endif
     >
 
         @if(!empty($data_url))

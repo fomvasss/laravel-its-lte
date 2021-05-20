@@ -31,6 +31,11 @@
             @if(isset($required) && $required) required @endif
             style="width: 100%;"
             @if(count($attributes) < 6) data-minimum-results-for-search="-1" @endif
+            @if(isset($data_attrs) && is_array($data_attrs))
+            @foreach($data_attrs as $attr => $val)
+            data-{{$attr}}='@json($val)'
+            @endforeach
+            @endif
     >
 
         @if(empty($multiple) && empty($empty_value) && count($attributes) > 6)
@@ -67,5 +72,13 @@
     'selected' => [2],
     'empty_value' => trans('lte::main.--not chosen--'),
     //'data_url_save' => route('lte.data.status'), // For autosave after change
+    'data_attrs' => [
+        'map' => [
+            'period' => ['.js-block-period'],
+            'max_clicks' => ['.js-block-clicks'],
+            'max_views' => ['.js-block-views'],
+        ],
+        'qq' => 'aa'
+    ],
 ])
 --}}

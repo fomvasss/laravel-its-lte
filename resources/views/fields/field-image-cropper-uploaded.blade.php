@@ -8,11 +8,16 @@
         $show_preview = isset($show_preview) ? $show_preview : false;
     @endphp
     @isset($label)<label>{!! $label !!}</label>@endisset
-    <input type="file" class="form-control field-input-cropper"
-           data-size-width="{{ $img_width }}"
-           data-size-height="{{ $img_height }}"
-           data-field-name="{{ $field_name_input }}"
-           data-show-preview="{{ $show_preview }}"
+    <input type="file" class="form-control field-input-cropper @isset($class) {{ $class }} @endisset"
+            data-size-width="{{ $img_width }}"
+            data-size-height="{{ $img_height }}"
+            data-field-name="{{ $field_name_input }}"
+            data-show-preview="{{ $show_preview }}"
+            @if(isset($data_attrs) && is_array($data_attrs))
+            @foreach($data_attrs as $attr => $val)
+            data-{{$attr}}='@json($val)'
+            @endforeach
+            @endif
     >
     {{--<p class="help-block">Максимальный размер изображения 512кБ</p>--}}
     @if(isset($entity) && $entity->getFirstMediaUrl($collection_name))

@@ -624,6 +624,7 @@ $(function () {
         $(this).hide().show(100);
     });
 
+
     /**
      * Add cropper editor for input type file
      */
@@ -700,7 +701,6 @@ $(function () {
         return this;
     };
 
-
     if ($('.field-image-cropper-uploaded').length) {
         $('.field-image-cropper-uploaded input.field-input-cropper').addCropperToFiled();
 
@@ -711,6 +711,34 @@ $(function () {
     }
 
 
+    // Displaying blocks depending on the selection in the selection
+    $('.js-select-blocks').each(function () {
+        if ($(this).find(':selected')) {
+            toggleSelectableBlocks($(this).find(':selected').val(), $(this).data('map'))
+        }
+    })
+    $('.js-select-blocks').on('change', function () {
+        if ($(this).data('map')) {
+            toggleSelectableBlocks($(this).val(), $(this).data('map'))
+        }
+    })
+    function toggleSelectableBlocks($val, selectBlocksMap) {
+        for (var key in selectBlocksMap) {
+            Pace.restart()
+            if ($val === key) {
+                for (id in selectBlocksMap[key]) {
+                    $(selectBlocksMap[key][id]).show()
+                }
+            } else {
+                for (id in selectBlocksMap[key]) {
+                    $(selectBlocksMap[key][id]).hide()
+                }
+            }
+        }
+    }
+
+
+    // Set active class LTE menu item
     if ($('.sidebar-menu.js-activeable').length) {
         var pathnameUrl = window.location.pathname,
             url = window.location.href,
