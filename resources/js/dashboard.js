@@ -726,11 +726,11 @@ $(function () {
         for (var key in selectBlocksMap) {
             Pace.restart()
             if ($val === key) {
-                for (id in selectBlocksMap[key]) {
+                for (var id in selectBlocksMap[key]) {
                     $(selectBlocksMap[key][id]).show()
                 }
             } else {
-                for (id in selectBlocksMap[key]) {
+                for (var id in selectBlocksMap[key]) {
                     $(selectBlocksMap[key][id]).hide()
                 }
             }
