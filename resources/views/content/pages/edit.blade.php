@@ -13,11 +13,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h3 class="box-title"> {{ trans('lte::main.Edit') }} <strong>{{ isset($page) ? $page->name : '' }}</strong></h3>
+                        <div class="box-tools pull-right">
                         @include('lte::parts.entity-navigation', [
                            'next' => '#', //$page->previous() ? route('admin.pages.edit', $page->previous()) : '',
                            'current' => '#', //route('pages.show', $page),
                            'previous' => '#', //$page->next() ? route('admin.pages.edit', $page->next()) : '',
                         ])
+                        </div>
                     </div>
                 </div>
             </div>

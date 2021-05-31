@@ -28,7 +28,7 @@
 </div>
 
 {{--
-@include('lte.fields.field-text', [
+@include('lte::fields.field-text', [
     'label' => 'Название',
     'field_name' => 'name',
     'value' => isset($name) ? $name : '',
