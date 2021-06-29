@@ -145,11 +145,11 @@ return [
     'Moderation' => 'Moderation',
     'Completed' => 'Completed',
     'Processing' => 'Processing',
-    'Accepted' => 'Прийнято',
+    'Accepted' => 'Accepted',
     'Delivered' => 'Delivered',
     
-    'Created at' => 'Создано',
-    'Updated at' => 'Обновлено',
+    'Created at' => 'Created at',
+    'Updated at' => 'Updated at',
     'Moderate' => 'Moderate',
 
     'Teaser' => 'Teaser',

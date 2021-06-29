@@ -148,8 +148,8 @@ return [
     'Accepted' => 'Принято',
     'Delivered' => 'Доставлено',
 
-    'Created at' => 'Created at',
-    'Updated at' => 'Updated at',
+    'Created at' => 'Создано',
+    'Updated at' => 'Обновлено',
     'Moderate' => 'Модерировать',
 
     'Teaser' => 'Краткое описание',
