@@ -1,3 +1,7 @@
+var initFieldMoreItemsSortable = function () {},
+    initFieldSelect2Static = function () {},
+    initJsVerificationSlugField = function () {};
+
 $(function () {
 
     'use strict';
@@ -217,25 +221,28 @@ $(function () {
         });
     }
 
-    if ($('.js-verification-slug-field').length) {
-        if ($('input.js-slug-field-change').is(':checked')) {
-            $('.js-verification-slug-field input.js-slug-field-input')
-                .prop('readonly', false)
-                .prop('disabled', false)
-        }
-        $(document).on('change', '.js-verification-slug-field [type="checkbox"]', function () {
-            var $wrap = $(this).closest('.js-verification-slug-field');
-            if(this.checked) {
-                $wrap.find('input.js-slug-field-input')
+    initJsVerificationSlugField = function () {
+        if ($('.js-verification-slug-field').length) {
+            if ($('input.js-slug-field-change').is(':checked')) {
+                $('.js-verification-slug-field input.js-slug-field-input')
                     .prop('readonly', false)
                     .prop('disabled', false)
-            } else {
-                $wrap.find('input.js-slug-field-input')
-                    .prop('readonly', true)
-                    .prop('disabled', true)
             }
-        })
+            $(document).on('change', '.js-verification-slug-field [type="checkbox"]', function () {
+                var $wrap = $(this).closest('.js-verification-slug-field');
+                if(this.checked) {
+                    $wrap.find('input.js-slug-field-input')
+                        .prop('readonly', false)
+                        .prop('disabled', false)
+                } else {
+                    $wrap.find('input.js-slug-field-input')
+                        .prop('readonly', true)
+                        .prop('disabled', true)
+                }
+            })
+        }
     }
+    initJsVerificationSlugField();
 
     $(document).on('click', '.js-action-form', function (e) {
         e.preventDefault()
@@ -265,55 +272,58 @@ $(function () {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
     
-    $('.field-select2-static').each(function () {
-        var $base = $(this),
-            $select = $base.find('.select2-static'),
-            urlSave = $base.data('url-save');
+    initFieldSelect2Static = function () {
+        $('.field-select2-static').each(function () {
+            var $base = $(this),
+                $select = $base.find('.select2-static'),
+                urlSave = $base.data('url-save');
 
-        // Autosave after change
-        if (urlSave) {
-            var fieldName = $base.find('select').data('name'),
-                method = $base.data('method-save') || 'POST',
-                $select2 = $select.select2({
+            // Autosave after change
+            if (urlSave) {
+                var fieldName = $base.find('select').data('name'),
+                    method = $base.data('method-save') || 'POST',
+                    $select2 = $select.select2({
+                        language: LANGUAGE,
+                        tags: false
+                    });
+
+                $select2.on('change', function (e) {
+                    var values = $select.first(':selected').val();
+                    $base.find('.overlay').removeClass('hidden');
+                    $.ajax({
+                        method: method,
+                        url: urlSave,
+                        dataType: 'json',
+                        data: {name: fieldName, value: values},
+                        success: function (data) {
+                            if (data.message) {
+                                $base.append('<div class="text-success">' + data.message + '</div>')
+                                $base.find('.text-success').delay(2000).fadeOut(500, 'linear', function () {
+                                    $(this).remove()
+                                })
+                            }
+                        },
+                        error: function () {
+                            console.log('Error Ajax!')
+                            $base.append('<div class="text-danger">Error Ajax</div>')
+                            $base.find('.text-danger').delay(2000).fadeOut(500, 'linear', function () {
+                                $(this).remove()
+                            })
+                        },
+                        complete: function () {
+                            $base.find('.overlay').addClass('hidden')
+                        }
+                    });
+                });
+            } else {
+                $select.select2({
                     language: LANGUAGE,
                     tags: false
                 });
-
-            $select2.on('change', function (e) {
-                var values = $select.first(':selected').val();
-                $base.find('.overlay').removeClass('hidden');
-                $.ajax({
-                    method: method,
-                    url: urlSave,
-                    dataType: 'json',
-                    data: {name: fieldName, value: values},
-                    success: function (data) {
-                        if (data.message) {
-                            $base.append('<div class="text-success">' + data.message + '</div>')
-                            $base.find('.text-success').delay(2000).fadeOut(500, 'linear', function () {
-                                $(this).remove()
-                            })
-                        }
-                    },
-                    error: function () {
-                        console.log('Error Ajax!')
-                        $base.append('<div class="text-danger">Error Ajax</div>')
-                        $base.find('.text-danger').delay(2000).fadeOut(500, 'linear', function () {
-                            $(this).remove()
-                        })
-                    },
-                    complete: function () {
-                        $base.find('.overlay').addClass('hidden')
-                    }
-                });
-            });
-        } else {
-            $select.select2({
-                language: LANGUAGE,
-                tags: false
-            });
-        }
-    });
+            }
+        });
+    }
+    initFieldSelect2Static();
 
     if ($('.select2.select2-tags').length) {
         $('.select2.select2-tags').each(function (index) {
@@ -589,22 +599,25 @@ $(function () {
         })
     }
 
-    if ($('.field-more-items-sortable').length) {
-        $('.field-more-items-sortable .todo-list').sortable({
-            handle: '.handle',
-            onDrop: function ($item, container, _super) {
-                _super($item, container);
-                $(container.target[0]).find('li').each(function (index) {
-                    $(this).find('.field-weight-item').val(index)
-                })
-            }
-        });
+    initFieldMoreItemsSortable = function () {
+        if ($('.field-more-items-sortable').length) {
+            $('.field-more-items-sortable .todo-list').sortable({
+                handle: '.handle',
+                onDrop: function ($item, container, _super) {
+                    _super($item, container);
+                    $(container.target[0]).find('li').each(function (index) {
+                        $(this).find('.field-weight-item').val(index)
+                    })
+                }
+            });
 
-        $('.field-more-items-sortable').on('click', '.filed-remove', function (e) {
-            e.preventDefault()
-            $(this).parents('li').hide().find('.field-delete-item').val($(this).data('id'))
-        })
+            $('.field-more-items-sortable').on('click', '.filed-remove', function (e) {
+                e.preventDefault()
+                $(this).parents('li').hide().find('.field-delete-item').val($(this).data('id'))
+            })
+        }
     }
+    initFieldMoreItemsSortable();
 
     if ($('.field-more-items').length) {
         $('.field-more-items').on('click', '.filed-remove', function (e) {

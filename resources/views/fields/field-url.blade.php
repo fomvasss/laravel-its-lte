@@ -28,8 +28,8 @@
                @isset($readonly) readonly @endisset
                class="form-control @isset($class) {{ $class }} @endisset"
         >
-        @error($field_name) <p class="help-block">{{$message}}</p> @enderror
     </div>
+    @error($field_name) <p class="help-block">{{$message}}</p> @enderror
 </div>
 
 {{--
