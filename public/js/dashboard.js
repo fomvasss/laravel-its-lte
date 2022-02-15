@@ -1,3 +1,7 @@
+var initFieldMoreItemsSortable = function () {},
+    initFieldSelect2Static = function () {},
+    initJsVerificationSlugField = function () {};
+
 $(function () {
 
     'use strict';
@@ -217,25 +221,28 @@ $(function () {
         });
     }
 
-    if ($('.js-verification-slug-field').length) {
-        if ($('input.js-slug-field-change').is(':checked')) {
-            $('.js-verification-slug-field input.js-slug-field-input')
-                .prop('readonly', false)
-                .prop('disabled', false)
-        }
-        $(document).on('change', '.js-verification-slug-field [type="checkbox"]', function () {
-            var $wrap = $(this).closest('.js-verification-slug-field');
-            if(this.checked) {
-                $wrap.find('input.js-slug-field-input')
+    initJsVerificationSlugField = function () {
+        if ($('.js-verification-slug-field').length) {
+            if ($('input.js-slug-field-change').is(':checked')) {
+                $('.js-verification-slug-field input.js-slug-field-input')
                     .prop('readonly', false)
                     .prop('disabled', false)
-            } else {
-                $wrap.find('input.js-slug-field-input')
-                    .prop('readonly', true)
-                    .prop('disabled', true)
             }
-        })
+            $(document).on('change', '.js-verification-slug-field [type="checkbox"]', function () {
+                var $wrap = $(this).closest('.js-verification-slug-field');
+                if(this.checked) {
+                    $wrap.find('input.js-slug-field-input')
+                        .prop('readonly', false)
+                        .prop('disabled', false)
+                } else {
+                    $wrap.find('input.js-slug-field-input')
+                        .prop('readonly', true)
+                        .prop('disabled', true)
+                }
+            })
+        }
     }
+    initJsVerificationSlugField();
 
     $(document).on('click', '.js-action-form', function (e) {
         e.preventDefault()
@@ -265,55 +272,58 @@ $(function () {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
     
-    $('.field-select2-static').each(function () {
-        var $base = $(this),
-            $select = $base.find('.select2-static'),
-            urlSave = $base.data('url-save');
+    initFieldSelect2Static = function () {
+        $('.field-select2-static').each(function () {
+            var $base = $(this),
+                $select = $base.find('.select2-static'),
+                urlSave = $base.data('url-save');
 
-        // Autosave after change
-        if (urlSave) {
-            var fieldName = $base.find('select').data('name'),
-                method = $base.data('method-save') || 'POST',
-                $select2 = $select.select2({
+            // Autosave after change
+            if (urlSave) {
+                var fieldName = $base.find('select').data('name'),
+                    method = $base.data('method-save') || 'POST',
+                    $select2 = $select.select2({
+                        language: LANGUAGE,
+                        tags: false
+                    });
+
+                $select2.on('change', function (e) {
+                    var values = $select.first(':selected').val();
+                    $base.find('.overlay').removeClass('hidden');
+                    $.ajax({
+                        method: method,
+                        url: urlSave,
+                        dataType: 'json',
+                        data: {name: fieldName, value: values},
+                        success: function (data) {
+                            if (data.message) {
+                                $base.append('<div class="text-success">' + data.message + '</div>')
+                                $base.find('.text-success').delay(2000).fadeOut(500, 'linear', function () {
+                                    $(this).remove()
+                                })
+                            }
+                        },
+                        error: function () {
+                            console.log('Error Ajax!')
+                            $base.append('<div class="text-danger">Error Ajax</div>')
+                            $base.find('.text-danger').delay(2000).fadeOut(500, 'linear', function () {
+                                $(this).remove()
+                            })
+                        },
+                        complete: function () {
+                            $base.find('.overlay').addClass('hidden')
+                        }
+                    });
+                });
+            } else {
+                $select.select2({
                     language: LANGUAGE,
                     tags: false
                 });
-
-            $select2.on('change', function (e) {
-                var values = $select.first(':selected').val();
-                $base.find('.overlay').removeClass('hidden');
-                $.ajax({
-                    method: method,
-                    url: urlSave,
-                    dataType: 'json',
-                    data: {name: fieldName, value: values},
-                    success: function (data) {
-                        if (data.message) {
-                            $base.append('<div class="text-success">' + data.message + '</div>')
-                            $base.find('.text-success').delay(2000).fadeOut(500, 'linear', function () {
-                                $(this).remove()
-                            })
-                        }
-                    },
-                    error: function () {
-                        console.log('Error Ajax!')
-                        $base.append('<div class="text-danger">Error Ajax</div>')
-                        $base.find('.text-danger').delay(2000).fadeOut(500, 'linear', function () {
-                            $(this).remove()
-                        })
-                    },
-                    complete: function () {
-                        $base.find('.overlay').addClass('hidden')
-                    }
-                });
-            });
-        } else {
-            $select.select2({
-                language: LANGUAGE,
-                tags: false
-            });
-        }
-    });
+            }
+        });
+    }
+    initFieldSelect2Static();
 
     if ($('.select2.select2-tags').length) {
         $('.select2.select2-tags').each(function (index) {
@@ -589,28 +599,173 @@ $(function () {
         })
     }
 
-    if ($('.field-more-items-sortable').length) {
-        $('.field-more-items-sortable .todo-list').sortable({
-            handle: '.handle',
-            onDrop: function ($item, container, _super) {
-                _super($item, container);
-                $(container.target[0]).find('li').each(function (index) {
-                    $(this).find('.field-weight-item').val(index)
-                })
-            }
-        });
+    initFieldMoreItemsSortable = function () {
+        if ($('.field-more-items-sortable').length) {
+            $('.field-more-items-sortable .todo-list').sortable({
+                handle: '.handle',
+                onDrop: function ($item, container, _super) {
+                    _super($item, container);
+                    $(container.target[0]).find('li').each(function (index) {
+                        $(this).find('.field-weight-item').val(index)
+                    })
+                }
+            });
 
-        $('.field-more-items-sortable').on('click', '.filed-remove', function (e) {
-            e.preventDefault()
-            $(this).parents('li').hide().find('.field-delete-item').val($(this).data('id'))
-        })
+            $('.field-more-items-sortable').on('click', '.filed-remove', function (e) {
+                e.preventDefault()
+                $(this).parents('li').hide().find('.field-delete-item').val($(this).data('id'))
+            })
+        }
     }
+    initFieldMoreItemsSortable();
 
     if ($('.field-more-items').length) {
         $('.field-more-items').on('click', '.filed-remove', function (e) {
             e.preventDefault()
             $(this).parents('tr').hide().find('.field-delete-item').val($(this).data('id'))
         })
+    }
+
+    $('.js-copy-to-clipboard').on('click', function (e) {
+        e.preventDefault()
+        var $tmp = $("<textarea>"),
+            $text = $(this).data('text');
+        $("body").append($tmp);
+        $tmp.val($text).select();
+        document.execCommand("copy");
+        $tmp.remove();
+        $(this).hide().show(100);
+    });
+
+
+    /**
+     * Add cropper editor for input type file
+     */
+    $.fn.addCropperToFiled = function (options) {
+        this.each(function () {
+            var _self = $(this),
+                settings = $.extend({
+                    width: _self?.data('size-width') ? +_self.data('size-width') : (options?.width ? +options.width : 150),
+                    height: _self?.data('size-height') ? +_self.data('size-height') : (options?.height ? +options.height : 100),
+                    show_preview: _self?.data('show-preview') ? _self.data('show-preview') : false
+                }, options),
+                field_name = _self?.data('field-name') ? _self?.data('field-name') : 'field_cropper_'+settings.width+'x'+settings.height;
+
+            // Cahnge variables
+            var timeOut,
+                // Function for read file from field and convert to base64
+                toBase64Fn = file => new Promise(function (resolve, reject) {
+                    var reader = new FileReader();
+
+                    reader.readAsDataURL(file);
+                    reader.onload = function () { return resolve(reader.result) };
+                    reader.onerror = function (error) { return reject(error) };
+                });
+
+            // Event change file and cropped to size
+            _self.on('change', async function (e) {
+                if (_self.parents('.field-cropper').length) {
+                    _self.parents('.field-cropper').find('.field-cropper-container').remove();
+                    _self.removeClass('.field-cropper');
+                } else {
+                    _self.wrap('<div class="field-cropper"></div>');
+                }
+
+                _self.after(`<div class="field-cropper-container">
+                            <div class="field-cropper-container__editor"><img style="max-width: 100%;"/></div>`
+                    +(settings.show_preview ? `<h3 class="field-cropper-container__title">${settings.width}x${settings.height}</h3>
+                            <div class="field-cropper-container__preview"><img width="${settings.width}" height="${settings.height}"/></div>` : ``)
+                    +`<input class="field-cropper-container__input" type="hidden" name="${field_name}"/>
+                        </div>`);
+
+                //<input class="field-cropper-container__input" type="hidden" name="field_cropper_${settings.width}x${settings.height}"/>
+
+                var data = await toBase64Fn(e.target.files[0]),
+                    $parent = _self.parents('.field-cropper'),
+                    $container = $parent.find('.field-cropper-container'),
+                    $editor = $container.find('.field-cropper-container__editor img'),
+                    $input = $container.find('.field-cropper-container__input'),
+                    $preview = $container.find('.field-cropper-container__preview img');
+
+                $editor.attr('src', data);
+
+                if(Object.keys($editor.cropper('getData')).length) {
+                    $editor.cropper('destroy');
+                }
+
+                $editor.cropper({
+                    aspectRatio: settings.width / settings.height,
+                    crop: function (event) {
+                        clearTimeout(timeOut);
+                        timeOut = setTimeout(function () {
+                            var cropper = event.target.cropper,
+                                prevData = cropper.getCroppedCanvas({ width: settings.width, height: settings.height }).toDataURL('image/jpeg');
+
+                            // Insert base64 to preview
+                            $preview.attr('src', prevData);
+                            // Insert base64 to input
+                            $input.val(prevData);
+                        }, 200);
+                    }
+                });
+            });
+        });
+
+        return this;
+    };
+
+    if ($('.field-image-cropper-uploaded').length) {
+        $('.field-image-cropper-uploaded input.field-input-cropper').addCropperToFiled();
+
+        $('.field-image-cropper-uploaded').on('click', '.filed-remove', function (e) {
+            e.preventDefault()
+            $(this).parents('tr').hide().find('.field-delete-item').val($(this).data('id'))
+        });
+    }
+
+
+    // Displaying blocks depending on the selection in the selection
+    $('.js-select-blocks').each(function () {
+        if ($(this).find(':selected')) {
+            toggleSelectableBlocks($(this).find(':selected').val(), $(this).data('map'))
+        }
+    })
+    $('.js-select-blocks').on('change', function () {
+        if ($(this).data('map')) {
+            toggleSelectableBlocks($(this).val(), $(this).data('map'))
+        }
+    })
+    function toggleSelectableBlocks($val, selectBlocksMap) {
+        for (var key in selectBlocksMap) {
+            Pace.restart()
+            if ($val === key) {
+                for (var id in selectBlocksMap[key]) {
+                    $(selectBlocksMap[key][id]).show()
+                }
+            } else {
+                for (var id in selectBlocksMap[key]) {
+                    $(selectBlocksMap[key][id]).hide()
+                }
+            }
+        }
+    }
+
+
+    // Set active class LTE menu item
+    if ($('.sidebar-menu.js-activeable').length) {
+        var pathnameUrl = window.location.pathname,
+            url = window.location.href,
+            path = url.split('?')[0];
+
+        $('.sidebar-menu.js-activeable li>a').each(function () {
+            var aHref = $(this).attr("href"),
+                regexp = $(this).data('pat') ? new RegExp($(this).data('pat')) : false;
+
+            if (path === aHref || pathnameUrl === aHref || regexp && regexp.test(url)) {
+                $(this).closest('li').addClass('active');
+                $(this).closest('li.treeview').addClass('active');
+            }
+        });
     }
 
     // LTE template

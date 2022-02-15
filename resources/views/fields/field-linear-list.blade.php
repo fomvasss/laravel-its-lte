@@ -2,7 +2,7 @@
     $field_laravel_name = trim(preg_replace('/[\]\[]/', '.', $field_name), '.');
     $items = $items ?? [];
     //$items = array_merge(old($field_laravel_name, []), ['qq' => 'Qq', 'ww' => 'Ww']); // TODO
-    $placeholder_value = $placeholder_value ?? 'Значение';
+    $placeholder_value = isset($placeholder_value) ? $placeholder_value : '';
 @endphp
 
 <div class="form-group field-linear-list"

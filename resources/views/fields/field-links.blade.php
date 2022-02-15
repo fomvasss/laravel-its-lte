@@ -4,7 +4,7 @@
     $key_key = $key_key ?? 'key';
     $key_value = $key_value ?? 'value';
     $placeholder_key = $placeholder_key ?? 'Ключ';
-    $placeholder_value = $placeholder_value ?? 'Значение';
+    $placeholder_value = isset($placeholder_value) ? $placeholder_value : '';
     $input_type_key = $input_type_key ?? 'text';
     $input_type_value = $input_type_value ?? 'text';
 @endphp

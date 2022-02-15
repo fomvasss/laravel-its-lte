@@ -1,6 +1,6 @@
-<ul class="sidebar-menu" data-widget="tree">
+<ul class="sidebar-menu js-activeable" data-widget="tree">
     <li class="header">LTE example</li>
-    <li><a href="/lte"><i class="fa fa-compass"></i> <span>Home</span></a></li>
+    <li><a href="/lte" data-pat=""><i class="fa fa-compass"></i> <span>Home</span></a></li>
     <li><a href="/lte/fields"><i class="fa fa-plus-square"></i> <span>Fields</span></a></li>
 
     <li class="treeview">
@@ -12,9 +12,9 @@
         </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="/lte/pages"><i class="fa fa-circle-o text-yellow"></i> <span>List</span></a></li>
-            <li><a href="/lte/pages/create"><i class="fa fa-circle-o text-yellow"></i> <span>Create</span></a></li>
-            <li><a href="/lte/pages/edit"><i class="fa fa-circle-o text-yellow"></i> <span>Edit</span></a></li>
+            <li><a href="/lte/pages" data-pat="lte/pages"><i class="fa fa-circle-o text-yellow"></i> <span>List</span></a></li>
+            <li><a href="/lte/pages/create" data-pat="lte/pages"><i class="fa fa-circle-o text-yellow"></i> <span>Create</span></a></li>
+            <li><a href="/lte/pages/edit" data-pat="lte/pages"><i class="fa fa-circle-o text-yellow"></i> <span>Edit</span></a></li>
         </ul>
     </li>
 

@@ -6,6 +6,6 @@
     <a href="{{ $edit }}" class="btn btn-warning {!! config('its-lte.view.btn_actions_class', 'btn-xs') !!} "><i class="fa fa-edit"></i></a>
     @endisset
     @isset($delete)
-    <a href="{{ $delete }}" class="btn btn-danger {!! config('its-lte.view.btn_actions_class', 'btn-xs') !!}  js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
+    <a href="{{ $delete }}" class="btn btn-danger {!! config('its-lte.view.btn_actions_class', 'btn-xs') !!}  js-action-form" data-method="DELETE" data-confirm="{{ trans('lte::main.Delete') }}?"><i class="fa fa-trash"></i></a>
     @endisset
 </div>

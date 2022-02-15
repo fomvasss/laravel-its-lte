@@ -1,4 +1,4 @@
-<ul class="sidebar-menu" data-widget="tree">
+<ul class="sidebar-menu js-activeable" data-widget="tree">
     <li class="header">Store</li>
     <li class="active">
         <a href="#/control">

@@ -3,8 +3,6 @@
 @section('content')
     @include('lte::layouts.inc.content-header', [
         'page_title' => trans('lte::main.Pages'),
-        'small_page_title' => '',
-        'url_back' => '',
         'url_create' => '#'
     ])
     <section class="content">
@@ -41,12 +39,10 @@
                             </td>
                             <td>{{ $page->blade ?? trans('lte::main.Default') }}</td>
 
-                            <td style="width: 110px">
-                                <div class="btn-group">
-                                    <a href="{{ route('pages.show', $page) }}" target="_blank" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
-                                    <a href="{{ route('control.pages.edit', $page) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-                                    <a href="#" data-url="{{ route('control.pages.destroy', $page) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
-                                </div>
+                            <td class="wh-center btn-media">
+                                <a href="{{ route('pages.show', $page) }}" target="_blank" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
+                                <a href="{{ route('control.pages.edit', $page) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+                                <a href="#" data-url="{{ route('control.pages.destroy', $page) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE" data-confirm="{{ trans('lte::main.Delete') }}?"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach

@@ -39,14 +39,14 @@
             <div class="row">
                 <div class="col-md-3">
                     @include('lte::fields.field-datepicker', [
-                        'label' => 'Регистрация, от',
+                        'label' => 'Register from',
                         'field_name' => 'filter[created_at_from]',
                         'value' => request('filter.created_at_from'),
                     ])
                 </div>
                 <div class="col-md-3">
                     @include('lte::fields.field-datepicker', [
-                        'label' => 'Регистрация, до',
+                        'label' => 'Register to',
                         'field_name' => 'filter[created_at_to]',
                         'value' => request('filter.created_at_to'),
                     ])

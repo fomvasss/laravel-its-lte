@@ -1,5 +1,5 @@
 <div class="form-group">
-    <label>{!! $label ?? 'Значения' !!}</label>
+    @isset($label)<label>{!! $label !!}</label>@endisset
     @php
         $field_name = $field_name ?? '';
         $field_name_input = (isset($multiple) && $multiple) ? (Str::replaceLast('[]', '', $field_name) . '[]') : Str::replaceLast('[]', '', $field_name);
@@ -17,6 +17,11 @@
             @isset($new_tag_label) data-new-tag-label="{{$new_tag_label}}" @endisset
             @isset($data_url) data-url="{{ $data_url }}" @endisset
             style="width: 100%;"
+            @if(isset($data_attrs) && is_array($data_attrs))
+            @foreach($data_attrs as $attr => $val)
+            data-{{$attr}}='@json($val)'
+            @endforeach
+            @endif
     >
 
         @if(!empty($data_url))
@@ -39,10 +44,10 @@
 {{-- Select2 с статически или динамически (AJAX) загруженными данными  --}}
 {{--
 @include('lte::fields.field-select2-tags', [
-    'label' => 'Теги статьи',
+    'label' => 'Tags',
     'data_url' => '/src/data/tag-list.php', //optional, return [results=>[[id=>1, text=>Qwe],[id=>2,text=>Rty]]]
-    'selected' => [1 => 'Новости'],
-    //'attributes' => [1 => 'Новости', 2 => 'Спорт', 3 => 'Политика'],
+    'selected' => [1 => 'News'],
+    //'attributes' => [1 => 'News', 2 => 'Sport', 3 => 'Politics'],
     //'selected' => [1],
     'field_name' => 'tags',
     'separators' => "[';']",
@@ -51,6 +56,6 @@
     'multiple' => 1,
     'disabled' => 0,
     'old' => old('tags'),
-    'help_text' => 'Укажите или создайте теги'
+    'help_text' => 'Select or Create tag'
 ])
 --}}

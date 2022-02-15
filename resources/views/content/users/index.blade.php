@@ -56,11 +56,9 @@
                                 @endif
                             </td>
                             <td>{{ $user->created_at }}</td>
-                            <td style="max-width: 110px">
-                                <div class="btn-group">
-                                    <a href="{{ route('control.users.edit', $user) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-                                    <a href="#" data-url="{{ route('control.users.destroy', $user) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE"><i class="fa fa-remove"></i></a>
-                                </div>
+                            <td class="wh-center btn-media">
+                                <a href="{{ route('control.users.edit', $user) }}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+                                <a href="#" data-url="{{ route('control.users.destroy', $user) }}" class="btn btn-xs btn-danger js-action-form" data-method="DELETE" data-confirm="{{ trans('lte::main.Delete') }}?"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach

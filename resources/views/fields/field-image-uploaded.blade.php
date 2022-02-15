@@ -5,7 +5,15 @@
         $field_name_deleted = isset($field_name) ? (Str::replaceLast('[]', '', $field_name) . '_deleted') : '';
         $collection_name = isset($field_name) ? (Str::replaceLast('[]', '', $field_name)) : '';
     @endphp
-    <input type="file" name="{{ $field_name_input }}">
+    <input type="file"
+        class="@isset($class) {{ $class }} @endisset"
+        name="{{ $field_name_input }}"
+        @if(isset($data_attrs) && is_array($data_attrs))
+        @foreach($data_attrs as $attr => $val)
+        data-{{$attr}}='@json($val)'
+        @endforeach
+        @endif
+    >
     {{--<p class="help-block">Максимальный размер изображения 512кБ</p>--}}
     @if(isset($entity) && $entity->getFirstMediaUrl($collection_name))
     <div class="table-responsive">

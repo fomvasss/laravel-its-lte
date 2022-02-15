@@ -66,7 +66,7 @@
                                     @php($progress = rand(1,100))
                                 <tr>
                                     <td>{{ $i }}</td>
-                                    <td class="text-center">
+                                    <td class="wh-center">
                                         <a href="#" target="_blank">
                                             <img src="/vendor/its-lte/img/no-image.png" class="thumbnail-100">
                                         </a>
@@ -76,7 +76,7 @@
                                             </a>
                                         </span>
                                     </td>
-                                    <td>13.01.1989</td>
+                                    <td><a href="#" class="hover-edit">13.01.1989</a></td>
                                     <td>
                                         <div class="progress-group">
                                             <span class="progress-text">Completed</span>
@@ -105,7 +105,7 @@
                                     <td class="text-center">
                                         <i class="fa fa-check-square-o"></i>
                                     </td>
-                                    <td class="text-center">
+                                    <td class="wh-center btn-media">
                                         @include('lte::parts.action-btn', [
                                             'show' => '#',
                                             'edit' => '#',
@@ -121,7 +121,7 @@
                                                 </button>
                                                 <ul class="dropdown-menu" style="right: 0; left: unset;">
                                                     <li>
-                                                        <a href="#" data-url="" class=" js-action-form" data-method="GET"><i class="fa fa-trash text-danger"></i> Delete</a>
+                                                        <a href="#" data-url="" class=" js-action-form" data-method="GET" data-confirm="{{ trans('lte::main.Delete') }}?"><i class="fa fa-trash text-danger"></i> Delete</a>
                                                     </li>
                                                     <li>
                                                         <a href="#" data-url="#" class="js-action-form" data-method="GET"><i class="fa fa-envelope text-info"></i> Mailing</a>
@@ -218,6 +218,13 @@
                             'placeholder' => 'Enter your name',
                         ])
 
+                        @include('lte::fields.field-url', [
+                            'label' => 'URL',
+                            'field_name' => 'url',
+                            //'entity' => isset($banner) ? $banner : null,
+                            'value' => isset($post) ? $post->url : '',
+                        ])
+
                         @include('lte::fields.field-slug', [
                             'label' => 'Slug',
                             'field_name' => 'slug',
@@ -227,7 +234,7 @@
                         ])
 
                         @include('lte::fields.field-daterangepicker', [
-                            'label' => 'Укажите период:',
+                            'label' => 'Date range:',
                             'field_name' => 'range',
                             'field_name_start' => 'start_at',
                             'field_name_end' => 'end_at',
@@ -404,7 +411,7 @@
                             'multiple' => 1,
                             'disabled' => 0,
                             'old' => old('tags'),
-                            'help_text' => 'Specify tags separated by comma (,)'
+                            'help_text' => trans('lte::main.* Enter tags, separating them , or ;'),
                         ])
 
                         @include('lte::fields.field-select2-tree-ajax', [
@@ -526,6 +533,29 @@
                         ])
                     </div>
                 </div>
+
+
+                <div class="box">
+                    <div class="box-header">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h3 class="box-title"> Image cropper</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body">
+
+                        @include('lte::fields.field-image-cropper-uploaded',[
+                              'label' => 'Crop Image',
+                              'field_name' => 'image_pr',
+                              'img_width' => 300,
+                              'img_height' => 240,
+                              'show_preview' => true,
+                              'entity' => isset($post) ? $post : null,
+                          ])
+
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -637,7 +667,6 @@
                         'field_name' => 'lastname',
                         'field_id' => 'lastname'
                      ])
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -179,7 +179,7 @@ if (! function_exists('old_contain')) {
     }
 }
 
-if (! function_exists('comparison_boolean')) {
+if (! function_exists('comparison_bool')) {
     /**
      * @param $value
      * @return bool

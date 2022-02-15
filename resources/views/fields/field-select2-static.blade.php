@@ -31,6 +31,11 @@
             @if(isset($required) && $required) required @endif
             style="width: 100%;"
             @if(count($attributes) < 6) data-minimum-results-for-search="-1" @endif
+            @if(isset($data_attrs) && is_array($data_attrs))
+            @foreach($data_attrs as $attr => $val)
+            data-{{$attr}}='@json($val)'
+            @endforeach
+            @endif
     >
 
         @if(empty($multiple) && empty($empty_value) && count($attributes) > 6)
@@ -55,6 +60,17 @@
 {!! $errors->first(Str::replaceLast('[]', '', $field_name), '<p class="help-block" style="color:red;">:message</p>') !!}
 
 {{-- Select2 with static options --}}
+
+{{--
+@include('lte::fields.field-select2-static', [
+    'label' => 'Status',
+    'field_name' => 'status',
+    'attributes' => [1 => 'New order', 2 => 'In progress'],
+    'selected' => [2],
+    'empty_value' => trans('lte::main.--not chosen--'),
+])
+--}}
+
 {{--
 @include('lte::fields.field-select2-static', [
     'label' => 'Status',
@@ -67,5 +83,14 @@
     'selected' => [2],
     'empty_value' => trans('lte::main.--not chosen--'),
     //'data_url_save' => route('lte.data.status'), // For autosave after change
+    'class' => 'js-select-blocks',
+    'data_attrs' => [
+        'map' => [
+            'period' => ['.js-block-period'],
+            'max_clicks' => ['.js-block-clicks'],
+            'max_views' => ['.js-block-views'],
+        ],
+        'qq' => 'aa'
+    ],
 ])
 --}}

@@ -28,12 +28,12 @@
 </div>
 
 {{--
-@include('lte.fields.field-text', [
-    'label' => 'Название',
+@include('lte::fields.field-text', [
+    'label' => 'Title',
     'field_name' => 'name',
     'value' => isset($name) ? $name : '',
     'type' => 'text',
     'field_id' => 'name',
-    'placeholder' => 'Введите ваше имя',
+    'placeholder' => 'Enter title',
 ])
 --}}

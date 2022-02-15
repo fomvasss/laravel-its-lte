@@ -1,7 +1,7 @@
 @php
     $value = isset($value) ? $value : null;
     $field_name = isset($field_name) ? $field_name : '';
-    $label = isset($label) ? $label : '[значение]';
+    $label = isset($label) ? $label : '['.trans('lte::main.Value').']';
 @endphp
 
 <a href="#"

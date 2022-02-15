@@ -249,3 +249,33 @@ img.thumbnail-0 {
 	font-weight: bold;
 	padding-left: 10px;
 }
+
+.hover-edit:after {
+	position: absolute;
+}
+.hover-edit:hover:after {
+	padding-left: 5px;
+	font-family: FontAwesome;
+	content: '\f040';
+}
+.table>tbody>tr>td.wh-center {
+	text-align: center;
+	vertical-align: middle;
+}
+
+@media screen and (max-width: 960px) {
+	td.btn-media>.btn.btn-xs {
+		padding: 6px 12px;
+		font-size: 14px;
+		line-height: 1.42857143;
+		margin-bottom: 2px;
+	}
+}
+
+a.hierarchy-item-title {
+	color: rgb(68, 68, 68);
+}
+
+.direct-chat-text {
+	white-space: normal;
+}
