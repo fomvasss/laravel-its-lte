@@ -85,6 +85,9 @@ return [
     'Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.' => 'Храните эти коды восстановления в безопасном менеджере паролей. Их можно использовать для восстановления доступа к вашей учетной записи, если ваше устройство двухфакторной аутентификации будет потеряно.',
     'Regenerate Recovery Codes' => 'Восстановить коды восстановления',
     'Current password' => 'Текущий пароль',
+    'Variation' => 'Вариация',
+    'Variations' => 'Вариации',
+    'Variation price' => 'Цена вариации',    
 
     'Menu' => 'Меню',
     'Attribute' => 'Атрибут',
@@ -110,6 +113,8 @@ return [
     'Method' => 'Метод',
     'Language' => 'Язык',
     'Languages' => 'Языки',
+    'Timezones' => 'Часовые пояса',
+    'Timezone' => 'Часовой пояс',
     'Country' => 'Страна',
     'Countries' => 'Страны',
     'City' => 'Город',
@@ -118,6 +123,7 @@ return [
     'Payments' => 'Платежи',
 
     'Locale' => 'Локация',
+    'Locales' => 'Локации',
     'Location' => 'Местонахождение',
     'Category' => 'Категория',
     'Categories' => 'Категории',

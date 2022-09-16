@@ -85,6 +85,9 @@ return [
     'Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.' => 'Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.',
     'Regenerate Recovery Codes' => 'Regenerate Recovery Codes',
     'Current password' => 'Current password',
+    'Variation' => 'Variation',
+    'Variations' => 'Variations',
+    'Variation price' => 'Variation price',
 
     'Menu' => 'Menu',
     'Attribute' => 'Attribute',
@@ -108,8 +111,8 @@ return [
     'Delivery' => 'Delivery',
     'Type' => 'Type',
     'Method' => 'Method',
-    'Language' => 'Language',
     'Languages' => 'Languages',
+    'Language' => 'Language',
     'Timezones' => 'Timezones',
     'Timezone' => 'Timezone',
     'Country' => 'Country',
@@ -120,6 +123,7 @@ return [
     'Payments' => 'Payments',
 
     'Locale' => 'Locale',
+    'Locales' => 'Locales',
     'Location' => 'Location',
     'Category' => 'Category',
     'Categories' => 'Categories',
