@@ -279,3 +279,7 @@ a.hierarchy-item-title {
 .direct-chat-text {
 	white-space: normal;
 }
+
+.sorted-table tr.placeholder:before {
+	content: ">";
+}
