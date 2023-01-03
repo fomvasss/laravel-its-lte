@@ -150,6 +150,7 @@ return [
 
     'Created at' => 'Створено',
     'Updated at' => 'Оновлено',
+    'Activity at' => 'Activity at',
     'Moderate' => 'Модерувати',
 
     'Teaser' => 'Короткий опис',
@@ -246,4 +247,8 @@ return [
     'Variables' => 'Змінні',
     'Value' => 'Значення',
     'Appearance' => 'Зовнішній вигляд',
+
+    'Tinker' => 'Tinker',
+    'Website' => 'Вебсайт',
+    '' => '',
 ];

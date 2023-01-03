@@ -9,6 +9,9 @@
    data-value="{{ $value }}"
    data-type="{{ isset($type) ? $type : 'text' }}"
    data-name="{{ $field_name }}"
+   @isset($step)data-step="{{$step}}"@endisset
+   @isset($min)data-min="{{$min}}"@endisset
+   @isset($max)data-max="{{$max}}"@endisset
    @isset($viewformat)data-viewformat="{{$viewformat}}"@endisset
    @isset($source)data-source="{{ json_encode($source) }}"@endisset
    @isset($url)data-url="{{ $url }}"@endisset

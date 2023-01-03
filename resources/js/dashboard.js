@@ -736,15 +736,18 @@ $(function () {
         }
     })
     function toggleSelectableBlocks($val, selectBlocksMap) {
+
+        for (var key in selectBlocksMap) {
+            for (var id in selectBlocksMap[key]) {
+                $(selectBlocksMap[key][id]).hide()
+            }
+        }
+
         for (var key in selectBlocksMap) {
             Pace.restart()
             if ($val === key) {
                 for (var id in selectBlocksMap[key]) {
                     $(selectBlocksMap[key][id]).show()
-                }
-            } else {
-                for (var id in selectBlocksMap[key]) {
-                    $(selectBlocksMap[key][id]).hide()
                 }
             }
         }
@@ -779,4 +782,9 @@ $(function () {
         var bodyClass = $(this).data('bodyClass');
         this.checked ? $('body').addClass(bodyClass) : $('body').removeClass(bodyClass);
     })
+
+    // Autosabmit form after change file
+    $('.js-form-submit-file-changed input[type="file"]').on('change', function() {
+        $(this).closest('form').submit();
+    });
 });

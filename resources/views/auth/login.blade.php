@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="col-xs-8">
                         <label>
-                            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ trans('lte::main.Remember me') }}
+                            <input type="checkbox" name="remember" value="1" {{ old('remember') ? 'checked' : '' }}> {{ trans('lte::main.Remember me') }}
                         </label>
                     </div>
                     <div class="col-xs-4">

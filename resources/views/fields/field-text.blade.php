@@ -25,6 +25,9 @@
         >
     @endif
     @error($field_name) <p class="help-block">{{ $message }}</p> @enderror
+    @isset($help_text)
+        <p class="help-block small">{!! $help_text !!}</p>
+    @endisset
 </div>
 
 {{--

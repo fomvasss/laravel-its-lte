@@ -150,6 +150,7 @@ return [
     
     'Created at' => 'Created at',
     'Updated at' => 'Updated at',
+    'Activity at' => 'Activity at',
     'Moderate' => 'Moderate',
 
     'Teaser' => 'Teaser',
@@ -246,4 +247,8 @@ return [
     'Variables' => 'Variables',
     'Value' => 'Value',
     'Appearance' => 'Appearance',
+
+    'Tinker' => 'Tinker',
+    'Website' => 'Website',
+    '' => '',
 ];

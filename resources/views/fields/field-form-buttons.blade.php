@@ -1,9 +1,9 @@
 <div class="form-buttons @isset($class) {{$class}} @else pull-right @endisset">
     <div role="group" class="btn-group">
         @empty($url_store_and_continue)
-            <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> {{ trans('lte::main.Save') }}</button>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ trans('lte::main.Save') }}</button>
         @else
-            <button type="submit" name="destination" value="{{ $url_store_and_continue }}" class="btn btn-primary"><i class="fa fa-check"></i> {{ trans('lte::main.Save') }}</button>
+            <button type="submit" name="destination" value="{{ $url_store_and_continue }}" class="btn btn-primary"><i class="fa fa-save"></i> {{ trans('lte::main.Save') }}</button>
         @endempty
 
         @if(isset($url_store_and_create) || isset($url_store_and_close))
@@ -12,10 +12,10 @@
                 <div class="dropdown-menu btn-actions">
                     <div class="btn-group-vertical">
                         @isset($url_store_and_create)
-                            <button type="submit" name="destination" value="{{ $url_store_and_create }}" class="btn btn-info"><i class="fa fa-check"></i> {{ trans('lte::main.Save and Create') }}</button>
+                            <button type="submit" name="destination" value="{{ $url_store_and_create }}" class="btn btn-info"><i class="fa fa-save"></i> {{ trans('lte::main.Save and Create') }}</button>
                         @endisset
                         @isset($url_store_and_close)
-                            <button type="submit" name="destination" value="{{ $url_store_and_close }}" class="btn btn-success"><i class="fa fa-check"></i> {{ trans('lte::main.Save and Close') }}</button>
+                            <button type="submit" name="destination" value="{{ $url_store_and_close }}" class="btn btn-success"><i class="fa fa-save"></i> {{ trans('lte::main.Save and Close') }}</button>
                         @endisset
                     </div>
                 </div>

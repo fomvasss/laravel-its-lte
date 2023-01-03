@@ -6,6 +6,9 @@
     @isset($label)<label for="{{ $field_name }}">{!! $label !!}</label><br>@endisset
     <input type="text" class="form-control field-datepicker @isset($class) {{ $class }} @endisset" name="{{ $field_name }}" value="{{ $value }}" autocomplete="off"/>
     @error(Str::replaceLast('[]', '', $field_name)) <p class="help-block" style="color:red;">{{ $message }}</p> @enderror
+    @isset($help_text)
+        <p class="help-block small">{!! $help_text !!}</p>
+    @endisset
 </div>
 
 {{--

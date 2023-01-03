@@ -149,6 +149,7 @@ return [
     'Delivered' => 'Доставлено',
 
     'Created at' => 'Создано',
+    'Activity at' => 'Activity at',
     'Updated at' => 'Обновлено',
     'Moderate' => 'Модерировать',
 
@@ -246,4 +247,8 @@ return [
     'Variables' => 'Переменные',
     'Value' => 'Значение',
     'Appearance' => 'Внешний вид',
+
+    'Tinker' => 'Tinker',
+    'Website' => 'Website',
+    '' => '',
 ];
