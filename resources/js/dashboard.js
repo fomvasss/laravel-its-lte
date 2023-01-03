@@ -724,6 +724,15 @@ $(function () {
     }
 
 
+    // Table sotrable
+    $('.sorted-table').sortable({
+        containerSelector: 'table',
+        itemPath: '> tbody',
+        itemSelector: 'tr',
+        placeholder: '<tr class="placeholder"/>'
+    });
+
+
     // Displaying blocks depending on the selection in the selection
     $('.js-select-blocks').each(function () {
         if ($(this).find(':selected')) {

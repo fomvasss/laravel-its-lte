@@ -1,6 +1,8 @@
 {
-    "/css/main.css": "/css/main.css",
-    "/js/main.js": "/js/main.js",
-    "/css/dashboard.css": "/css/dashboard.css",
-    "/js/dashboard.js": "/js/dashboard.js"
+    "/css/main.css": "/css/main.css?id=0f308389c55e6e35dd0b",
+    "/js/main.js": "/js/main.js?id=4fafff65cb3be4350351",
+    "/css/dashboard.css": "/css/dashboard.css?id=657e371b9eac0a8d2576",
+    "/js/dashboard.js": "/js/dashboard.js?id=2f120e235090fb461346",
+    "/css/main.min.css": "/css/main.min.css?id=0f308389c55e6e35dd0b",
+    "/js/main.min.js": "/js/main.min.js?id=4fafff65cb3be4350351"
 }

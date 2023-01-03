@@ -41,14 +41,14 @@ if (! function_exists('build_linear_array_sort')) {
      * @param bool $use_parent
      * @return array
      */
-    function build_linear_array_sort(array $tree_entities, int $parent_id = null, bool $use_parent = true)
+    function build_linear_array_sort(array $tree_entities, $parent_id = null, bool $use_parent = true)
     {
         $result = [];
 
         foreach ($tree_entities[0] ?? [] as $key => $entity) {
             $data = [];
             if (! empty($entity['id'])) {
-                $data['id'] = (int)$entity['id'];
+                $data['id'] = $entity['id'];
                 $data['weight'] = $key;
                 $use_parent ? $data['parent_id'] = $parent_id : null;
                 $result[] = $data;

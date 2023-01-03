@@ -69,7 +69,6 @@ return [
         'aside_menu' => [
             'static' => true,
             'lte' => env('APP_ENV') === 'local',
-            'store' => env('APP_ENV') === 'local',
         ],
 
         'aside_auth_user_info' => false,

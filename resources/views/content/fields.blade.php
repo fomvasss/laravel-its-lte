@@ -9,6 +9,18 @@
                         <h3 class="box-title">Example entries</h3>
 
                         <div class="box-tools pull-right">
+
+                            <button
+                                    type="button"
+                                    data-url="#"
+                                    data-entity-name="{{ $entity_name ?? 'term' }}"
+                                    class="post-tree-sortaple btn btn-success btn-sm ajax"
+                                    data-widget="add"
+                                    data-toggle="tooltip"
+                                    title="{{ trans('lte::main.Save') }}">
+                                <i class="fa fa-save"></i>
+                            </button>
+
                             <div class="btn-group" data-toggle="btn-toggle">
                                 <button type="button" class="btn btn-default btn-sm">
                                     <i class="fa fa-file-pdf-o"></i>
@@ -40,9 +52,10 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive">
-                        <table class="table table-hover td-middle">
+                        <table class="table table-hover td-middle sortable-table tree-sortable" data-entity-name="{{ $entity_name ?? 'term' }}">
                             <thead>
                                 <tr>
+                                    <th style="width: 35px"></th>
                                     <th>#</th>
                                     <th></th>
                                     <th>Date</th>
@@ -64,7 +77,8 @@
                                 --}}
                                 @for($i = 1; $i <= 4; $i++)
                                     @php($progress = rand(1,100))
-                                <tr>
+                                <tr data-id="n{{$i}}">
+                                    <td><i class="fa fa-arrows"></i></td>
                                     <td>{{ $i }}</td>
                                     <td class="wh-center">
                                         <a href="#" target="_blank">
@@ -625,6 +639,26 @@
             } else {
                 toastr.success('Hello ITS developer!');
                 swal("Good job!", "You clicked the button!", "success");
+            }
+        });
+
+        // Sortable table
+        var group = $('.sortable-table').sortable({
+            containerSelector: 'table',
+            itemPath: '> tbody',
+            itemSelector: 'tr',
+            drop: true,
+            delay: 500,
+            handle: 'i.fa-arrows',
+
+            group: 'term',
+            onDrop: function ($item, container, _super) {
+                var data = group.sortable("serialize").get();
+
+                var jsonString = JSON.stringify(data, null, ' ');
+
+                console.log(jsonString);
+                _super($item, container);
             }
         });
     </script>
