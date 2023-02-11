@@ -10,17 +10,6 @@
 
                         <div class="box-tools pull-right">
 
-                            <button
-                                    type="button"
-                                    data-url="#"
-                                    data-entity-name="{{ $entity_name ?? 'term' }}"
-                                    class="post-tree-sortaple btn btn-success btn-sm ajax"
-                                    data-widget="add"
-                                    data-toggle="tooltip"
-                                    title="{{ trans('lte::main.Save') }}">
-                                <i class="fa fa-save"></i>
-                            </button>
-
                             <div class="btn-group" data-toggle="btn-toggle">
                                 <button type="button" class="btn btn-default btn-sm">
                                     <i class="fa fa-file-pdf-o"></i>
@@ -35,7 +24,7 @@
 
                             <div class="btn-group">
                                 <ul class="pagination pagination-sm inline">
-                                    @foreach(['RU' => 'Русский', 'EN' => 'English', 'UA' => 'Українська'] as $key => $locale)
+                                    @foreach(['ES' => 'Spanish', 'EN' => 'English', 'UA' => 'Ukrainian'] as $key => $locale)
                                         <li @if($loop->first) class="active" @endif>
                                             <a href="#">{{ $key }}</a>
                                         </li>
@@ -52,7 +41,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive">
-                        <table class="table table-hover td-middle sortable-table tree-sortable" data-entity-name="{{ $entity_name ?? 'term' }}">
+                        <table class="table table-hover td-middle sortable-table" data-url="{{ route('lte.data.status') }}" style="position: relative;">
                             <thead>
                                 <tr>
                                     <th style="width: 35px"></th>
@@ -64,6 +53,7 @@
                                     <th>Status</th>
                                     <th>Price</th>
                                     <th>Payment</th>
+                                    <th>Default</th>
                                     <th class="text-center">Publish</th>
                                     <th class="text-center" style="min-width: 85px;">Actions</th>
                                     <th class="text-center" style="min-width: 70px">Actions2</th>
@@ -115,6 +105,17 @@
                                     </td>
                                     <td>
                                         <span class="label label-warning">Pending</span>
+                                    </td>
+                                    <td>
+                                        <input class="js-action-change radio"
+                                        type="radio"
+                                        {{--data-url="{{ route('lte.data.statuses') }}"--}}
+                                        name="default[{{ $i }}]"
+                                        value="{{ $i }}"
+                                        @if($i == 2) checked @endif
+                                        id="default-{{ $i }}"
+                                        >
+                                        <label for="default-{{ $i }}"></label>
                                     </td>
                                     <td class="text-center">
                                         <i class="fa fa-check-square-o"></i>
@@ -367,6 +368,9 @@
                     <div class="box-header">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Modal</button>
                         <button type="button" class="btn btn-primary js-fill-modal" data-target="#myModal2" data-fields='{"firstname":"Eva","lastname":"Green"}'>Modal with json fills</button>
+                        <button type="button" class="btn btn-primary js-modal-fill-html" data-target="#modal-sm-wrap" data-url={{ route('lte.data.modal-content') }}>SM Modal with AJAX content</button>
+                        <button type="button" class="btn btn-primary js-modal-fill-html" data-target="#modal-wrap" data-url={{ route('lte.data.modal-content') }}>Modal with AJAX content</button>
+                        <button type="button" class="btn btn-primary js-modal-fill-html" data-target="#modal-lg-wrap" data-url={{ route('lte.data.modal-content') }}>LG Modal with AJAX content</button>
                     </div>
                 </div>
 
@@ -570,6 +574,40 @@
 
                     </div>
                 </div>
+
+
+                <div class="box">
+                    <div class="box-header">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h3 class="box-title"> Select blocks</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body">
+
+                        @include('lte::fields.field-select2-static', [
+                            'label' => 'Mailer',
+                            'field_name' => 'vars_array[mail][mailer]',
+                            'attributes' => ['smtp' => 'SMTP', 'sendmail' => 'Sendmail', 'log' => 'Log'],
+                            'selected' => 'log',
+                            'empty_value' => trans('lte::main.--not chosen--'),
+                            'class' => 'js-select-blocks',
+                            'data_attrs' => [
+                                'map' => [
+                                    'smtp' => ['.js-block-smtp'],
+                                    'sendmail' => ['.js-block-sendmail'],
+                                    'log' => ['.js-block-log'],
+                                ],
+                            ],
+                        ])
+
+                        <div class="js-block-smtp"><h2>SMTP</h2></div>
+                        <div class="js-block-sendmail"><h2>SENDMAIL</h2></div>
+                        <div class="js-block-log"><h2>LOG</h2></div>
+
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -642,25 +680,7 @@
             }
         });
 
-        // Sortable table
-        var group = $('.sortable-table').sortable({
-            containerSelector: 'table',
-            itemPath: '> tbody',
-            itemSelector: 'tr',
-            drop: true,
-            delay: 500,
-            handle: 'i.fa-arrows',
 
-            group: 'term',
-            onDrop: function ($item, container, _super) {
-                var data = group.sortable("serialize").get();
-
-                var jsonString = JSON.stringify(data, null, ' ');
-
-                console.log(jsonString);
-                _super($item, container);
-            }
-        });
     </script>
 @endpush
 

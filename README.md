@@ -26,7 +26,7 @@ php artisan lte:install
 
 That's all. You can usage ITS LTE in your project :) 
 
-Visit the path `http://your-site.test/lte` 
+Visit the path `http://your-site.test/lte/fields` 
 
 
 ## Publishing (optional)

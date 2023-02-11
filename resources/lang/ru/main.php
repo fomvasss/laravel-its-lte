@@ -153,6 +153,7 @@ return [
     'Collecting' => 'Сбор',
     'Collected' => 'Собрано',
     'Processing' => 'В работе',
+    'Processed' => 'Оброблено',
     'Accepted' => 'Принято',
     'Delivered' => 'Доставлено',
 
@@ -257,6 +258,9 @@ return [
     'Variables' => 'Переменные',
     'Value' => 'Значение',
     'Appearance' => 'Внешний вид',
+    'Subject' => 'Тематика',
+    'Shipping' => 'Доставка',
+    'Discount' => 'Скидка',
 
     'All' => 'All',
     'Host' => 'Host',

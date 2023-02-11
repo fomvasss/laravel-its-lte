@@ -9,9 +9,9 @@
      data-field-name="{{ $field_name }}"
      data-placeholder-value="{{ $placeholder_value }}"
 >
-    <label>{{ $label ?? 'Пункты' }}</label>
+    <label>{{ $label ?? 'Points' }}</label>
     <div class="table-responsive">
-        <table class="table table-striped">
+        <table class="table table-striped sortable-table" style="position: relative;">
             <tbody>
                 @forelse($items as $item)
                 <tr class="item first">

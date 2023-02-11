@@ -42,46 +42,6 @@
             filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
         },
 
-        translates = {
-            localeDateRangePicker: {
-                "format": "MM/DD/YYYY",
-                "separator": " - ",
-                "applyLabel": "Apply",
-                "cancelLabel": "Cancel",
-                "fromLabel": "From",
-                "toLabel": "To",
-                "customRangeLabel": "Custom",
-                "weekLabel": "W",
-                "daysOfWeek": [
-                    "Su",
-                    "Mo",
-                    "Tu",
-                    "We",
-                    "Th",
-                    "Fr",
-                    "Sa"
-                ],
-                "monthNames": [
-                    "January",
-                    "February",
-                    "March",
-                    "April",
-                    "May",
-                    "June",
-                    "July",
-                    "August",
-                    "September",
-                    "October",
-                    "November",
-                    "December"
-                ],
-                "firstDay": 1
-            },
-            notifications: {
-                "confirmAction": "{{ trans('lte::main.Do you confirm the action?') }}"
-            }
-        },
-
         xEditable = {},
         colorpickerOptions = {},
         datetimepickerOptions = {
@@ -107,6 +67,11 @@
     <input type="hidden" name="_method" value="POST">
     <input type="hidden" name="destination" value="{{ Request::fullUrl() }}" class="js-destination-val">
 </form>
+
+<div class="modal fade" id="modal-lg-wrap"><div class="modal-dialog modal-lg"><div class="modal-content"></div></div></div>
+<div class="modal fade" id="modal-wrap"><div class="modal-dialog"><div class="modal-content"></div></div></div>
+<div class="modal fade" id="modal-sm-wrap"><div class="modal-dialog modal-sm"><div class="modal-content"></div></div></div>
+
 
 <script>
     $.widget.bridge('uibutton', $.ui.button);

@@ -26,6 +26,7 @@ Route::view('users/edit', 'lte::content.users.edit')->name('users.edit');
 Route::view('users/create', 'lte::content.users.create')->name('users.create');
 
 Route::get('data/statuses', 'ExampleController@statuses')->name('data.statuses');
+Route::get('data/modal-content', 'ExampleController@modalContent')->name('data.modal-content');
 Route::post('data/statuses', 'ExampleController@status')->name('data.status');
 Route::get('data/treeselect', 'ExampleController@treeselect')->name('data.treeselect');
 Route::get('data/treeview', 'ExampleController@treeview')->name('data.treeview');

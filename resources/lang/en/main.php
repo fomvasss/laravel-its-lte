@@ -153,6 +153,7 @@ return [
     'Collecting' => 'Collecting',
     'Collected' => 'Collected',
     'Processing' => 'Processing',
+    'Processed' => 'Processed',
     'Accepted' => 'Accepted',
     'Delivered' => 'Delivered',
 
@@ -257,6 +258,9 @@ return [
     'Variables' => 'Variables',
     'Value' => 'Value',
     'Appearance' => 'Appearance',
+    'Subject' => 'Subject',
+    'Shipping' => 'Shipping',
+    'Discount' => 'Discount',
 
     'All' => 'All',
     'Host' => 'Host',

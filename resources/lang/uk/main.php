@@ -151,6 +151,7 @@ return [
     'Moderation' => 'На модерації',
     'Completed' => 'Завершено',
     'Processing' => 'В работі',
+    'Processed' => 'Оброблено',
     'Collecting' => 'Збір',
     'Collected' => 'Зібрано',
     'Accepted' => 'Прийнято',
@@ -257,6 +258,9 @@ return [
     'Variables' => 'Змінні',
     'Value' => 'Значення',
     'Appearance' => 'Зовнішній вигляд',
+    'Subject' => 'Тематика',
+    'Shipping' => 'Доставка',
+    'Discount' => 'Знижка',
 
     'All' => 'Всі',
     'Host' => 'Host',

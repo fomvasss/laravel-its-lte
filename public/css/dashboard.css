@@ -280,6 +280,10 @@ a.hierarchy-item-title {
 	white-space: normal;
 }
 
-.sorted-table tr.placeholder:before {
+.sortable-table {
+    position: relative;
+}
+
+.sortable-table tr.placeholder:before {
 	content: ">";
 }

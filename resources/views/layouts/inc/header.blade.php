@@ -16,7 +16,7 @@
         <div class="navbar-custom-menu pull-left">
 
             <ul class="nav navbar-nav">
-                <li class="user user-menu" title="{{ config('app.timezone') }}: {{ now()->timezone(config('app.timezone')) }}&#013;@if(config('app.timezone_web')){{ config('app.timezone_web') }}: {{ now()->timezone(config('app.timezone_web')) }}@endif">
+                <li class="user user-menu" title="{{ config('app.timezone') }}: {{ now()->timezone(config('app.timezone')) }}&#013;@if(config('app.timezone_client')){{ config('app.timezone_client') }}: {{ now()->timezone(config('app.timezone_client')) }}@endif">
                     <a href="#" class="" data-toggle="">
                         <i class="fa fa-clock-o"></i>
                     </a>
@@ -34,8 +34,25 @@
                 <li class="dropdown messages-menu">
                     <a href="#ua">ua</a>
                 </li>
+
+                <li class="user user-menu" title="{{ trans('lte::main.Locale') }}" style="margin-left: 15px">
+                    <select class="form-control js-change-url" style="margin-top: 7px">
+
+                        @foreach(['en', 'uk', 'es'] as $locale)
+                            <option value="#{{ $locale }}"
+                                    @if($locale === 'uk') selected @endif>
+                                {{ mb_strtoupper($locale) }}</option>
+                        @endforeach
+                    </select>
+                </li>
+                <li class="user user-menu" title="Visit site">
+                    <a href="/" target="_blank" data-toggle="">
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </li>
             </ul>
             @endif
+
         </div>
 
         <div class="navbar-custom-menu">
