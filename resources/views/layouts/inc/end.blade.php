@@ -1,7 +1,7 @@
 <script>
     var
         ckMini = {
-            language: 'ru',
+            language: 'en',
             toolbar: [
                 {
                     name: 'paragraph',
@@ -12,7 +12,7 @@
             ]
         },
         ckSmall = {
-            language: 'ru',
+            language: 'en',
             allowedContent: true,
             toolbar: [
                 {
@@ -33,7 +33,7 @@
             filebrowserUploadUrl: '/filemanager/upload?type=Files&_token='
         },
         ckFull = {
-            language: 'ru',
+            language: 'en',
             allowedContent: true,
 
             filebrowserImageBrowseUrl: '/filemanager?type=Images',

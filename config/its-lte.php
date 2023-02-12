@@ -19,11 +19,6 @@ return [
     'prefix' => 'lte',
 
     /*
-     * For /profile page
-     */
-    'use_laravel_fortify' => true,
-
-    /*
      * For LTE example pages (/lte/*)
      */
     'middleware' => ['web'],

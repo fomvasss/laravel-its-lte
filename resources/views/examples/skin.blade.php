@@ -12,7 +12,7 @@
                 <form action="#" method="POST">
                     @csrf
                     <input type="hidden" name="destination" value="{{ Request::fullUrl() }}">
-                    
+
                     <div class="box">
                         <div class="box-header">
                             <h3 class="box-title">{{ trans('lte::main.Appearance') }}</h3>
@@ -59,7 +59,7 @@
 
                             {{-- SET VAR VAL --}}
                             <input type="hidden" name="vars[lte_default_skin]" id="lte_default_skin" value="{{ config('its-lte.view.skin') }}">
-                            
+
                             <div class="form-group">
                                 <div class="">
                                     <input name="vars[lte_layout_boxed]" hidden value="0">
@@ -92,7 +92,7 @@
                             @include('lte::fields.field-form-buttons')
                         </div>
                     </div>
-                    
+
                 </form>
             </div>
         </div>

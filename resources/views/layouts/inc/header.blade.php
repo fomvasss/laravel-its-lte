@@ -45,7 +45,7 @@
                         @endforeach
                     </select>
                 </li>
-                <li class="user user-menu" title="Visit site">
+                <li class="user user-menu" title="Visit">
                     <a href="/" target="_blank" data-toggle="">
                         <i class="fa fa-arrow-circle-right"></i>
                     </a>

@@ -28,11 +28,29 @@ That's all. You can usage ITS LTE in your project :)
 
 Visit the path `http://your-site.test/lte/fields` 
 
+## Configuration
+
+After publishing assets, its primary configuration file will be located at `config/its-lte.php`
+
+In dashboard used Bootstrap styles and for correct show pagination links, set next in service provider
+```
+    public function boot()
+    {
+        //...
+        Paginator::useBootstrap();
+        //...
+    }
+```
+
+For correct work navigation in dashboard, apply next middleware for routes to dashboard:
+```
+\Fomvasss\ItsLte\Http\Middleware\ApplyRequestOptions::class,
+```
 
 ## Publishing (optional)
 Of course, you can publish only the necessary system components:
 - views:
-`lte-view-fields`, `lte-view-content`, `lte-view-auth`, `lte-view-parts`, `lte-view-layouts`, `lte-view-profile`
+`lte-view-fields`, `lte-view-examples`, `lte-view-auth`, `lte-view-parts`, `lte-view-layouts`
 - other:
 `lte-config`, `lte-assets`, `lte-lang`
 
@@ -50,110 +68,6 @@ When updating this package, you should re-publish the assets (css, js, images):
 php artisan lte:publish --tag=lte-assets --force
 ```
 
-## Configuration
-
-After publishing assets, its primary configuration file will be located at `config/its-lte.php`
-```php
-<?php
-
-return [
-
-    'title' => env('APP_NAME', '') . ' - Dashboard',
-
-    'logo' => env('LTE_LOGO', '<b>ITS</b>LTE'),
-
-    'logo_mini' => env('LTE_LOGO_MINI', '<b>IT</b>LT'),
-
-    /*
-     * Dashboard home page path
-     */
-    'logo_href' => '/lte',
-
-    /*
-     * For example pages
-     */
-    'prefix' => 'lte',
-
-    /*
-     * For /profile page
-     */
-    'use_laravel_fortify' => true,
-
-    /*
-     * For LTE example pages (/lte/*)
-     */
-    'middleware' => ['web'],
-
-    /**
-     * Use in Fomvasss\ItsLte\Http\Middleware\ApplyRequestOptions
-     */
-    'control' => [
-        'next_destination_key' => 'destination',
-    ],
-
-    'view' => [
-
-        /**
-         * Available skins:
-         * skin-blue, skin-black, skin-purple, skin-green, skin-red,
-         * skin-yellow, skin-blue-light, skin-black-light, skin-purple-light,
-         * skin-green-light, skin-red-light, skin-yellow-light,
-         *
-         */
-        'skin' => 'skin-purple',
-        'layout_boxed' => false,
-        'sidebar_collapse' => false,
-        'fixed' => false,
-
-        /**
-         * Show next type alerts in dashboard
-         * Example success type alert: \Session::flash('success', 'Welcome to Laravel Admin LTE!');
-         * Available types: success, info, warning, error
-         *
-         */
-        'alerts' => [
-            'toastr',
-            //'sweetalert',
-            //'bootstrap',
-        ],
-
-        'btn_actions_class' => 'btn-xs', //'btn-sm btn-flat'
-
-        /**
-         * Example aside menu
-         */
-        'aside_menu' => [
-            'static' => false,
-            'static_example' => env('APP_ENV') !== 'production',
-            'lte' => env('APP_ENV') !== 'production',
-        ],
-
-        'aside_auth_user_info' => false,
-
-        'aside_search' => false,
-
-        'header_filter_languages' => true,
-
-        'header_notify_menus' => true,
-    ],
-];
-```
-
-In dashboard used Bootstrap styles and for correct show pagination links, set next in service provider
-```
-    public function boot()
-    {
-        //...
-        Paginator::useBootstrap();
-        //...
-    }
-```
-
-For correct work navigation in dashboard, apply next middleware for routes to dashboard:
-```
-\Fomvasss\ItsLte\Http\Middleware\ApplyRequestOptions::class,
-```
-
 ## Structure
 
 After installation, you can work with the following files:
@@ -166,8 +80,7 @@ After installation, you can work with the following files:
     - `parts` - not published by default
     - `fields` - not published by default
     - `auth` - auth/register/reset forms
-    - `content` - example templates for content
-    - `profile` - auth user profile form
+    - `examples` - example templates for content
 
 ### Laravel File Manager (v2)   
 If needed, install [LFM](https://github.com/UniSharp/laravel-filemanager):

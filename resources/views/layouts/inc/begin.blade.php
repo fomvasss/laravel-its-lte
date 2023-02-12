@@ -8,7 +8,11 @@
 
     <title>{{ config('its-lte.title') }}</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="shortcut icon" href="/vendor/its-lte/img/favicon.png" type="image/x-icon">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/vendor/its-lte/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/vendor/its-lte/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/vendor/its-lte/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/vendor/its-lte/img/favicon/site.webmanifest">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,7 +26,6 @@
 
     <link rel="stylesheet" href="{{ mix('css/main.css', 'vendor/its-lte') }}">
     <link rel="stylesheet" href="{{ mix('css/dashboard.css', 'vendor/its-lte') }}">
-
     @stack('styles')
 </head>
 <body class="hold-transition sidebar-mini
@@ -31,4 +34,3 @@
     {{ config('its-lte.view.fixed') ? 'fixed' : '' }}
     {{ config('its-lte.view.sidebar_collapse') ? 'sidebar-collapse' : '' }}
 ">
-    

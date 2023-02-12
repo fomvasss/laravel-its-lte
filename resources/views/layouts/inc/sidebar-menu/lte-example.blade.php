@@ -1,22 +1,9 @@
 <ul class="sidebar-menu js-activeable" data-widget="tree">
-    <li class="header">LTE example</li>
+    <li class="header">Examples</li>
     <li><a href="/lte" data-pat=""><i class="fa fa-compass"></i> <span>Home</span></a></li>
     <li><a href="/lte/fields"><i class="fa fa-plus-square"></i> <span>Fields</span></a></li>
+    <li><a href="/lte/skin"><i class="fa fa-futbol-o"></i> <span>Skin</span></a></li>
 
-    <li class="treeview">
-        <a href="#">
-            <i class="fa fa-file-picture-o"></i>
-            <span>Pages</span>
-            <span class="pull-right-container">
-          <i class="fa fa-angle-left pull-right"></i>
-        </span>
-        </a>
-        <ul class="treeview-menu">
-            <li><a href="/lte/pages" data-pat="lte/pages"><i class="fa fa-circle-o text-yellow"></i> <span>List</span></a></li>
-            <li><a href="/lte/pages/create" data-pat="lte/pages"><i class="fa fa-circle-o text-yellow"></i> <span>Create</span></a></li>
-            <li><a href="/lte/pages/edit" data-pat="lte/pages"><i class="fa fa-circle-o text-yellow"></i> <span>Edit</span></a></li>
-        </ul>
-    </li>
 
     <li class="treeview">
         <a href="#">
@@ -27,32 +14,20 @@
         </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="/lte/settings/vars"><i class="fa fa-circle-o text-yellow"></i> <span>Variables</span></a></li>
-            <li><a href="/lte/settings/tabs"><i class="fa fa-circle-o text-yellow"></i> <span>Tabs</span></a></li>
-            <li><a href="/lte/settings/logs"><i class="fa fa-circle-o text-yellow"></i> <span>Logs</span></a></li>
-            <li><a href="/lte/settings/tinker"><i class="fa fa-circle-o text-yellow"></i> <span>Tinker</span></a></li>
-            <li><a href="/lte/settings/lte"><i class="fa fa-circle-o text-yellow"></i> <span>LTE</span></a></li>
+            <li><a href="#settings/vars"><i class="fa fa-circle-o text-yellow"></i> <span>Variables</span></a></li>
+            <li><a href="#settings/tabs"><i class="fa fa-circle-o text-yellow"></i> <span>Tabs</span></a></li>
+            <li><a href="#settings/logs"><i class="fa fa-circle-o text-yellow"></i> <span>Logs</span></a></li>
+            <li><a href="#settings/tinker"><i class="fa fa-circle-o text-yellow"></i> <span>Tinker</span></a></li>
         </ul>
     </li>
 
-    <li>
-        <a href="/lte/users">
-            <i class="fa fa-users"></i>
-            <span>Users</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-yellow">12</small>
-              <small class="label pull-right bg-green">16</small>
-              <small class="label pull-right bg-red">5</small>
-            </span>
-        </a>
-    </li>
-    <li><a href="/lte/profile"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+
     <li><a href="/lte/login"><i class="fa fa-sign-in"></i> <span>Login</span></a></li>
     <li><a href="/lte/blank"><i class="fa fa-circle-o text-green"></i> <span>Blank</span></a></li>
 </ul>
 
 <ul class="sidebar-menu" data-widget="tree">
-    <li class="header">LTE process</li>
+    <li class="header">Process</li>
     <li class="process">
         <a href="#">
             <i class="fa fa-circle-o-notch fa-spin" style="color: red"></i>

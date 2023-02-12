@@ -32,7 +32,7 @@ class ExampleController extends Controller
             'stop_subscribes' => rand(0, 100),
         ];
 
-        return view('lte::content.home', compact('totals', 'todays'));
+        return view('lte::examples.home', compact('totals', 'todays'));
     }
 
     public function treeselect(Request $request)

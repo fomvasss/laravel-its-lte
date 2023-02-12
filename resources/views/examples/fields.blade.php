@@ -441,6 +441,27 @@
                             'help_block' => '* Some kind of clue about the field',
                             'data_url_tree' => route('lte.data.treeselect'),
                         ])
+
+                        @include('lte::fields.field-select2-static', [
+                            'label' => 'Select with blocks',
+                            'field_name' => 'vars_array[mail][mailer]',
+                            'attributes' => ['smtp' => 'SMTP', 'sendmail' => 'Sendmail', 'log' => 'Log'],
+                            'selected' => 'log',
+                            'empty_value' => trans('lte::main.--not chosen--'),
+                            'class' => 'js-select-blocks',
+                            'data_attrs' => [
+                                'map' => [
+                                    'smtp' => ['.js-block-smtp'],
+                                    'sendmail' => ['.js-block-sendmail'],
+                                    'log' => ['.js-block-log'],
+                                ],
+                            ],
+                        ])
+
+                        <div class="js-block-smtp"><h2>SMTP</h2></div>
+                        <div class="js-block-sendmail"><h2>SENDMAIL</h2></div>
+                        <div class="js-block-log"><h2>LOG</h2></div>
+
                     </div>
                 </div>
 
@@ -575,39 +596,6 @@
                     </div>
                 </div>
 
-
-                <div class="box">
-                    <div class="box-header">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h3 class="box-title"> Select blocks</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-body">
-
-                        @include('lte::fields.field-select2-static', [
-                            'label' => 'Mailer',
-                            'field_name' => 'vars_array[mail][mailer]',
-                            'attributes' => ['smtp' => 'SMTP', 'sendmail' => 'Sendmail', 'log' => 'Log'],
-                            'selected' => 'log',
-                            'empty_value' => trans('lte::main.--not chosen--'),
-                            'class' => 'js-select-blocks',
-                            'data_attrs' => [
-                                'map' => [
-                                    'smtp' => ['.js-block-smtp'],
-                                    'sendmail' => ['.js-block-sendmail'],
-                                    'log' => ['.js-block-log'],
-                                ],
-                            ],
-                        ])
-
-                        <div class="js-block-smtp"><h2>SMTP</h2></div>
-                        <div class="js-block-sendmail"><h2>SENDMAIL</h2></div>
-                        <div class="js-block-log"><h2>LOG</h2></div>
-
-                    </div>
-                </div>
             </div>
         </div>
 
