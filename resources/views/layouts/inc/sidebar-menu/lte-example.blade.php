@@ -1,7 +1,16 @@
 <ul class="sidebar-menu js-activeable" data-widget="tree">
     <li class="header">Examples</li>
     <li><a href="/lte" data-pat=""><i class="fa fa-compass"></i> <span>Home</span></a></li>
-    <li><a href="/lte/fields"><i class="fa fa-plus-square"></i> <span>Fields</span></a></li>
+    <li>
+        <a href="/lte/fields">
+            <i class="fa fa-plus-square"></i>
+            <span>Fields</span>
+            <span class="pull-right-container">
+                <small class="label pull-right bg-blue">1</small>
+                <small class="label pull-right bg-red">13</small>
+            </span>
+        </a>
+    </li>
     <li><a href="/lte/skin"><i class="fa fa-futbol-o"></i> <span>Skin</span></a></li>
 
 

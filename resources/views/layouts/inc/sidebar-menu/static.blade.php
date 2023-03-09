@@ -1,13 +1,13 @@
 <ul class="sidebar-menu js-activeable" data-widget="tree">
     <li class="header">Menu</li>
     <li>
-        <a href="#/control">
+        <a href="/">
             <i class="fa fa-dashboard"></i>
             <span>Dashboard</span>
         </a>
     </li>
     <li>
-        <a href="#/control/users">
+        <a href="/users">
             <i class="fa fa-users"></i> <span>Users</span>
             <span class="pull-right-container">
               <span class="label label-warning pull-right"> 43</span>
@@ -15,7 +15,7 @@
         </a>
     </li>
     <li>
-        <a href="/control/profile">
+        <a href="/profile">
             <i class="fa fa-user"></i> <span>Profile</span>
         </a>
     </li>

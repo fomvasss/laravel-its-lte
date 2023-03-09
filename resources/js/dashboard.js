@@ -3,7 +3,9 @@ var initFieldMoreItemsSortable = function () {},
     initJsVerificationSlugField = function () {},
     initFieldSelect2Ajax = function () {},
     initCKEditors = function () {},
-    initSortableTable = function() {};
+    initSortableTable = function() {},
+    initFieldSelectBlocks = function() {},
+    initInlineFields = function() {};
 
 $(function () {
 
@@ -199,33 +201,35 @@ $(function () {
     }
     initCKEditors();
 
-    if ($('.field-x-editable').length) {
-        $('.field-x-editable').editable(xEditable || {});
-    }
 
-    if ($('.field-colorpicker').length) {
-        $('.field-colorpicker').colorpicker(colorpickerOptions || {});
-    }
+    initInlineFields = function () {
+        if ($('.field-x-editable').length) {
+            $('.field-x-editable').editable(xEditable || {});
+        }
 
-    if ($('.field-datetimepicker').length) {
-        $('.field-datetimepicker').datetimepicker(datetimepickerOptions || {
-            format: 'Y/m/d H:i:s'
-        });
-    }
+        if ($('.field-colorpicker').length) {
+            $('.field-colorpicker').colorpicker(colorpickerOptions || {});
+        }
 
-    if ($('.field-datepicker').length) {
-        $('.field-datepicker').datetimepicker(datepickerOptions || {
-            timepicker:false,
-            format:'d/m/Y'
-        });
+        if ($('.field-datetimepicker').length) {
+            $('.field-datetimepicker').datetimepicker(datetimepickerOptions || {
+                format: 'Y/m/d H:i:s'
+            });
+        }
+        if ($('.field-datepicker').length) {
+            $('.field-datepicker').datetimepicker(datepickerOptions || {
+                timepicker:false,
+                format:'d/m/Y'
+            });
+        }
+        if ($('.field-timepicker').length) {
+            $('.field-timepicker').datetimepicker(timepickerOptions || {
+                datepicker:false,
+                format: 'H:i'
+            });
+        }
     }
-
-    if ($('.field-timepicker').length) {
-        $('.field-timepicker').datetimepicker(timepickerOptions || {
-            datepicker:false,
-            format: 'H:i'
-        });
-    }
+    initInlineFields();
 
     initJsVerificationSlugField = function () {
         if ($('.js-verification-slug-field').length) {
@@ -731,16 +735,19 @@ $(function () {
 
 
     // Displaying blocks depending on the selection in the selection
-    $('.js-select-blocks').each(function () {
-        if ($(this).find(':selected')) {
-            toggleSelectableBlocks($(this).find(':selected').val(), $(this).data('map'))
-        }
-    })
-    $('.js-select-blocks').on('change', function () {
+    initFieldSelectBlocks = function() {
+        $('.js-select-blocks').each(function () {
+            if ($(this).find(':selected')) {
+                toggleSelectableBlocks($(this).find(':selected').val(), $(this).data('map'))
+            }
+        })
+    }
+    initFieldSelectBlocks();
+    $(document).on('change', '.js-select-blocks', function () {
         if ($(this).data('map')) {
             toggleSelectableBlocks($(this).val(), $(this).data('map'))
         }
-    })
+    });
     function toggleSelectableBlocks($val, selectBlocksMap) {
         for (var key in selectBlocksMap) {
             Pace.restart()
@@ -876,7 +883,9 @@ $(function () {
             initFieldSelect2Static();
             initJsVerificationSlugField();
             initFieldSelect2Ajax();
+            initFieldSelectBlocks();
             initCKEditors();
+            initInlineFields();
         });
     })
 
