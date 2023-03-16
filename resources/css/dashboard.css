@@ -287,3 +287,25 @@ a.hierarchy-item-title {
 .sortable-table tr.placeholder:before {
 	content: ">";
 }
+
+.btn.float-right-remove {
+	float: right;
+	position: relative;
+	top: 31px;
+	right: 1px;
+	opacity: .5;
+	border-radius: 100%;
+}
+.btn.float-right-remove:hover {
+	opacity: .9;
+}
+.btn.btn-lte-fixed {
+	position: fixed;
+	top: 150px;
+	right: 26px;
+	opacity: 0.4;
+	border-radius: 100% !important;
+}
+.btn.btn-lte-fixed:hover {
+	opacity: .8;
+}

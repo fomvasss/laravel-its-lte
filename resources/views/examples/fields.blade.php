@@ -283,6 +283,12 @@
                             'value' => \Carbon\Carbon::now()->format('H:i:s'),
                         ])
                     </div>
+
+                    <div class="box-header">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+                        <button type="submit" class="btn btn-primary btn-lte-fixed"><i class="fa fa-save"></i></button>
+                    </div>
+
                 </div>
 
                 <div class="box">

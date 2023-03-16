@@ -8,19 +8,21 @@
     <label for="{{ $field_name }}" class="control-label">{{ $label }}</label>
     @endisset
     @if(isset($type) && $type === 'textarea')
-        <textarea class="form-control"
+        <textarea class="form-control @isset($class) {{$class}} @endisset"
                   rows="{{ isset($rows) ? $rows : 3 }}"
                   name="{{ $field_name }}"
                   placeholder="{{ isset($placeholder) ? $placeholder : '' }}"
                   id="@isset($field_id) {{ $field_name }} @else {{ $field_name }} @endisset"
+                  @isset($readonly) readonly @endisset
         >{{ old($field_name, $value) }}</textarea>
     @else
-        <input class="form-control"
+        <input class="form-control @isset($class) {{$class}} @endisset"
                placeholder="{{ isset($placeholder) ? $placeholder : '' }}"
                type="{{ isset($type) ? $type : 'text' }}"
                name="{{ $field_name }}"
                value="{{ old($field_name, $value) }}"
                id="@isset($field_id) {{ $field_name }} @else {{ $field_name }} @endisset"
+               @isset($readonly) readonly @endisset
                autocomplete="off"
         >
     @endif
