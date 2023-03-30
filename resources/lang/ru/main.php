@@ -288,6 +288,8 @@ return [
     'Customers' => 'Customers',
     'Customer' => 'Customer',
     'SKU' => 'SKU',
+    'Barcode' => 'Штрихкод',
+    'Multiplicity' => 'Кратность',
     'Action' => 'Action',
     'Close' => 'Close',
     'Empty' => 'Empty',

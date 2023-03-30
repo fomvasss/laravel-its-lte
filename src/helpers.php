@@ -179,6 +179,18 @@ if (! function_exists('old_contain')) {
     }
 }
 
+if (! function_exists('old_request')) {
+    /**
+     * @param $key
+     * @param null $default
+     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\Request|mixed|string|null
+     */
+    function old_request($key, $default = null)
+    {
+        return request($key, old($key, $default));
+    }
+}
+
 if (! function_exists('comparison_bool')) {
     /**
      * @param $value

@@ -23,6 +23,9 @@
                value="{{ old($field_name, $value) }}"
                id="@isset($field_id) {{ $field_name }} @else {{ $field_name }} @endisset"
                @isset($readonly) readonly @endisset
+               @isset($step) step="{{$step}}" @endisset
+               @isset($min) min="{{$min}}" @endisset
+               @isset($max) max="{{$max}}" @endisset
                autocomplete="off"
         >
     @endif

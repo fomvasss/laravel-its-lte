@@ -288,6 +288,8 @@ return [
     'Customers' => 'Customers',
     'Customer' => 'Customer',
     'SKU' => 'SKU',
+    'Barcode' => 'Barcode',
+    'Multiplicity' => 'Multiplicity',
     'Action' => 'Action',
     'Close' => 'Close',
     'Empty' => 'Empty',
