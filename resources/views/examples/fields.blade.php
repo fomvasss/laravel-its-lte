@@ -4,9 +4,9 @@
     <section class="content">
         <div class="row">
             <div class="col-md-12">
-                <div class="box">
+                <div class="box box-widget">
                     <div class="box-header">
-                        <h3 class="box-title">Example entries</h3>
+                        <h3 class="box-title">{{ trans('lte::main.Total') }}: 4</h3>
 
                         <div class="box-tools pull-right">
 
@@ -41,7 +41,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive">
-                        <table class="table table-hover td-middle sortable-table" data-url="{{ route('lte.data.status') }}" style="position: relative;">
+                        <table class="table table-hover sortable-table" data-url="{{ route('lte.data.status') }}" style="position: relative;">
                             <thead>
                                 <tr>
                                     <th style="width: 35px"></th>
@@ -60,18 +60,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{--
-                                <tr class="odd">
-                                    <td colspan="10" class="text-center">{{ trans('lte::main.No records found') }}</td>
-                                </tr>
-                                --}}
-                                @for($i = 1; $i <= 4; $i++)
-                                    @php($progress = rand(1,100))
-                                <tr data-id="n{{$i}}">
+
+                            @for($i = 1; $i <= 4; $i++)
+                                @php($progress = rand(1,100))
+                                <tr data-id="n{{$i}}" class="va-center">
                                     <td><i class="fa fa-arrows"></i></td>
                                     <td>{{ $i }}</td>
-                                    <td class="wh-center">
-                                        <a href="#" target="_blank">
+                                    <td>
+                                        <a href="/vendor/its-lte/img/no-image.png" class="js-popup-image">
                                             <img src="/vendor/its-lte/img/no-image.png" class="thumbnail-100">
                                         </a>
                                         <span class="node-row-title">
@@ -112,15 +108,15 @@
                                         {{--data-url="{{ route('lte.data.statuses') }}"--}}
                                         name="default[{{ $i }}]"
                                         value="{{ $i }}"
-                                        @if($i == 2) checked @endif
+                                        @if($i === 2) checked @endif
                                         id="default-{{ $i }}"
                                         >
                                         <label for="default-{{ $i }}"></label>
                                     </td>
-                                    <td class="text-center">
+                                    <td class="ha-center">
                                         <i class="fa fa-check-square-o"></i>
                                     </td>
-                                    <td class="wh-center btn-media">
+                                    <td class="ha-center btn-media">
                                         @include('lte::parts.action-btn', [
                                             'show' => '#',
                                             'edit' => '#',
@@ -149,7 +145,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                @endfor
+                            @endfor
                             </tbody>
                         </table>
                     </div>

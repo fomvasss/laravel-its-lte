@@ -258,9 +258,21 @@ img.thumbnail-0 {
 	font-family: FontAwesome;
 	content: '\f040';
 }
-.table>tbody>tr>td.wh-center {
+
+.table>tbody>tr>td.wh-center { /* DEPRECATED */
 	text-align: center;
 	vertical-align: middle;
+}
+
+.va-center, .table>tbody>tr>td.va-center, .table>tbody>tr.va-center>td {
+	vertical-align: middle;
+}
+.ha-center, .table>tbody>tr>td.ha-center, .table>tbody>tr.ha-center>td {
+	text-align: center;
+}
+.vha-center, .table>tbody>tr>td.vha-center, .table>tbody>tr.vha-center>td {
+	vertical-align: middle;
+	text-align: center;
 }
 
 @media screen and (max-width: 960px) {

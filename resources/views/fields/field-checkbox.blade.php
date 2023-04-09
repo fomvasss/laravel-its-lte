@@ -6,7 +6,7 @@
     @endphp
     <div class="">
         <input type="hidden" name="{{ $field_name }}" value="{{ $unchecked_value }}">
-        <input class="checkbox @isset($class) {{ $class }} @endisset"
+        <input class="@isset($class) {{ $class }} @else checkbox @endisset"
                type="checkbox"
                name="{{ $field_name }}"
                id="{{ $field_name }}"

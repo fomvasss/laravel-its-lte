@@ -67,7 +67,8 @@
     "bootstrap-sweetalert": "^1.0.1",
     "cropper": "^4.1.0",
     "jquery-cropper": "^1.0.1",
-    "cropperjs": "^1.5.11"
+    "cropperjs": "^1.5.11",
+    "magnific-popup": "^1.1.0"
   },
   "resolutions": {
     "jquery": "^3.2.1"

@@ -5,7 +5,8 @@ var initFieldMoreItemsSortable = function () {},
     initCKEditors = function () {},
     initSortableTable = function() {},
     initFieldSelectBlocks = function() {},
-    initInlineFields = function() {};
+    initInlineFields = function() {},
+    initPopupImage = function() {};
 
 $(function () {
 
@@ -119,8 +120,8 @@ $(function () {
             success: function (data) {
                 $select.select2ToTree({
                     treeData: {
-                        dataArr: data.data,
-                        dftVal: data.default,
+                        dataArr: data.result || data.data,
+                        dftVal: data.selected || data.default,
                         valFld: valFld,
                         labelFld: labelFld,
                         'incFld': incFld
@@ -870,6 +871,11 @@ $(function () {
         });
     });
 
+    initPopupImage = function () {
+        $('.js-popup-image').magnificPopup({type:'image'});
+    }
+    initPopupImage();
+
     // Show ajax content in modal
     $(document).on('click', '.js-modal-fill-html', function (e) {
         e.preventDefault();
@@ -886,6 +892,7 @@ $(function () {
             initFieldSelectBlocks();
             initCKEditors();
             initInlineFields();
+            initPopupImage();
         });
     })
 

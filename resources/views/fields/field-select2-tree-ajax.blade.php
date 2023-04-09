@@ -29,12 +29,12 @@
 
 {{--
 @include('lte::fields.field-select2-tree-ajax', [
-    'label' => 'Основная категория',
+    'label' => 'Category',
     'field_name' => 'category_id',
     // 'multiple' => 1,
     // 'disabled' => 0,
     'required' => 1,
-    'help_block' => '* Какая-то подсказка о поле',
+    'help_block' => '* Help text',
     'data_url_tree' => route('lte.terms.treeselect', [
         'vocabulary' => 'product_categories',
         'selected' => isset($product) ? $product->category_id : [],
