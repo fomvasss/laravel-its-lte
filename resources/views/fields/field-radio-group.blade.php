@@ -10,6 +10,7 @@
                    id="{{ $field_name.$loop->index }}"
                    value="{{ $value }}"
                    @if($selected == $value) checked="" @endif
+                   @isset($data_name) data-name="{{$data_name}}" @endisset
             >
             @isset($label)<label for="{{ $field_name.$loop->index }}">{{ $label }}</label>@endisset
         </div>

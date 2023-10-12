@@ -14,6 +14,7 @@
                   placeholder="{{ isset($placeholder) ? $placeholder : '' }}"
                   id="@isset($field_id) {{ $field_name }} @else {{ $field_name }} @endisset"
                   @isset($readonly) readonly @endisset
+                  @isset($data_name) data-name="{{$data_name}}" @endisset
         >{{ old($field_name, $value) }}</textarea>
     @else
         <input class="form-control @isset($class) {{$class}} @endisset"
@@ -26,6 +27,7 @@
                @isset($step) step="{{$step}}" @endisset
                @isset($min) min="{{$min}}" @endisset
                @isset($max) max="{{$max}}" @endisset
+               @isset($data_name) data-name="{{$data_name}}" @endisset
                autocomplete="off"
         >
     @endif

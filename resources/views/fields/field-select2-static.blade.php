@@ -31,6 +31,7 @@
             @if(isset($required) && $required) required @endif
             style="width: 100%;"
             @if(count($attributes) < 6) data-minimum-results-for-search="-1" @endif
+            @isset($data_name) data-name="{{$data_name}}" @endisset
             @if(isset($data_attrs) && is_array($data_attrs))
             @foreach($data_attrs as $attr => $val)
             data-{{$attr}}='@json($val)'

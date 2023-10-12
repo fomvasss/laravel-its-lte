@@ -11,6 +11,7 @@
                name="{{ $field_name }}"
                id="{{ $field_name }}"
                value="{{ $checked_value }}"
+               @isset($data_name) data-name="{{$data_name}}" @endisset
                @if(old($field_name, $status ?? false)) checked @endif
         >
         @isset($label)<label for="{{ $field_name }}">{!! $label !!}</label>@endisset

@@ -27,6 +27,7 @@
                @isset($required) required @endisset
                @isset($readonly) readonly @endisset
                class="form-control @isset($class) {{ $class }} @endisset"
+               @isset($data_name) data-name="{{$data_name}}" @endisset
         >
     </div>
     @error($field_name) <p class="help-block">{{$message}}</p> @enderror

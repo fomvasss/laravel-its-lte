@@ -4,7 +4,13 @@
 @endphp
 <div class="form-group @error($field_name) has-error @enderror">
     <label for="{{ $field_name }}">{!! $label ?? 'Время' !!}</label><br>
-    <input type="text" class="form-control field-timepicker @isset($class) {{ $class }} @endisset" name="{{ $field_name }}" value="{{ $value }}" autocomplete="off"/>
+    <input type="text" 
+    class="form-control field-timepicker @isset($class) {{ $class }} @endisset" 
+    name="{{ $field_name }}" 
+    value="{{ $value }}" 
+    @isset($data_name) data-name="{{$data_name}}" @endisset
+    autocomplete="off"
+>
     @error(Str::replaceLast('[]', '', $field_name)) <p class="help-block" style="color:red;">{{ $message }}</p> @enderror
 </div>
 

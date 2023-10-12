@@ -12,7 +12,13 @@
                 <i class="fa fa-eyedropper"></i>
             @endif
         </span>
-        <input type="text" class="form-control field-colorpicker @isset($class) {{ $class }} @endisset" name="{{ $field_name }}" value="{{ $value }}" autocomplete="off">
+        <input type="text"
+            class="form-control field-colorpicker @isset($class) {{ $class }} @endisset" 
+            name="{{ $field_name }}" 
+            value="{{ $value }}" 
+            @isset($data_name) data-name="{{$data_name}}" @endisset
+            autocomplete="off"
+        >
     </div>
     {!! $errors->first(Str::replaceLast('[]', '', $field_name), '<p class="help-block" style="color:red;">:message</p>') !!}
 </div>
